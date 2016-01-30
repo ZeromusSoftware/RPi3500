@@ -20,6 +20,11 @@ mkdir ~/.ssh
 ssh-keygen -t rsa -P ""
 cat ~/.ssh/id_rsa.pub > ~/.ssh/authorized_keys
 
+#Verify that hduser can login to SSH
+
+su hduser
+ssh localhost
+
 
 # Download and install Hadoop
 cd ~/
@@ -30,13 +35,20 @@ cd /opt
 sudo mv hadoop-1.2.1 hadoop
 sudo chown -R hduser:hadoop hadoop
 
-export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
-export HADOOP_INSTALL=/opt/hadoop
-export PATH=$PATH:$HADOOP_INSTALL/bin
+echo 'export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")' >> /etc/bash.bashrc
+echo 'export HADOOP_INSTALL=/opt/hadoop' >> /etc/bash.bashrc
+echo -n'export PATH=$PATH:$HADOOP_INSTALL/bin' >> /etc/bash.bashrc
+
+
+#Verify hadoop executable is accessible outside
+exit
+su hduser
+hadoop version
 
 
 ## /!\ PROBLEME /!\
 # The java implementation to use. Required.
+
 export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
 
 # The maximum amount of heap to use, in MB. Default is 1000.
@@ -47,21 +59,34 @@ export HADOOP_DATANODE_OPTS="-Dcom.sun.management.jmxremote $HADOOP_DATANODE_OPT
 ## /!\ PROBLEME /!\
 
 
+## /!\ SOLUTION /!\
+
+sed -i 's\#export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")\export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")\g' /opt/hadoop/conf/hadoop-env.sh
+
+sed -i 's\#export HADOOP_HEAPSIZE=250\export HADOOP_HEAPSIZE=250\g' /opt/hadoop/conf/hadoop-env.sh
+
+sed -i 's\export HADOOP_DATANODE_OPTS="-Dcom.sun.management.jmxremote $HADOOP_DATANODE_OPTSi"\export HADOOP_DATANODE_OPTS="-Dcom.sun.management.jmxremote $HADOOP_DATANODE_OPTSi -client"\g' /opt/hadoop/conf/hadoop-env.sh
+
+## /!\ SOLUTION /!\
+
 
 cd /opt/hadoop/conf/
-echo "" >> core-site.xml
+
+echo "<configuration>\n<property>\n<name>hadoop.tmp.dir</name>\n<value>/hdfs/tmp</value>\n</property>\n<property>\n<name>fs.default.name</name>\n<value>hdfs://localhost:54310</value>\n</property>\n</configuration>" >> core-site.xml
 
 
-echo "" >> mapred-site.xml
+echo "<configuration>\n<property>\n<name>mapred.job.tracker</name>\n<value>localhost:54311</value>\n</property>\n</configuration>" >> mapred-site.xml
 
 
-echo "" >> hdfs-site.xml
+echo "<configuration>\n<property>\n<name>dfs.replication</name>\n<value>1</value>\n</property>\n</configuration>" >> hdfs-site.xml
 
 
 sudo mkdir -p /hdfs/tmp
 sudo chown hduser:hadoop /hdfs/tmp
 sudo chmod 750 /hdfs/tmp
 hadoop namenode -format
+
+su hduser
 
 /opt/hadoop/bin/start-dfs.sh
 /opt/hadoop/bin/start-mapred.sh
