@@ -17,8 +17,8 @@ echo -n "gateway: 192.168.0.1" >> $interfaces
 # /!\ PROBLEME
 #Tester l'installation de java
 
-#command -v java -version
-#if $? == 0; then
+#command -v java -version   
+#if test $? != 0 ; then   <--- ca marche, faut juste ajouter le java à installer
 # /!\ PROBLEME
 
 #Prepare Hadood User Account and Group
@@ -47,6 +47,9 @@ sudo tar -xvzf hadoop-1.2.1.tar.gz -C /opt/
 cd /opt
 sudo mv hadoop-1.2.1 hadoop
 sudo chown -R hduser:hadoop hadoop
+
+
+#Configure Environment Variables
 
 echo 'export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")' >> /etc/bash.bashrc
 echo 'export HADOOP_INSTALL=/opt/hadoop' >> /etc/bash.bashrc
