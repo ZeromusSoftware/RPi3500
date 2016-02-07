@@ -1,7 +1,7 @@
 import numpy as np
 import time 
 import matplotlib.pyplot as plt
-from sklearn import linear_model
+from scipy.stats import pearsonr
 
 #we are going to calculate pi with an integration of 
 #arctan(x)' between 0 and 1 (that calculates pi/4)
@@ -59,6 +59,16 @@ while measureNumber < fin :
 		X.pop()
 		Y.pop()
 
+# We fit to the measures a linear model and with the slope, we introduce a peformance
+# value : ppf (Pi Performance Factor). The lower the slope is, the higher the ppf is
+coefdir,ordorigine = np.polyfit(X,Y,1)
+ppf = 1/(10**3*coefdir)
+print ("ppf :" + str(ppf))
+
+# We measure the correlation coefficient of the linear model
+cor,a = pearsonr(X, Y)
+print("Correlation coeff : " + str(cor))
+
 plt.figure(1)
 plt.plot(X,Y,'*')
 
@@ -69,7 +79,4 @@ plt.grid()
 plt.axis()
 plt.show()
 
-coefdir,ordorigine = np.polyfit(X,Y,1)
-ppf = 1/(10**3*coefdir)
 
-print (ppf)
