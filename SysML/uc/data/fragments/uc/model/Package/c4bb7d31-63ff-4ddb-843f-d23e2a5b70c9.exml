@@ -13,8 +13,12 @@
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Obtenir une aide au développement" mc="Standard.UseCase" uid="c73a2c2b-8ba3-44fc-bbd7-ea39f3ee901d"/>
+        <COMPID name="Entreprise" mc="Standard.Actor" uid="9e29a32a-cb50-4d4f-a633-9013cdc1e6e4"/>
+      </COMP>
       <COMP relation="Product">
-        <COMPID name="overview diagram" mc="Standard.ClassDiagram" uid="bf72e79f-407f-44aa-b02e-c0664073e8fe"/>
+        <COMPID name="Diagramme de cas d'utilisation" mc="Standard.UseCaseDiagram" uid="02b37d68-0eee-437f-b6a7-69b0b482f386"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>

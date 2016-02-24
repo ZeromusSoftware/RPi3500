@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="ibd" version="4">
+  <OBJECT>
+    <ID name="ibd" mc="Standard.Package" uid="64394609-5161-4aa3-9fa4-f630980352c8"/>
+    <PID name="ibd" mc="Standard.Project" uid="8e5e8f41-584c-4886-9bae-0bcd12942e18"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[ibd]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Product">
+        <COMPID name="overview diagram" mc="Standard.ClassDiagram" uid="e5324931-b118-42be-8455-4e4990a9f349"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

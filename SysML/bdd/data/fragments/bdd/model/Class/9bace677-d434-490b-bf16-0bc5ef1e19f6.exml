@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Power Cables" version="4">
+  <OBJECT>
+    <ID name="Power Cables" mc="Standard.Class" uid="9bace677-d434-490b-bf16-0bc5ef1e19f6"/>
+    <PID name="bdd" mc="Standard.Package" uid="159566c8-61b4-4699-b62e-fae4c06c426f"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Power Cables]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <LINK relation="Extension">
+        <FOREIGNID name="Block" mc="Standard.Stereotype" uid="00bc42a4-0000-19c9-0000-000000000000"/>
+      </LINK>
+      <COMP relation="Product">
+        <COMPID name="Diagramme de bloc" mc="Standard.StaticDiagram" uid="6834fbe0-4bd0-4cf8-8f5b-97be9b840c07"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

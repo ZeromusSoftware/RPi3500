@@ -13,8 +13,12 @@
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="&lt;&lt;requirement&gt;&gt;&gt;                                                                                                           AIDER L'ENTREPRISE" mc="Standard.Class" uid="2c78dd39-44a5-42b6-9430-b6a17e53f162"/>
+        <COMPID name="&lt;&lt;functionalRequirement&gt;&gt;&gt;                     Interface de service internet" mc="Standard.Class" uid="c3f51804-d4b4-421b-9b9a-139fdee35c71"/>
+      </COMP>
       <COMP relation="Product">
-        <COMPID name="overview diagram" mc="Standard.ClassDiagram" uid="171baba0-0bde-48f8-854a-38af9d2fcf51"/>
+        <COMPID name="Diagramme de classe req" mc="Standard.ClassDiagram" uid="25208834-bd20-4e65-8a11-e6550f6b20bd"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>

@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="ibd" version="4">
+  <OBJECT>
+    <ID name="ibd" mc="Standard.AnalystProject" uid="fa388d23-953e-47d4-8837-5119b6bbd552"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[ibd]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="PropertyRoot">
+        <COMPID name="ibd" mc="Standard.PropertyContainer" uid="825dfdec-81d0-402f-9da6-d09f2116975f"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

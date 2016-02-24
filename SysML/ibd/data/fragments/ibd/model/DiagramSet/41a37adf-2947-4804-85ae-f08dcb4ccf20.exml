@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="ibd" version="4">
+  <OBJECT>
+    <ID name="ibd" mc="Standard.DiagramSet" uid="41a37adf-2947-4804-85ae-f08dcb4ccf20"/>
+    <PID name="ibd" mc="Standard.Project" uid="8e5e8f41-584c-4886-9bae-0bcd12942e18"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[ibd]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="bdd" version="4">
+  <OBJECT>
+    <ID name="bdd" mc="Standard.Project" uid="f44a9bdd-e559-4990-8301-4edcbcbac061"/>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name"><![CDATA[bdd]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="DiagramRoot">
+        <COMPID name="bdd" mc="Standard.DiagramSet" uid="f817b302-dc89-497f-a8de-2680d6e39ed3"/>
+      </COMP>
+      <COMP relation="Model">
+        <COMPID name="bdd" mc="Standard.Package" uid="159566c8-61b4-4699-b62e-fae4c06c426f"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

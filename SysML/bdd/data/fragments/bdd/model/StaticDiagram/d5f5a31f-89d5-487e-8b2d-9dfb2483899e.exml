@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Diagramme de bloc" version="4">
+  <OBJECT>
+    <ID name="Diagramme de bloc" mc="Standard.StaticDiagram" uid="d5f5a31f-89d5-487e-8b2d-9dfb2483899e"/>
+    <PID name="Box" mc="Standard.Class" uid="de1436cb-35b8-4871-91d2-ecb64af56a4e"/>
+    <ATTRIBUTES>
+      <ATT name="UiDataVersion">31</ATT>
+      <ATT name="UiData"><![CDATA[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]]></ATT>
+      <ATT name="PdeProperties"></ATT>
+      <ATT name="Name"><![CDATA[Diagramme de bloc]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <LINK relation="Extension">
+        <FOREIGNID name="BlockDiagram" mc="Standard.Stereotype" uid="00bc42ac-0000-1016-0000-000000000000"/>
+      </LINK>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="bdd" version="4">
+  <OBJECT>
+    <ID name="bdd" mc="Standard.Package" uid="159566c8-61b4-4699-b62e-fae4c06c426f"/>
+    <PID name="bdd" mc="Standard.Project" uid="f44a9bdd-e559-4990-8301-4edcbcbac061"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[bdd]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Data Center" mc="Standard.Class" uid="56e9c6c2-a359-4ab8-8b57-d175f6f4ddd1"/>
+        <COMPID name="Box" mc="Standard.Class" uid="de1436cb-35b8-4871-91d2-ecb64af56a4e"/>
+        <COMPID name="Raspberry Pis" mc="Standard.Class" uid="872f8752-10e0-4cae-b7f1-0c53b8d883cf"/>
+        <COMPID name="Power Cables" mc="Standard.Class" uid="9bace677-d434-490b-bf16-0bc5ef1e19f6"/>
+        <COMPID name="Switch" mc="Standard.Class" uid="74f28f2f-3305-48db-badd-2a0fb679b3a8"/>
+        <COMPID name="Ventilators" mc="Standard.Class" uid="cdd13fdc-24fc-4149-856d-b93a40e6e90a"/>
+        <COMPID name="Screen, mouse &amp; keyboard" mc="Standard.Class" uid="541b7616-2ba4-4e52-bb39-3dcd84466ab0"/>
+        <COMPID name="Web interface" mc="Standard.Class" uid="f7de4958-1db4-42bd-9cd8-fa16df9410cf"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Diagramme de bloc" mc="Standard.StaticDiagram" uid="5917e4d1-f6dd-4e50-aa6b-afa01dfcceb4"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
