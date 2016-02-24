@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="bdd" version="4">
+  <OBJECT>
+    <ID name="bdd" mc="Standard.Package" uid="a127178f-41c3-49f1-9b08-6d91d918c0f2"/>
+    <PID name="bdd" mc="Standard.Project" uid="3c4f909e-08b7-4ef7-82ea-8963c5dc0962"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[bdd]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Product">
+        <COMPID name="overview diagram" mc="Standard.ClassDiagram" uid="eabb6d1d-b1a5-4cde-bbc9-39712b83c129"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

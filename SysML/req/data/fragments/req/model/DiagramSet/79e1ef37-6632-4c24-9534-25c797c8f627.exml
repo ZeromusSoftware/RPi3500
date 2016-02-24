@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="req" version="4">
+  <OBJECT>
+    <ID name="req" mc="Standard.DiagramSet" uid="79e1ef37-6632-4c24-9534-25c797c8f627"/>
+    <PID name="req" mc="Standard.Project" uid="4e5737b6-b9b6-4bb2-905a-d0295f9b2000"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[req]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

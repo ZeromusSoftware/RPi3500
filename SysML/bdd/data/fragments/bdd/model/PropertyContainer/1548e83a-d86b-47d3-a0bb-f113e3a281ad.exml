@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="bdd" version="4">
+  <OBJECT>
+    <ID name="bdd" mc="Standard.PropertyContainer" uid="1548e83a-d86b-47d3-a0bb-f113e3a281ad"/>
+    <PID name="bdd" mc="Standard.AnalystProject" uid="ce65c08b-e5b4-486e-b9f2-32e0df1b70ae"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[bdd]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

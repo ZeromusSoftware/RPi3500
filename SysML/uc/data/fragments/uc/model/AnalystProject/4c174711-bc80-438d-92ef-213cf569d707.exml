@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="uc" version="4">
+  <OBJECT>
+    <ID name="uc" mc="Standard.AnalystProject" uid="4c174711-bc80-438d-92ef-213cf569d707"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[uc]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="PropertyRoot">
+        <COMPID name="uc" mc="Standard.PropertyContainer" uid="ec724756-b51d-4ab8-a6ac-f1526214e215"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
