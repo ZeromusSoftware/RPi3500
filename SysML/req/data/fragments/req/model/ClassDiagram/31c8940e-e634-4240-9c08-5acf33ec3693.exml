@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Data Center Req Diagram" version="4">
+  <OBJECT>
+    <ID name="Data Center Req Diagram" mc="Standard.ClassDiagram" uid="31c8940e-e634-4240-9c08-5acf33ec3693"/>
+    <PID name="req" mc="Standard.Package" uid="6ce50c10-b8ad-4abb-810b-320b9d3f6d49"/>
+    <ATTRIBUTES>
+      <ATT name="UiDataVersion">305</ATT>
+      <ATT name="UiData"><![CDATA[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]]></ATT>
+      <ATT name="PdeProperties"></ATT>
+      <ATT name="Name"><![CDATA[Data Center Req Diagram]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Descriptor">
+        <OBJECT>
+          <ID name="" mc="Standard.Note" uid="415bede0-b7fe-4d9c-b85f-9f9c9da97039"/>
+          <ATTRIBUTES>
+            <ATT name="Content"></ATT>
+            <ATT name="MimeType"></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID name="description" mc="Standard.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

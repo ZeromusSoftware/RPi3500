@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="The Adamant Algorithm Req Diagram" version="4">
+  <OBJECT>
+    <ID name="The Adamant Algorithm Req Diagram" mc="Standard.ClassDiagram" uid="3613fcca-2b20-40e4-a250-097f22316fea"/>
+    <PID name="req" mc="Standard.Package" uid="6ce50c10-b8ad-4abb-810b-320b9d3f6d49"/>
+    <ATTRIBUTES>
+      <ATT name="UiDataVersion">277</ATT>
+      <ATT name="UiData"><![CDATA[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]]></ATT>
+      <ATT name="PdeProperties"></ATT>
+      <ATT name="Name"><![CDATA[The Adamant Algorithm Req Diagram]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Descriptor">
+        <OBJECT>
+          <ID name="" mc="Standard.Note" uid="e2d4a1b6-6fc8-41ea-bbc1-71c02fa86f3b"/>
+          <ATTRIBUTES>
+            <ATT name="Content"></ATT>
+            <ATT name="MimeType"></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID name="description" mc="Standard.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

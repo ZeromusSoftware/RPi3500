@@ -44,6 +44,25 @@
       <LINK relation="Extension">
         <ID name="functionalRequirement" mc="Standard.Stereotype" uid="e9bdcf16-f3ac-46a3-add3-e06510814560"/>
       </LINK>
+      <COMP relation="DependsOnDependency">
+        <OBJECT>
+          <ID name="" mc="Standard.Dependency" uid="fed76a13-d6f9-454c-bd2e-53eac6142ff9"/>
+          <ATTRIBUTES>
+            <ATT name="DependsOnId"></ATT>
+            <ATT name="DependsOnName"></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="DependsOn">
+              <ID name="The Adamant Algorithm Requirement Diagram" mc="Standard.ClassDiagram" uid="3613fcca-2b20-40e4-a250-097f22316fea"/>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID name="related_diagram" mc="Standard.Stereotype" uid="2961d57b-5120-11de-bbaf-00218648fa3d"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
     </DEPENDENCIES>
   </OBJECT>
 </EXT>
