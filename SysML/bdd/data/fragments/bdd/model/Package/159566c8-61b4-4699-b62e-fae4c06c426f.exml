@@ -13,6 +13,176 @@
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
+      <COMP relation="OwnedInformationFlow">
+        <OBJECT>
+          <ID name="InformationFlow" mc="Standard.InformationFlow" uid="11cac716-cc98-4b24-98b0-e3e34f5eb643"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[InformationFlow]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID name="" mc="Standard.Port" uid="c7228eed-c4e5-40de-aee9-37603fd0c147"/>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID name="" mc="Standard.Port" uid="8fc8de64-e0fe-401e-ae65-50187d588f2f"/>
+              </REFOBJ>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="InformationFlow" mc="Standard.InformationFlow" uid="d6391bb0-89e4-4213-aa92-62a56160c380"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[InformationFlow]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID name="" mc="Standard.Port" uid="8fc8de64-e0fe-401e-ae65-50187d588f2f"/>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID name="" mc="Standard.Port" uid="c7228eed-c4e5-40de-aee9-37603fd0c147"/>
+              </REFOBJ>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="InformationFlow" mc="Standard.InformationFlow" uid="d2f06dfd-54bf-45a3-95cb-c6631d3d86d3"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[InformationFlow]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="InformationFlow" mc="Standard.InformationFlow" uid="660d8b62-57a4-4238-b73e-92a4e4b63c4f"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[InformationFlow]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="InformationFlow" mc="Standard.InformationFlow" uid="29437928-ce6d-41bc-a8af-20daa16e0def"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[InformationFlow]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID name="Ethernet Port" mc="Standard.Port" uid="d94b6f4f-c69d-4be3-9331-6a86cccb859b"/>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID name="" mc="Standard.Port" uid="b6c4b71c-272d-4cae-a04e-1696e896d5a1"/>
+              </REFOBJ>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="InformationFlow" mc="Standard.InformationFlow" uid="3f898e9a-7114-4d82-83ce-85fc0ac2567e"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[InformationFlow]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID name="" mc="Standard.Port" uid="b6c4b71c-272d-4cae-a04e-1696e896d5a1"/>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID name="Ethernet Port" mc="Standard.Port" uid="d94b6f4f-c69d-4be3-9331-6a86cccb859b"/>
+              </REFOBJ>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="InformationFlow" mc="Standard.InformationFlow" uid="30bd5f19-12bd-418f-9509-9e87aa3d9bce"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[InformationFlow]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID name="" mc="Standard.Port" uid="2e022256-a79a-4182-b4d5-f5cd890eb289"/>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID name="" mc="Standard.Port" uid="aaee7ea0-e5ad-4c15-98f9-595324154321"/>
+              </REFOBJ>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="InformationFlow" mc="Standard.InformationFlow" uid="851ea2a5-f801-4034-9751-b31983187dde"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[InformationFlow]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID name="" mc="Standard.Port" uid="4e7f7824-2a23-4b2e-ab87-272db72a529c"/>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID name="usb port" mc="Standard.Port" uid="8f2aa30b-4440-42ab-8e8e-5008155cdf4c"/>
+              </REFOBJ>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="InformationFlow" mc="Standard.InformationFlow" uid="7d94f58a-a4da-4be2-afa9-bd6c932c8a67"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[InformationFlow]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID name="usb port" mc="Standard.Port" uid="8f2aa30b-4440-42ab-8e8e-5008155cdf4c"/>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID name="" mc="Standard.Port" uid="4e7f7824-2a23-4b2e-ab87-272db72a529c"/>
+              </REFOBJ>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="InformationFlow" mc="Standard.InformationFlow" uid="4bfe32fd-a5d4-46c5-92e0-9f8e36834682"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[InformationFlow]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID name="" mc="Standard.Port" uid="aaee7ea0-e5ad-4c15-98f9-595324154321"/>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID name="" mc="Standard.Port" uid="2e022256-a79a-4182-b4d5-f5cd890eb289"/>
+              </REFOBJ>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
       <COMP relation="OwnedElement">
         <COMPID name="Data Center" mc="Standard.Class" uid="56e9c6c2-a359-4ab8-8b57-d175f6f4ddd1"/>
         <COMPID name="Box" mc="Standard.Class" uid="de1436cb-35b8-4871-91d2-ecb64af56a4e"/>
@@ -22,6 +192,9 @@
         <COMPID name="Ventilators" mc="Standard.Class" uid="cdd13fdc-24fc-4149-856d-b93a40e6e90a"/>
         <COMPID name="Screen, mouse &amp; keyboard" mc="Standard.Class" uid="541b7616-2ba4-4e52-bb39-3dcd84466ab0"/>
         <COMPID name="Web interface" mc="Standard.Class" uid="f7de4958-1db4-42bd-9cd8-fa16df9410cf"/>
+        <COMPID name="Power Supply" mc="Standard.Class" uid="82d5a580-bdfa-4185-86ad-05359efa4b52"/>
+        <COMPID name="Outside" mc="Standard.Class" uid="171ee92c-7507-49ae-a535-1f9f8c38310f"/>
+        <COMPID name="USB Hub" mc="Standard.Class" uid="deb4808b-07c0-4037-80d3-4d79364bfa69"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="Diagramme de bloc" mc="Standard.StaticDiagram" uid="5917e4d1-f6dd-4e50-aa6b-afa01dfcceb4"/>

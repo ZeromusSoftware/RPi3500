@@ -15,65 +15,48 @@
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
-      <COMP relation="OwnedEnd">
+      <COMP relation="InternalStructure">
         <OBJECT>
-          <ID name="raspberry pis" mc="Standard.AssociationEnd" uid="fd80f9d1-3b1d-4637-9a38-1abde7aa1b8f"/>
+          <ID name="" mc="Standard.Port" uid="2e022256-a79a-4182-b4d5-f5cd890eb289"/>
           <ATTRIBUTES>
-            <ATT name="Aggregation">KindIsAssociation</ATT>
-            <ATT name="IsChangeable">true</ATT>
-            <ATT name="Changeable">ReadWrite</ATT>
-            <ATT name="IsDerived">false</ATT>
-            <ATT name="IsOrdered">false</ATT>
-            <ATT name="IsUnique">false</ATT>
+            <ATT name="IsBehavior">false</ATT>
+            <ATT name="IsService">true</ATT>
+            <ATT name="IsConjugated">false</ATT>
+            <ATT name="Direction">Inout</ATT>
+            <ATT name="IsConstant">false</ATT>
             <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
             <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
-            <ATT name="Visibility">Public</ATT>
-            <ATT name="IsClass">false</ATT>
-            <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[raspberry pis]]></ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name"></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
-            <LINK relation="Target">
-              <ID name="Raspberry Pis" mc="Standard.Class" uid="872f8752-10e0-4cae-b7f1-0c53b8d883cf"/>
+            <LINK relation="Extension">
+              <FOREIGNID name="FlowPort" mc="Standard.Stereotype" uid="00bc42a4-0000-1a57-0000-000000000000"/>
             </LINK>
-            <COMP relation="Opposite">
+            <COMP relation="Tag">
               <OBJECT>
-                <ID name="" mc="Standard.AssociationEnd" uid="1402f525-0a65-427b-be25-777a682e3e81"/>
+                <ID name="" mc="Standard.TaggedValue" uid="1d7003c2-75cf-4915-b45d-34139242b5aa"/>
                 <ATTRIBUTES>
-                  <ATT name="Aggregation">KindIsAssociation</ATT>
-                  <ATT name="IsChangeable">true</ATT>
-                  <ATT name="Changeable">ReadWrite</ATT>
-                  <ATT name="IsDerived">false</ATT>
-                  <ATT name="IsOrdered">false</ATT>
-                  <ATT name="IsUnique">false</ATT>
-                  <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
-                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
-                  <ATT name="Visibility">Public</ATT>
-                  <ATT name="IsClass">false</ATT>
-                  <ATT name="IsAbstract">false</ATT>
                   <ATT name="Name"></ATT>
                   <ATT name="status">1970354901745664</ATT>
                 </ATTRIBUTES>
                 <DEPENDENCIES>
-                  <COMP relation="Opposite">
-                    <COMPID name="raspberry pis" mc="Standard.AssociationEnd" uid="fd80f9d1-3b1d-4637-9a38-1abde7aa1b8f"/>
-                  </COMP>
-                  <COMP relation="Association">
+                  <COMP relation="Actual">
                     <OBJECT>
-                      <ID name="" mc="Standard.Association" uid="ca3b45ed-5635-4640-b3ca-e28e1709a1b6"/>
+                      <ID name="" mc="Standard.TagParameter" uid="384cb60e-dd2e-4a01-a87c-8c638af956e6"/>
                       <ATTRIBUTES>
-                        <ATT name="Name"></ATT>
+                        <ATT name="Value"><![CDATA[INOUT]]></ATT>
                         <ATT name="status">1970354901745664</ATT>
                       </ATTRIBUTES>
                       <DEPENDENCIES></DEPENDENCIES>
                     </OBJECT>
                   </COMP>
+                  <LINK relation="Definition">
+                    <FOREIGNID name="FlowPort_direction" mc="Standard.TagType" uid="00bc42a4-0000-1a5f-0000-000000000000"/>
+                  </LINK>
                 </DEPENDENCIES>
               </OBJECT>
-            </COMP>
-            <COMP relation="Association">
-              <COMPID name="" mc="Standard.Association" uid="ca3b45ed-5635-4640-b3ca-e28e1709a1b6"/>
             </COMP>
           </DEPENDENCIES>
         </OBJECT>
