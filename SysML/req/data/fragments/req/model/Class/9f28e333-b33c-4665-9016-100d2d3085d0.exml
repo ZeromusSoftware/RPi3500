@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Échanger avec l'entreprise" version="4">
+  <OBJECT>
+    <ID name="Échanger avec l'entreprise" mc="Standard.Class" uid="9f28e333-b33c-4665-9016-100d2d3085d0"/>
+    <PID name="req" mc="Standard.Package" uid="6ce50c10-b8ad-4abb-810b-320b9d3f6d49"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Échanger avec l'entreprise]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <OBJECT>
+          <ID name="Id = &quot;2&quot;" mc="Standard.InformationItem" uid="ce5fb7bc-70f7-4cc3-80df-26fb6611b134"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Id = "2"]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Text = &quot;La platforme d'échange devra être simple, efficace et attractive&quot;" mc="Standard.InformationItem" uid="2a12625d-0314-49cf-933a-71e38f1144fe"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Text = "La platforme d'échange devra être simple, efficace et attractive"]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <LINK relation="Extension">
+        <ID name="requirement" mc="Standard.Stereotype" uid="35a876b0-2e2e-4e72-a02c-2175e66ab9cc"/>
+      </LINK>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="The Adamant Algorithm" version="4">
+  <OBJECT>
+    <ID name="The Adamant Algorithm" mc="Standard.Class" uid="a7488cd6-f29d-42c5-b9ba-dcf8ef0187cd"/>
+    <PID name="req" mc="Standard.Package" uid="6ce50c10-b8ad-4abb-810b-320b9d3f6d49"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[The Adamant Algorithm]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <OBJECT>
+          <ID name="Id = &quot;3.2&quot;" mc="Standard.InformationItem" uid="97c56d50-fe4c-47bb-9f08-c4860eab27f0"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Id = "3.2"]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Text = &quot;L'algorithme devra rendre un résultat précis et pertinent&quot;" mc="Standard.InformationItem" uid="e995a25f-daab-4183-985d-74218fbfdb04"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Text = "L'algorithme devra rendre un résultat précis et pertinent"]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <LINK relation="Extension">
+        <ID name="requirement" mc="Standard.Stereotype" uid="35a876b0-2e2e-4e72-a02c-2175e66ab9cc"/>
+      </LINK>
+      <COMP relation="DependsOnDependency">
+        <OBJECT>
+          <ID name="" mc="Standard.Dependency" uid="aabe5e5d-684b-49ef-9e9f-7e5e0f3aa958"/>
+          <ATTRIBUTES>
+            <ATT name="DependsOnId"></ATT>
+            <ATT name="DependsOnName"></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="DependsOn">
+              <ID name="Adamant Requirement Diagram" mc="Standard.ClassDiagram" uid="25208834-bd20-4e65-8a11-e6550f6b20bd"/>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID name="related_diagram" mc="Standard.Stereotype" uid="2961d57b-5120-11de-bbaf-00218648fa3d"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

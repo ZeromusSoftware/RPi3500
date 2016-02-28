@@ -260,64 +260,49 @@
             </COMP>
           </DEPENDENCIES>
         </OBJECT>
+      </COMP>
+      <COMP relation="InternalStructure">
         <OBJECT>
-          <ID name="data center" mc="Standard.AssociationEnd" uid="c24c85c5-d6d2-45a3-bf9e-a1d7622d3cde"/>
+          <ID name="" mc="Standard.Port" uid="c7228eed-c4e5-40de-aee9-37603fd0c147"/>
           <ATTRIBUTES>
-            <ATT name="Aggregation">KindIsAssociation</ATT>
-            <ATT name="IsChangeable">true</ATT>
-            <ATT name="Changeable">ReadWrite</ATT>
-            <ATT name="IsDerived">false</ATT>
-            <ATT name="IsOrdered">false</ATT>
-            <ATT name="IsUnique">false</ATT>
+            <ATT name="IsBehavior">false</ATT>
+            <ATT name="IsService">true</ATT>
+            <ATT name="IsConjugated">false</ATT>
+            <ATT name="Direction">Inout</ATT>
+            <ATT name="IsConstant">false</ATT>
             <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
             <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
-            <ATT name="Visibility">Public</ATT>
-            <ATT name="IsClass">false</ATT>
-            <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[data center]]></ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name"></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
-            <LINK relation="Target">
-              <ID name="Data Center" mc="Standard.Class" uid="56e9c6c2-a359-4ab8-8b57-d175f6f4ddd1"/>
+            <LINK relation="Extension">
+              <FOREIGNID name="FlowPort" mc="Standard.Stereotype" uid="00bc42a4-0000-1a57-0000-000000000000"/>
             </LINK>
-            <COMP relation="Opposite">
+            <COMP relation="Tag">
               <OBJECT>
-                <ID name="" mc="Standard.AssociationEnd" uid="5040f92b-d567-41f2-8453-c89b42ea21ca"/>
+                <ID name="" mc="Standard.TaggedValue" uid="91637484-1840-4776-b79e-714b61162aa9"/>
                 <ATTRIBUTES>
-                  <ATT name="Aggregation">KindIsAssociation</ATT>
-                  <ATT name="IsChangeable">true</ATT>
-                  <ATT name="Changeable">ReadWrite</ATT>
-                  <ATT name="IsDerived">false</ATT>
-                  <ATT name="IsOrdered">false</ATT>
-                  <ATT name="IsUnique">false</ATT>
-                  <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
-                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
-                  <ATT name="Visibility">Public</ATT>
-                  <ATT name="IsClass">false</ATT>
-                  <ATT name="IsAbstract">false</ATT>
                   <ATT name="Name"></ATT>
                   <ATT name="status">1970354901745664</ATT>
                 </ATTRIBUTES>
                 <DEPENDENCIES>
-                  <COMP relation="Opposite">
-                    <COMPID name="data center" mc="Standard.AssociationEnd" uid="c24c85c5-d6d2-45a3-bf9e-a1d7622d3cde"/>
-                  </COMP>
-                  <COMP relation="Association">
+                  <COMP relation="Actual">
                     <OBJECT>
-                      <ID name="" mc="Standard.Association" uid="e4fb2064-5860-4d90-9177-6bb3f4076839"/>
+                      <ID name="" mc="Standard.TagParameter" uid="c37f654a-ecc5-4194-9bcf-ae47c3e1e9dd"/>
                       <ATTRIBUTES>
-                        <ATT name="Name"></ATT>
+                        <ATT name="Value"><![CDATA[INOUT]]></ATT>
                         <ATT name="status">1970354901745664</ATT>
                       </ATTRIBUTES>
                       <DEPENDENCIES></DEPENDENCIES>
                     </OBJECT>
                   </COMP>
+                  <LINK relation="Definition">
+                    <FOREIGNID name="FlowPort_direction" mc="Standard.TagType" uid="00bc42a4-0000-1a5f-0000-000000000000"/>
+                  </LINK>
                 </DEPENDENCIES>
               </OBJECT>
-            </COMP>
-            <COMP relation="Association">
-              <COMPID name="" mc="Standard.Association" uid="e4fb2064-5860-4d90-9177-6bb3f4076839"/>
             </COMP>
           </DEPENDENCIES>
         </OBJECT>

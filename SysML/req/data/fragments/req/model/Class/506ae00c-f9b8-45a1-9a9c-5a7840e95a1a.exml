@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Data Center" version="4">
+  <OBJECT>
+    <ID name="Data Center" mc="Standard.Class" uid="506ae00c-f9b8-45a1-9a9c-5a7840e95a1a"/>
+    <PID name="req" mc="Standard.Package" uid="6ce50c10-b8ad-4abb-810b-320b9d3f6d49"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Data Center]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <OBJECT>
+          <ID name="Id = &quot;3.1&quot;" mc="Standard.InformationItem" uid="8bf92250-eb35-48f2-bf21-ede7c9f6a3df"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Id = "3.1"]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Text = &quot;Le système devra être capable de gérer de grosses quantités de données&quot;" mc="Standard.InformationItem" uid="a9a79051-9183-452f-b53e-40d13fe88524"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Text = "Le système devra être capable de gérer de grosses quantités de données"]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <COMP relation="DependsOnDependency">
+        <OBJECT>
+          <ID name="" mc="Standard.Dependency" uid="b1cd2508-a1d8-4759-a8c8-39beef7ea2d9"/>
+          <ATTRIBUTES>
+            <ATT name="DependsOnId"></ATT>
+            <ATT name="DependsOnName"></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="DependsOn">
+              <ID name="Adamant Requirement Diagram" mc="Standard.ClassDiagram" uid="25208834-bd20-4e65-8a11-e6550f6b20bd"/>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID name="related_diagram" mc="Standard.Stereotype" uid="2961d57b-5120-11de-bbaf-00218648fa3d"/>
+              <FOREIGNID name="refers" mc="Standard.Stereotype" uid="01ec12fc-0000-0265-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

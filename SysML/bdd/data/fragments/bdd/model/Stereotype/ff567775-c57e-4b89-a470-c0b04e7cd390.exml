@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="values" version="4">
+  <OBJECT>
+    <ID name="values" mc="Standard.Stereotype" uid="ff567775-c57e-4b89-a470-c0b04e7cd390"/>
+    <PID name="LocalProfile" mc="Standard.Profile" uid="221f5183-4862-47ae-a0da-b3cc83e85aa1"/>
+    <ATTRIBUTES>
+      <ATT name="Image"></ATT>
+      <ATT name="Icon"></ATT>
+      <ATT name="IsHidden">false</ATT>
+      <ATT name="LabelKey"><![CDATA[values]]></ATT>
+      <ATT name="BaseClassName"><![CDATA[Class]]></ATT>
+      <ATT name="Name"><![CDATA[values]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

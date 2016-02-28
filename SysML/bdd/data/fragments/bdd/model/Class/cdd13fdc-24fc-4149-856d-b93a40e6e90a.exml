@@ -33,7 +33,7 @@
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="Wind energy" mc="Standard.Port" uid="c8ed704b-c85c-4b96-af4b-d3b6341cbd82"/>
+          <ID name="Wind Energy" mc="Standard.Port" uid="e8426ad3-cff1-48f1-9036-2330f8a54b8d"/>
           <ATTRIBUTES>
             <ATT name="IsBehavior">false</ATT>
             <ATT name="IsService">true</ATT>
@@ -43,10 +43,80 @@
             <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
             <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
             <ATT name="Value"></ATT>
-            <ATT name="Name"><![CDATA[Wind energy]]></ATT>
+            <ATT name="Name"><![CDATA[Wind Energy]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
-          <DEPENDENCIES></DEPENDENCIES>
+          <DEPENDENCIES>
+            <COMP relation="OwnedEnd">
+              <OBJECT>
+                <ID name="port" mc="Standard.ConnectorEnd" uid="51fb12af-e998-48eb-8d0a-a739b06c786d"/>
+                <ATTRIBUTES>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
+                  <ATT name="Name"><![CDATA[port]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Link">
+                    <OBJECT>
+                      <ID name="" mc="Standard.Connector" uid="cae1ff04-432e-4420-bd00-7f2b6b03281c"/>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="" mc="Standard.Port" uid="2704dc30-9069-458f-98d2-374f4915c694"/>
+                    </REFOBJ>
+                  </LINK>
+                  <COMP relation="Opposite">
+                    <OBJECT>
+                      <ID name="" mc="Standard.ConnectorEnd" uid="bea6400b-200d-4336-8ccd-f11e30125049"/>
+                      <ATTRIBUTES>
+                        <ATT name="IsOrdered">false</ATT>
+                        <ATT name="IsUnique">false</ATT>
+                        <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+                        <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <COMP relation="Link">
+                          <COMPID name="" mc="Standard.Connector" uid="cae1ff04-432e-4420-bd00-7f2b6b03281c"/>
+                        </COMP>
+                        <COMP relation="Opposite">
+                          <COMPID name="port" mc="Standard.ConnectorEnd" uid="51fb12af-e998-48eb-8d0a-a739b06c786d"/>
+                        </COMP>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <COMP relation="OwnedElement">
+        <OBJECT>
+          <ID name="Voltage : 5V &amp; 12V" mc="Standard.InformationItem" uid="4d16bfab-9337-4de5-8d39-38963f46a2dc"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Voltage : 5V & 12V]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Extension">
+              <FOREIGNID name="RequirementRelated" mc="Standard.Stereotype" uid="55b2731f-a90d-11df-a01f-001302895b2b"/>
+            </LINK>
+          </DEPENDENCIES>
         </OBJECT>
       </COMP>
       <LINK relation="Extension">
@@ -68,6 +138,23 @@
       </COMP>
       <COMP relation="Product">
         <COMPID name="Diagramme de bloc" mc="Standard.StaticDiagram" uid="ccc66efa-c6ff-490e-8013-24697f0160c9"/>
+      </COMP>
+      <COMP relation="Descriptor">
+        <OBJECT>
+          <ID name="" mc="Standard.Note" uid="e9c970c1-c760-4293-801c-62d1ec47cdb6"/>
+          <ATTRIBUTES>
+            <ATT name="Content"><![CDATA[<p>12V &amp;&nbsp;5V</p>
+]]></ATT>
+            <ATT name="MimeType"></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID name="description" mc="Standard.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>

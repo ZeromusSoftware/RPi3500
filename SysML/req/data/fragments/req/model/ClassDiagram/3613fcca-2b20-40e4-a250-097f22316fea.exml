@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="The Adamant Algorithm Req Diagram" version="4">
+  <OBJECT>
+    <ID name="The Adamant Algorithm Req Diagram" mc="Standard.ClassDiagram" uid="3613fcca-2b20-40e4-a250-097f22316fea"/>
+    <PID name="req" mc="Standard.Package" uid="6ce50c10-b8ad-4abb-810b-320b9d3f6d49"/>
+    <ATTRIBUTES>
+      <ATT name="UiDataVersion">312</ATT>
+      <ATT name="UiData"><![CDATA[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]]></ATT>
+      <ATT name="PdeProperties"></ATT>
+      <ATT name="Name"><![CDATA[The Adamant Algorithm Req Diagram]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Descriptor">
+        <OBJECT>
+          <ID name="" mc="Standard.Note" uid="e2d4a1b6-6fc8-41ea-bbc1-71c02fa86f3b"/>
+          <ATTRIBUTES>
+            <ATT name="Content"></ATT>
+            <ATT name="MimeType"></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID name="description" mc="Standard.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
