@@ -16,61 +16,12 @@
       <COMP relation="OwnedElement">
         <COMPID name="AIDER L'ENTREPRISE" mc="Standard.Class" uid="2c78dd39-44a5-42b6-9430-b6a17e53f162"/>
         <COMPID name="Data Center" mc="Standard.Class" uid="907398c9-ce84-452b-ad78-5bf4a5fd9b82"/>
-        <OBJECT>
-          <ID name="Id = &quot;&quot;" mc="Standard.InformationItem" uid="e811a00e-45bf-478f-85f2-c4f2fd563b1d"/>
-          <ATTRIBUTES>
-            <ATT name="IsAbstract">false</ATT>
-            <ATT name="IsLeaf">false</ATT>
-            <ATT name="IsRoot">false</ATT>
-            <ATT name="Visibility">Public</ATT>
-            <ATT name="Name"><![CDATA[Id = ""]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES></DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="Id = &quot;&quot;" mc="Standard.InformationItem" uid="a1dd8c2b-b1fb-414b-94e8-21a2f3a627fa"/>
-          <ATTRIBUTES>
-            <ATT name="IsAbstract">false</ATT>
-            <ATT name="IsLeaf">false</ATT>
-            <ATT name="IsRoot">false</ATT>
-            <ATT name="Visibility">Public</ATT>
-            <ATT name="Name"><![CDATA[Id = ""]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES></DEPENDENCIES>
-        </OBJECT>
         <COMPID name="Échanger avec l'entreprise" mc="Standard.Class" uid="9f28e333-b33c-4665-9016-100d2d3085d0"/>
         <COMPID name="Fournir le service" mc="Standard.Class" uid="0879c907-ad63-4d78-afde-400d5f223187"/>
-        <OBJECT>
-          <ID name="Text = &quot;&quot;" mc="Standard.InformationItem" uid="83524505-17f4-4e18-9767-187e8f860751"/>
-          <ATTRIBUTES>
-            <ATT name="IsAbstract">false</ATT>
-            <ATT name="IsLeaf">false</ATT>
-            <ATT name="IsRoot">false</ATT>
-            <ATT name="Visibility">Public</ATT>
-            <ATT name="Name"><![CDATA[Text = ""]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES></DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="Text = &quot;&quot;" mc="Standard.InformationItem" uid="2edbc215-de65-4b97-b6af-3a9a0b848b28"/>
-          <ATTRIBUTES>
-            <ATT name="IsAbstract">false</ATT>
-            <ATT name="IsLeaf">false</ATT>
-            <ATT name="IsRoot">false</ATT>
-            <ATT name="Visibility">Public</ATT>
-            <ATT name="Name"><![CDATA[Text = ""]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES></DEPENDENCIES>
-        </OBJECT>
         <COMPID name="The Adamant Algorithm" mc="Standard.Class" uid="053d574c-59db-4387-95f5-ebc2226371bb"/>
         <COMPID name="Site web Adamant" mc="Standard.Class" uid="92c31fe4-4764-4e36-bb79-39ee23b09c42"/>
         <COMPID name="Data Center" mc="Standard.Class" uid="506ae00c-f9b8-45a1-9a9c-5a7840e95a1a"/>
         <COMPID name="The Adamant Algorithm" mc="Standard.Class" uid="a7488cd6-f29d-42c5-b9ba-dcf8ef0187cd"/>
-        <COMPID name="Class" mc="Standard.Class" uid="38ba33d5-3334-41c7-af8a-ec3ec5a06b44"/>
         <COMPID name="Framework for programming" mc="Standard.Class" uid="ce3364aa-a14f-40da-8503-8eb7f7ec0bf3"/>
         <COMPID name="Framework for programming" mc="Standard.Class" uid="6e6a0b71-122d-4bfd-9bc5-de1ce0789106"/>
         <COMPID name="Hadoop with Hortonworks" mc="Standard.Class" uid="86a03156-d121-4e3b-8ffe-983c5c3f3917"/>
@@ -84,8 +35,8 @@
       </LINK>
       <COMP relation="Product">
         <COMPID name="Adamant Requirement Diagram" mc="Standard.ClassDiagram" uid="25208834-bd20-4e65-8a11-e6550f6b20bd"/>
-        <COMPID name="Data Center Requirement Diagram" mc="Standard.ClassDiagram" uid="31c8940e-e634-4240-9c08-5acf33ec3693"/>
-        <COMPID name="The Adamant Algorithm Requirement Diagram" mc="Standard.ClassDiagram" uid="3613fcca-2b20-40e4-a250-097f22316fea"/>
+        <COMPID name="Data Center Req Diagram" mc="Standard.ClassDiagram" uid="31c8940e-e634-4240-9c08-5acf33ec3693"/>
+        <COMPID name="The Adamant Algorithm Req Diagram" mc="Standard.ClassDiagram" uid="3613fcca-2b20-40e4-a250-097f22316fea"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>
