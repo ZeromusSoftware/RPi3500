@@ -14,9 +14,164 @@
     </ATTRIBUTES>
     <DEPENDENCIES>
       <COMP relation="OwnedElement">
-        <COMPID name="&lt;&lt;requirement&gt;&gt;&gt;                                                                                                           AIDER L'ENTREPRISE" mc="Standard.Class" uid="2c78dd39-44a5-42b6-9430-b6a17e53f162"/>
-        <COMPID name="&lt;&lt;functionalRequirement&gt;&gt;&gt;                     Interface de service internet" mc="Standard.Class" uid="c3f51804-d4b4-421b-9b9a-139fdee35c71"/>
+        <COMPID name="AIDER L'ENTREPRISE" mc="Standard.Class" uid="2c78dd39-44a5-42b6-9430-b6a17e53f162"/>
+        <COMPID name="Data Center" mc="Standard.Class" uid="907398c9-ce84-452b-ad78-5bf4a5fd9b82"/>
+        <OBJECT>
+          <ID name="Information Item" mc="Standard.InformationItem" uid="4bd2edc1-0076-4a8b-8f30-c90a534f4626"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Information Item]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Information Item" mc="Standard.InformationItem" uid="da9e4b9c-f2ed-48e7-a5a6-d4e992c4a197"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Information Item]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Id = &quot;&quot;" mc="Standard.InformationItem" uid="e811a00e-45bf-478f-85f2-c4f2fd563b1d"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Id = ""]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Id = &quot;&quot;" mc="Standard.InformationItem" uid="ec858358-7348-4ec3-9b16-85320a6c9436"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Id = ""]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Id = &quot;&quot;" mc="Standard.InformationItem" uid="5d977a8d-b0cb-4831-b705-8f4ed94c366d"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Id = ""]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Id = &quot;&quot;" mc="Standard.InformationItem" uid="a4502e2f-248b-4ec2-a123-0a0e65fece5f"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Id = ""]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Id = &quot;&quot;" mc="Standard.InformationItem" uid="a1dd8c2b-b1fb-414b-94e8-21a2f3a627fa"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Id = ""]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <COMPID name="Échanger avec l'entreprise" mc="Standard.Class" uid="9f28e333-b33c-4665-9016-100d2d3085d0"/>
+        <COMPID name="Fournir le service" mc="Standard.Class" uid="0879c907-ad63-4d78-afde-400d5f223187"/>
+        <OBJECT>
+          <ID name="Text = &quot;&quot;" mc="Standard.InformationItem" uid="0c81d920-256d-4646-a550-5f943eec1835"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Text = ""]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Text = &quot;&quot;" mc="Standard.InformationItem" uid="faf67f85-a6e2-46dc-a1ae-eed49433d79a"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Text = ""]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Text = &quot;&quot;" mc="Standard.InformationItem" uid="8899ea1a-d6de-4c33-9261-1349a471ef78"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Text = ""]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Text = &quot;&quot;" mc="Standard.InformationItem" uid="83524505-17f4-4e18-9767-187e8f860751"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Text = ""]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Text = &quot;&quot;" mc="Standard.InformationItem" uid="2edbc215-de65-4b97-b6af-3a9a0b848b28"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Text = ""]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <COMPID name="The Adamant Algorithm" mc="Standard.Class" uid="053d574c-59db-4387-95f5-ebc2226371bb"/>
+        <COMPID name="Site web Adamant" mc="Standard.Class" uid="92c31fe4-4764-4e36-bb79-39ee23b09c42"/>
       </COMP>
+      <LINK relation="Extension">
+        <ID name="requirement" mc="Standard.Stereotype" uid="35a876b0-2e2e-4e72-a02c-2175e66ab9cc"/>
+        <ID name="functionalRequirement" mc="Standard.Stereotype" uid="e9bdcf16-f3ac-46a3-add3-e06510814560"/>
+        <ID name="physicalRequirement" mc="Standard.Stereotype" uid="1b0c86eb-afbc-4b73-a4e0-4b773d961ad8"/>
+        <ID name="refine" mc="Standard.Stereotype" uid="dfc6c9ae-e49a-409b-a6c8-2dad300c5dbf"/>
+        <ID name="satisfy" mc="Standard.Stereotype" uid="7ad9f7c4-e615-46d7-9cd0-716893c90ff6"/>
+      </LINK>
       <COMP relation="Product">
         <COMPID name="Diagramme de classe req" mc="Standard.ClassDiagram" uid="25208834-bd20-4e65-8a11-e6550f6b20bd"/>
       </COMP>

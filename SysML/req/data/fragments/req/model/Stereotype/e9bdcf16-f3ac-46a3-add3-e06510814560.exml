@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="functionalRequirement" version="4">
+  <OBJECT>
+    <ID name="functionalRequirement" mc="Standard.Stereotype" uid="e9bdcf16-f3ac-46a3-add3-e06510814560"/>
+    <PID name="LocalProfile" mc="Standard.Profile" uid="25c7401e-147c-44a8-b164-9d6465ed6916"/>
+    <ATTRIBUTES>
+      <ATT name="Image"></ATT>
+      <ATT name="Icon"></ATT>
+      <ATT name="IsHidden">false</ATT>
+      <ATT name="LabelKey"><![CDATA[functionalRequirement]]></ATT>
+      <ATT name="BaseClassName"><![CDATA[ModelElement]]></ATT>
+      <ATT name="Name"><![CDATA[functionalRequirement]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="AIDER L'ENTREPRISE" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Fournir le service" version="4">
   <OBJECT>
-    <ID name="AIDER L'ENTREPRISE" mc="Standard.Class" uid="2c78dd39-44a5-42b6-9430-b6a17e53f162"/>
+    <ID name="Fournir le service" mc="Standard.Class" uid="0879c907-ad63-4d78-afde-400d5f223187"/>
     <PID name="req" mc="Standard.Package" uid="6ce50c10-b8ad-4abb-810b-320b9d3f6d49"/>
     <ATTRIBUTES>
       <ATT name="IsActive">false</ATT>
@@ -11,31 +11,31 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[AIDER L'ENTREPRISE]]></ATT>
+      <ATT name="Name"><![CDATA[Fournir le service]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
       <COMP relation="OwnedElement">
         <OBJECT>
-          <ID name="Id = &quot;1&quot;" mc="Standard.InformationItem" uid="244f926a-24bf-449c-98b7-4d671a508eda"/>
+          <ID name="Id = &quot;3&quot;" mc="Standard.InformationItem" uid="b041cc00-5b90-477a-9e12-703043656c93"/>
           <ATTRIBUTES>
             <ATT name="IsAbstract">false</ATT>
             <ATT name="IsLeaf">false</ATT>
             <ATT name="IsRoot">false</ATT>
             <ATT name="Visibility">Public</ATT>
-            <ATT name="Name"><![CDATA[Id = "1"]]></ATT>
+            <ATT name="Name"><![CDATA[Id = "3"]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="Text = &quot;service rapide, simple et performant&quot;" mc="Standard.InformationItem" uid="04719767-17af-4d61-a332-8adbcc9b7edf"/>
+          <ID name="Text = &quot;Le système devra offrir un aiguillage performant&quot;" mc="Standard.InformationItem" uid="1763e835-2a22-4912-a3ef-e54416ee62ad"/>
           <ATTRIBUTES>
             <ATT name="IsAbstract">false</ATT>
             <ATT name="IsLeaf">false</ATT>
             <ATT name="IsRoot">false</ATT>
             <ATT name="Visibility">Public</ATT>
-            <ATT name="Name"><![CDATA[Text = "service rapide, simple et performant"]]></ATT>
+            <ATT name="Name"><![CDATA[Text = "Le système devra offrir un aiguillage performant"]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
@@ -44,23 +44,6 @@
       <LINK relation="Extension">
         <ID name="requirement" mc="Standard.Stereotype" uid="35a876b0-2e2e-4e72-a02c-2175e66ab9cc"/>
       </LINK>
-      <COMP relation="Descriptor">
-        <OBJECT>
-          <ID name="" mc="Standard.Note" uid="d6ca4b5d-dd1f-4f95-89e6-9caf363ded0a"/>
-          <ATTRIBUTES>
-            <ATT name="Content"><![CDATA[
-]]></ATT>
-            <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
-            <ATT name="Name"></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES>
-            <LINK relation="Model">
-              <FOREIGNID name="description" mc="Standard.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
-            </LINK>
-          </DEPENDENCIES>
-        </OBJECT>
-      </COMP>
     </DEPENDENCIES>
   </OBJECT>
 </EXT>
