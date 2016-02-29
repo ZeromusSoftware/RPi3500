@@ -195,6 +195,8 @@
         <COMPID name="Power Supply" mc="Standard.Class" uid="82d5a580-bdfa-4185-86ad-05359efa4b52"/>
         <COMPID name="Outside" mc="Standard.Class" uid="171ee92c-7507-49ae-a535-1f9f8c38310f"/>
         <COMPID name="USB Hub" mc="Standard.Class" uid="deb4808b-07c0-4037-80d3-4d79364bfa69"/>
+        <COMPID name="Stock of batteries" mc="Standard.Class" uid="676960c3-1227-45f4-a380-4992e6db2041"/>
+        <COMPID name="Power point" mc="Standard.Class" uid="bfafa7dc-c137-4653-8453-97e48166e036"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="Diagramme de bloc" mc="Standard.StaticDiagram" uid="5917e4d1-f6dd-4e50-aa6b-afa01dfcceb4"/>

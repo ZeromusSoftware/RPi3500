@@ -324,18 +324,6 @@
       </COMP>
       <COMP relation="OwnedElement">
         <OBJECT>
-          <ID name="Slots for RPis" mc="Standard.InformationItem" uid="3e90f316-99eb-4681-9f0a-705cff68b0ff"/>
-          <ATTRIBUTES>
-            <ATT name="IsAbstract">false</ATT>
-            <ATT name="IsLeaf">false</ATT>
-            <ATT name="IsRoot">false</ATT>
-            <ATT name="Visibility">Public</ATT>
-            <ATT name="Name"><![CDATA[Slots for RPis]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES></DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
           <ID name="Removable lid" mc="Standard.InformationItem" uid="841c9269-25f6-4eac-996b-00f16c3a735c"/>
           <ATTRIBUTES>
             <ATT name="IsAbstract">false</ATT>
@@ -348,13 +336,37 @@
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="Transparent cover" mc="Standard.InformationItem" uid="ff088cbd-b35b-4059-925d-888e443c472c"/>
+          <ID name="Plexiglas cover" mc="Standard.InformationItem" uid="ff088cbd-b35b-4059-925d-888e443c472c"/>
           <ATTRIBUTES>
             <ATT name="IsAbstract">false</ATT>
             <ATT name="IsLeaf">false</ATT>
             <ATT name="IsRoot">false</ATT>
             <ATT name="Visibility">Public</ATT>
-            <ATT name="Name"><![CDATA[Transparent cover]]></ATT>
+            <ATT name="Name"><![CDATA[Plexiglas cover]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Plywood" mc="Standard.InformationItem" uid="e87fe9c5-2f25-401a-9df7-402e14a99122"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Plywood]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Slots for RPis" mc="Standard.InformationItem" uid="3e90f316-99eb-4681-9f0a-705cff68b0ff"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Slots for RPis]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>

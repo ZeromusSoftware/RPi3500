@@ -403,6 +403,33 @@
       </COMP>
       <COMP relation="OwnedElement">
         <OBJECT>
+          <ID name="4 Raspberry Pi 2" mc="Standard.InformationItem" uid="ed69122a-b12b-4578-9c0d-91377058f6f4"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[4 Raspberry Pi 2]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="1 Raspberry Pi B+" mc="Standard.InformationItem" uid="f2d91f9c-0487-44f2-b8ab-e763f30ec44e"/>
+          <ATTRIBUTES>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[1 Raspberry Pi B+]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <COMPID name="Micro SD cards" mc="Standard.Class" uid="1431d51e-5c80-4fcf-a1ab-7553a32a29b3"/>
+        <COMPID name="Thermal paste" mc="Standard.Class" uid="e2468e4e-99db-4b5d-b64c-4f92c6f698d2"/>
+        <COMPID name="Wifi key" mc="Standard.Class" uid="976e1906-2140-47b1-a52b-512d183039e6"/>
+        <OBJECT>
           <ID name="Voltage : 5V" mc="Standard.InformationItem" uid="28397a5c-9bfe-476c-83bb-95521aa3aa83"/>
           <ATTRIBUTES>
             <ATT name="IsAbstract">false</ATT>
@@ -418,9 +445,6 @@
             </LINK>
           </DEPENDENCIES>
         </OBJECT>
-        <COMPID name="Micro SD cards" mc="Standard.Class" uid="1431d51e-5c80-4fcf-a1ab-7553a32a29b3"/>
-        <COMPID name="Thermal paste" mc="Standard.Class" uid="e2468e4e-99db-4b5d-b64c-4f92c6f698d2"/>
-        <COMPID name="Wifi key" mc="Standard.Class" uid="976e1906-2140-47b1-a52b-512d183039e6"/>
       </COMP>
       <LINK relation="Extension">
         <FOREIGNID name="Block" mc="Standard.Stereotype" uid="00bc42a4-0000-19c9-0000-000000000000"/>
