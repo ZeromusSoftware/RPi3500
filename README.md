@@ -73,7 +73,7 @@ Pour de plus amples informations, rendez-vous dans la rubrique [Power Supply](ht
 #### Conception
  Nous concevons notre Data Center Miniaturisé dans lequel sera présent tout notre système. Il sera réalisé de contreplaqué okoumé et comprendra une surface transparente en plexiglass. Sa forme peut-être apparentée à celle d'une tour de PC.
  
- Pour de plus amples informations, rendez vous dans la rubrique [Making of the Housing](https://github.com/ZeromusSoftware/RPi3500/tree/master/Making%20of%20the%20housing) 
+ Pour de plus amples informations, rendez vous dans la rubrique [Box Architecture](https://github.com/ZeromusSoftware/RPi3500/tree/master/Box%20architecture) 
  
 --
 
