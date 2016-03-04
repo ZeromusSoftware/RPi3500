@@ -34,7 +34,7 @@ Nous sommes une équipe de 4 élèves de PTSI du Lycée Jean Perrin à Marseille
 --
 
 #### Le Big Data
-Notre Data Center n'est pas comme les autres, il est pourvu d'une capacité d'analyse de donées rentrant dans le domaine du Big Data.
+Notre Data Center n'est pas comme les autres, il est pourvu d'une capacité d'analyse de données rentrant dans le domaine du Big Data.
 
 Pour de plus amples informations, rendez-vous dans la rubrique [Big Data](https://github.com/ZeromusSoftware/RPi3500/tree/master/big_data)
 
@@ -45,18 +45,18 @@ Pour interagir avec ce Data Center et étant donné qu'il est connecté à Inter
 Pour de plus amples informations, rendez-vous dans la rubrique [API Web](https://github.com/ZeromusSoftware/RPi3500/tree/master/apiweb)
 
 #### Le Réseau
-Nos différents RPi sont connectés entre eux et forme ainsi un Réseau. Il sert ainsi à l'interaction et la communication entre ces différents composants.
+Nos différents RPi sont connectés entre eux et forment ainsi un Réseau. Il sert ainsi à l'interaction et la communication entre ces différents composants.
 
 
 ####Machine Learning
-Le Machine Learning est la capacité d'apprentissage des algorithmes sur la base de connaissance acquise. Ces nouveaux algorithmes peuvent alors solver des problèmes autrefois qualifiés de complexes.
+Le Machine Learning est la capacité d'apprentissage des algorithmes sur la base de connaissances acquises. Ces nouveaux algorithmes peuvent alors solver des problèmes autrefois qualifiés de complexes.
 Nous travaillons alors sur la façon de mettre en place ceci dans notre Data Center.
 
 
 #### Génie Thermique
-Le Système comporte des éléments qui sont susceptibles de chauffer et une chaleur excessive les endommagerait prématurement.
+Le Système comporte des éléments qui sont susceptibles de chauffer et une chaleur excessive les endommageraient prématurement.
 
- Alors nous nous devons de les maintenir à température acceptable, pour ce faire nous utiliserons des ventilateurs récupéré de PC et des dissipateurs thermique conçus expressement pour les RPis.
+ Alors nous nous devons de les maintenir à température acceptable, pour ce faire nous utiliserons des ventilateurs récupérés de PC et des dissipateurs thermique conçus expressement pour les RPis.
  
  Pour de plus amples informations, rendez vous dans la rubrique [Heat Control](https://github.com/ZeromusSoftware/RPi3500/tree/master/heat_control)
 
@@ -64,14 +64,14 @@ Le Système comporte des éléments qui sont susceptibles de chauffer et une cha
 #### Génie Electrique
 Nous devons alimenter notre Data center conformément aux caractéristiques des composants présents tels les RPi2 et RPiB+ ainsi que le Switch Ethernet et le système de refroidissement.
 
-Aussi il doit pouvoir continuer à fonctionner en cas de coupure prolongée de l'alimentation du réseau électrique, c'est pourquoi il sera doté de batterie.
+Aussi de Data Center doit pouvoir continuer à fonctionner en cas de coupure prolongée de l'alimentation du réseau électrique, c'est pourquoi il sera doté de batteries.
 
 Pour de plus amples informations, rendez-vous dans la rubrique [Power Supply](https://github.com/ZeromusSoftware/RPi3500/tree/master/power_supply)
 
 
 
 #### Conception
- Nous concevons notre Data Center Miniaturisé dans lequel sera présent tout notre système. Il sera réalisé de contreplaqué okoumé et comprendra une surface transparente en plexiglass. Sa forme peut-être apparentée à celle d'une tour de PC.
+ Nous concevons notre Data Center miniaturisé dans lequel sera présent tout notre système. Il sera réalisé de contreplaqué okoumé et comprendra une surface transparente en plexiglass. Sa forme peut-être apparentée à celle d'une tour de PC.
  
  Pour de plus amples informations, rendez vous dans la rubrique [Box Architecture](https://github.com/ZeromusSoftware/RPi3500/tree/master/Box%20architecture) 
  
@@ -93,7 +93,7 @@ Pour de plus amples informations, rendez-vous dans la rubrique [Power Supply](ht
 
 --
 
-### Contact
+### Contacts
 
 
 * Mail : zermomus.software@gmail.com
