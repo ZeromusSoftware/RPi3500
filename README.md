@@ -45,12 +45,8 @@ Pour interagir avec ce Data Center et étant donné qu'il est connecté à Inter
 Pour de plus amples informations, rendez-vous dans la rubrique [API Web](https://github.com/ZeromusSoftware/RPi3500/tree/master/apiweb)
 
 #### Le Réseau
-<<<<<<< Updated upstream
+
 Nos différents RPi sont connectés entre eux et forment ainsi un Réseau. Il sert ainsi à l'interaction et la communication entre ces différents composants.
-=======
-Nos différents RPi sont connectés entre eux et forme ainsi un Réseau. Il sert ainsi à l'interaction et la communication entre ces différents composants.
-Nous 
->>>>>>> Stashed changes
 
 
 ####Machine Learning
