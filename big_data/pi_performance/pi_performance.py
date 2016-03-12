@@ -41,7 +41,7 @@ for i in range(10):
 # powers of 10 (for n<10, take 10 measures spaced by 1, for 
 # 10<n<100, spaced by 10...etc.)
 
-    n = 37 # number of values that I want
+    n = 50 # number of values that I want
     fin = n + n//10 
     if fin%10 == 0: fin += 1
     limit = [10**i for i in range(1,(fin//10) +2)] # list of powers of 10
@@ -52,7 +52,7 @@ for i in range(10):
 
 
     while measureNumber < fin :
-        pas = limit[k]/10
+        pas = limit[k]//10
         for i in range(1,11) :
             if measureNumber < fin :
                 X.append(pas*i)
@@ -87,4 +87,4 @@ for i in range(10):
 s=0
 for i in ppf_list:
     s+=i
-print('moyenne des ppt =' + str(s/len(ppf_list)))
+print('moyenne des ppf =' + str(s/len(ppf_list)))
