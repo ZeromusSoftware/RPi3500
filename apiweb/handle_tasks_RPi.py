@@ -23,11 +23,11 @@ api.send_direct_message(user_id=int(william_id),text='coucou')
 
 
 def send_message(message):
-    api.send_direct_message(user_id=int(william_id,text=message)
+    api.send_direct_message(user_id=int(william_id),text=message)
 
 
-def fetch_last_message():
-    
+def fetch_last_message():    
+
     direct_message_unicode = api.direct_messages(since_id=last_id(),full_text=True)
     message=[i.text for i in direct_message_unicode]
     
