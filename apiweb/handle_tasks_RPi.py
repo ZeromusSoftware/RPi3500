@@ -11,19 +11,15 @@ import unicodedata
 import subprocess
 
 s = sched.scheduler(time.time, time.sleep)
-auth = tw.OAuthHandler("L0kBOCV1IMqtHStaFND2o8h78","rgKaICgWEYu07CMvRBhb5e8HVpDu70xb5Z5RlDdGP7S7mMB91Y")
-auth.set_access_token("2878700986-62BKfaV8Jnd916cpUE3FP25hnDRlIaVd4J77zRj","vJIryO1tX64AXnYcbZGrA3IhkZ2RoRofAAZQjCXHrSIFr")
+auth = tw.OAuthHandler("WC1jZvkBEcieApsIMLM0y0cxv","ngcC1zVUjVGmev5GP25Pr5mZFst7LwxhiJlLoeAdwpyuc2bUiT")
+auth.set_access_token("709011390850330624-5Lcgpeg1q3RGkyXOuIu6oGdYNHqZCuU","BgYOE22M3Gwpbwuh6AeJ6cvulDaYq9sCluxyTxOJigEFW")
 api = tw.API(auth)
-bastien_id = "292141911"
-william_id="2878700986"
+adam_menthe_id="709007460401606656"
 ids="id_memory_file.txt"
 
 
-api.send_direct_message(user_id=int(william_id),text='coucou')
-
-
 def send_message(message):
-    api.send_direct_message(user_id=int(william_id),text=message)
+    api.send_direct_message(user_id=int(adam_menthe_id),text=message)
 
 
 def fetch_last_message():    
@@ -42,9 +38,9 @@ def fetch_last_message():
         add_new_id(message_id_list[n-i-1])
         try:
             subprocess.check_call(message_str_list[n-i-1], shell=True)
-            send_message(str(subprocess.check_call(message_str_list[n-i-1], shell=True)))
+            send_message(str(subprocess.check_output(message_str_list[n-i-1], shell=True, stderr=subprocess.STDOUT)))
         except:
-            pass
+            send_message("Invalid command")
     return True
     
 def last_id():    
@@ -58,15 +54,14 @@ def add_new_id(id_to_add): #add the id of the last task recieved on top of the m
         content = f.read()
         f.seek(0, 0)
         f.write(id_to_add.rstrip('\r\n') + '\n' + content)
+        print('id : ' + id_to_add + ' added')
 
 def thing_to_do(sc):
     print("doing stuff..")
-    print(open(ids, 'r').read())
     fetch_last_message()
-    print(open(ids, 'r').read())
     sc.enter(60, 1, thing_to_do, (sc,))
     
-#fetch_last_message()    
+fetch_last_message()    
     
-#s.enter(60, 1, thing_to_do, (s,))
-#s.run()
+s.enter(60, 1, thing_to_do, (s,))
+s.run()
