@@ -4,7 +4,7 @@ include('functions.php');
 
 $url = 'https://api.twitter.com/1.1/direct_messages.json';
 $requestMethod = "GET";
-$user  = "rastaberrypi";
+$userID  = "709011390850330624"; // Rasta BerryPi's ID
 
 
 if (isset($_GET['count'])) {
@@ -13,7 +13,7 @@ if (isset($_GET['count'])) {
 	$count = 20;
 }
 
-$getfield = "?screen_name=$user&count=$count";
+$getfield = "?user_id=$userID&count=$count";
 
 $twitter = new TwitterAPIExchange($settings);
 $string = json_decode($twitter->setGetfield($getfield)

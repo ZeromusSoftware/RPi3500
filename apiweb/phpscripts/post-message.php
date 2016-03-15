@@ -4,7 +4,7 @@ include('functions.php');
 
 $url = 'https://api.twitter.com/1.1/direct_messages/new.json';
 $requestMethod = "POST";
-$user  = "rastaberrypi";
+$userID  = "709011390850330624"; // Rasta BerryPi's ID
 
 
 if (isset($_POST['text'])) {
@@ -13,7 +13,7 @@ if (isset($_POST['text'])) {
 	$text = 'test';
 }
 
-$postfield = "?screen_name=$user&text=$text";
+$postfield = "?user_id=$userID&text=$text";
 
 $twitter = new TwitterAPIExchange($settings);
 $string = json_decode($twitter->buildOauth($url, $requestMethod)
