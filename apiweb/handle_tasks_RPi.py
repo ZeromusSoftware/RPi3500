@@ -11,15 +11,30 @@ import unicodedata
 import subprocess
 from subprocess import PIPE
 
-
-
-auth = tw.OAuthHandler("WC1jZvkBEcieApsIMLM0y0cxv","ngcC1zVUjVGmev5GP25Pr5mZFst7LwxhiJlLoeAdwpyuc2bUiT")
-auth.set_access_token("709011390850330624-5Lcgpeg1q3RGkyXOuIu6oGdYNHqZCuU","BgYOE22M3Gwpbwuh6AeJ6cvulDaYq9sCluxyTxOJigEFW")
-api = tw.API(auth)
+# [[consumer key, consumer key secret],[access token, access token secret]]
+app1=[["WC1jZvkBEcieApsIMLM0y0cxv","ngcC1zVUjVGmev5GP25Pr5mZFst7LwxhiJlLoeAdwpyuc2bUiT"],["709011390850330624-5Lcgpeg1q3RGkyXOuIu6oGdYNHqZCuU","BgYOE22M3Gwpbwuh6AeJ6cvulDaYq9sCluxyTxOJigEFW"]]
+app2=[["XZvYSDfMghAbZeFUEVc6EW9y3","F2GyoFeA4OCNKZIQtjV3IqN4gM87XhCdzbfVUtJPs2Y0purghc"],["709011390850330624-8UuDVQSoPDeMmeXMbplIHo4Fae7k9VK","7hVWltqz8HaxQ6KBwBSx6OFPchJpA2iACkL8v68VaJrBT"]]
+app3=[["in1yxCzzWsF0gYlhJurALdlVA","J0xbQ0wVpwDF28C4ecZn8papkFqMyDT6VF0UFgeoYHZAdAc7tr"],["709011390850330624-vynHnIJJpNhh9WhtF2gVIZT70t33n6u","9cEg8zmtPxwyIhPpTxpNYjDCC29eGCdz9pFNtknyEFqXu"]]
 adam_menthe_id="709007460401606656"
 ids="id_memory_file.txt"
 
+global app_to_be_used
+app_to_be_used = app1
 
+auth = tw.OAuthHandler(app_to_be_used[0][0],app_to_be_used[0][1])
+auth.set_access_token(app_to_be_used[1][0],app_to_be_used[1][1])
+global api
+api = tw.API(auth)
+
+global count
+count = 0
+print("app1")
+
+def refresh_auth():
+    global api
+    auth = tw.OAuthHandler(app_to_be_used[0][0],app_to_be_used[0][1])
+    auth.set_access_token(app_to_be_used[1][0],app_to_be_used[1][1])
+    api = tw.API(auth)
 
 def send_message(message):
     api.send_direct_message(user_id=int(adam_menthe_id),text=message)
@@ -27,6 +42,24 @@ def send_message(message):
 
 def fetch_last_message():#everything is in the title
 
+    global count
+    global app_to_be_used    
+    
+    count+=1
+    if count==16:
+        app_to_be_used = app2
+        refresh_auth()
+        print("app2")
+    if count==31:
+        app_to_be_used = app3
+        refresh_auth()
+        print("app3")
+    if count==46:
+        app_to_be_used = app1
+        refresh_auth()
+        print("app1")
+        count = 0
+        
     #we fetch the direct messages (with their id) sent to us (Rasp_Berrypi), ignoring smileys ;)
     direct_message_unicode = api.direct_messages(since_id=last_id(),full_text=True)
     message=[i.text for i in direct_message_unicode]
@@ -39,7 +72,6 @@ def fetch_last_message():#everything is in the title
     n=len(message_str_list)
     for i in range(n): #for each message, execute in the shell and respond to Adam_Menthe
         add_new_id(message_id_list[n-i-1])#index meaning that we execute commands with the recieving order
-        message_str_list[n-i-1]
         p = subprocess.Popen([message_str_list[n-i-1]], stdout=PIPE, stderr=PIPE, shell=True)
         output, err = p.communicate()
         if err == "":
@@ -63,11 +95,11 @@ def add_new_id(id_to_add): #add the id of the last task recieved on top of the m
 
 def refresh_messages(sc):
     fetch_last_message()
-    sc.enter(60, 1, refresh_messages, (sc,))
-    print("waiting 60sec..")
+    sc.enter(5, 1, refresh_messages, (sc,))
+    print("waiting 5sec..")
 
 
 #On fait tourner la fonction refresh_messages toutes les 60s
 s = sched.scheduler(time.time, time.sleep)
-s.enter(60, 1, refresh_messages, (s,))
+s.enter(5, 1, refresh_messages, (s,))
 s.run()
