@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang='fr'>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="RPi Control Chamber" />
+		<title>RPi Control Chamber - Adamant</title>
+	</head>
+	<body>
+                       
+		<div id="container">
+			<table class="chat"><tr>        
+
+			    <!-- message area -->
+			<td valign="top" id="text-td">
+				<div id="text">
+					<div id="loading">
+						<center>
+							<span class="info" id="info">Loading API...</span></br>
+							<img src="img/ajax-loader.gif" alt="Wait...">
+						</center>
+					</div>
+				</div>
+			
+			    </td>
+			</tr></table>
+
+			<!-- Text area -->
+			<a name="post"></a>
+			<table class="post_message"><tr>
+				<td>
+					<form action="web.php?code=12&page=12" method="" onsubmit="postMessage(); return false;">
+						<input type="text" id="message" maxlength="255" />
+						<input type="button" onclick="postMessage()" value="Send" id="button" />
+					</form>
+					<div id="responsePost" style="display:none"></div>
+				</td>
+			</tr></table>
+		</div>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="api.js"></script>
+	</body>
+</html>

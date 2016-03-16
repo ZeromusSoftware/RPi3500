@@ -1,0 +1,58 @@
+/* Main block */
+#container {
+    width: 100%;
+    margin-bottom: 20%;
+    padding: 2px 20px 20px 20px;
+    background: #fff;
+}
+
+
+/* Post message block */
+.post_message  {
+    width: 95%;
+    margin: auto;
+    border: 1px solid #d2d2d2;
+    background: #f8fafd;
+    padding: 3px;
+}
+
+/* Text area */
+.post_message #message {
+    width: 80%;
+}
+
+/* Sending button */
+.post_message #button {
+    width: 18%;
+}
+
+/* View message area */
+.chat {
+    width: 95%;
+    margin: 10px auto;
+    border: 1px solid #d2d2d2;
+    padding: 0px;
+}
+
+/* Loading block */
+.chat #loading {
+    margin-top: 50px;
+}
+
+/* Message area */
+.chat #text-td {
+    margin: 0px; 
+    padding: 5px; 
+    width: 80%; 
+    background: #fff; 
+}
+
+
+.chat #text {
+    height:250px; 
+    overflow-y: auto;
+}
+
+.info {
+    color: green;
+}
