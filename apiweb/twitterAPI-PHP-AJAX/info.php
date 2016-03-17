@@ -1,11 +1,16 @@
 <?php
-/*------------------------------------------------------*/
-/*--------------------- ALL IMPORTANT DATA -------------*/
-/*------------------------------------------------------*/
+/*********************************************************
+ * All important data
+ *  
+ * @package  TwitterAPI-PHP-AJAX
+ * @author   Bastien Pederencino <bpderencino@legtux.org>
+ * @license  GNU General Public License 2
+ * @version  0.1.0
+ * @link     http://github.com/ZeromusSoftware/RPi3500
+ ********************************************************/
 
 
 session_start();
-
 
 /*---------------- From http://apps.twitter.com---------*/
 $consumer_key = "RfguuVtq4T9Xz3PeYBc2sCIEV";

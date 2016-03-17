@@ -1,7 +1,13 @@
 
-/*------------------------------------------------------*/
-/*---------------- WEBPAGE'S STYLESHEETS ---------------*/
-/*------------------------------------------------------*/
+/*********************************************************
+ * Adamant's stylesheet
+ *  
+ * @package  TwitterAPI-PHP-AJAX
+ * @author   Bastien Pederencino <bpderencino@legtux.org>
+ * @license  GNU General Public License 2
+ * @version  0.1.0
+ * @link     http://github.com/ZeromusSoftware/RPi3500
+ ********************************************************/
 
 
 /* Main block */
@@ -57,6 +63,7 @@
 .chat #text {
     height:250px; 
     overflow-y: auto;
+    max-width: 850px;
 }
 
 .info {
