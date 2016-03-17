@@ -10,12 +10,13 @@
  ********************************************************/
  
  
+ /* Update the URL to go to getDirectMessage.php */
 function postMessage() {
 	var message = encodeURIComponent($("#message").val());
 	if (message != "") {
 		$.ajax({
 			type: 'POST',
-			url: "postDirectMessage/postDirectMessage.php",
+			url: "/twitterAPI-PHP-AJAX/postDirectMessage/postDirectMessage.php",
 			data: "message="+message,
 			success: function(msg) {
 				if(document.getElementById("text")) {
@@ -23,7 +24,6 @@ function postMessage() {
 				}
 				$("#message").val('');
 				$("#message").focus();
-				alert("Ajax postMessage enable");
 			},
 			error: function(msg) {
 				alert("Error ajax postMessage");

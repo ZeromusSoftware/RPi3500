@@ -10,9 +10,10 @@
  ********************************************************/
  
  
+/* Update the URL to go to getDirectMessage.php */
 function getDirectMessage() {
 	$.ajax({
-		url: 'getDirectMessage/getDirectMessage.php',
+		url: '/twitterAPI-PHP-AJAX/getDirectMessage/getDirectMessage.php',
 		type: 'GET',
 		success: function(data) {
 			if(document.getElementById("loading")) {
