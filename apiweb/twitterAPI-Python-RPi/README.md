@@ -2,7 +2,7 @@
 
 ## A system to link RaspberryPi with Twitter's API thanks to Python
    
- * @author   William Jackson <bpderencino@legtux.org>
+ * @author   William Jackson
  * @license  GNU General Public License 2
  * @version  0.1.0
  * @link     http://github.com/ZeromusSoftware/RPi3500
