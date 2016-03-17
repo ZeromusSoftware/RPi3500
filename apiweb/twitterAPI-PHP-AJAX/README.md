@@ -22,7 +22,7 @@
 ### Sources of information
 
 * [J7mbo's GitHub](https://github.com/J7mbo/twitter-api-php)
-* [Noe's blog]http://noe-interactive.com/comment-integrer-la-nouvelle-api-twitter-1-1-en-php
+* [Noe's blog](http://noe-interactive.com/comment-integrer-la-nouvelle-api-twitter-1-1-en-php)
 * [OpenClassRooms's AJAX lessons](https://openclassrooms.com/courses/un-chat-en-php-ajax)
 * [OpenClassRooms's AJAX exercice](https://openclassrooms.com/courses/un-site-web-dynamique-avec-jquery/tp-le-tchat-en-ajax)
 
