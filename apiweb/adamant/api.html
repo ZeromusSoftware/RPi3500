@@ -23,7 +23,8 @@
 					<div id="loading">
 						<center>
 							<span class="info" id="info">Loading API...</span></br>
-							<img src="img/ajax-loader.gif" alt="Wait...">
+							<span class="info" id="info">Maximum wait time: 60 seconds</span></br>
+							<img src="ajax-loader.gif" alt="Wait...">
 						</center>
 					</div>
 				</div>
@@ -36,12 +37,13 @@
 			<table class="post_message"><tr>
 				<td>
 					<form action="web.php?code=12&page=12" method="" onsubmit="postMessage(); return false;">
-						<input type="text" id="message" maxlength="255" />
+						<input type="text" id="message" onsubmit="postMessage(); return false;" maxlength="255" />
 						<input type="button" onclick="postMessage()" value="Send" id="button" />
 					</form>
 					<div id="responsePost" style="display:none"></div>
 				</td>
 			</tr></table>
+			
 		</div>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script src="api.js"></script>

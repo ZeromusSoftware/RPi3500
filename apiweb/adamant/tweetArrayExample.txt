@@ -1,0 +1,93 @@
+(
+            [created_at] => Tue Oct 30 03:34:11 +0000 2012
+            [id] => 263121594531061760
+            [id_str] => 263121594531061760
+            [text] => My Dropbox Referral Link. I'd be surprised if people didn't have an account yet. Super-handy if you have a smartphone http://t.co/OQ8IDYBc
+            [source] => <a href="http://www.dropbox.com" rel="nofollow">DropboxÂ </a>
+            [truncated] => 
+            [in_reply_to_status_id] => 
+            [in_reply_to_status_id_str] => 
+            [in_reply_to_user_id] => 
+            [in_reply_to_user_id_str] => 
+            [in_reply_to_screen_name] => 
+            [user] => Array
+                (
+                    [id] => 106994601
+                    [id_str] => 106994601
+                    [name] => Karl Blessing
+                    [screen_name] => KarlBlessing
+                    [location] => Grand Rapids, Mi
+                    [url] => http://kbeezie.com
+                    [description] => Webdeveloper
+                    [protected] => 
+                    [followers_count] => 40
+                    [friends_count] => 52
+                    [listed_count] => 1
+                    [created_at] => Thu Jan 21 08:30:25 +0000 2010
+                    [favourites_count] => 0
+                    [utc_offset] => -18000
+                    [time_zone] => Eastern Time (US & Canada)
+                    [geo_enabled] => 1
+                    [verified] => 
+                    [statuses_count] => 95
+                    [lang] => en
+                    [contributors_enabled] => 
+                    [is_translator] => 
+                    [profile_background_color] => FFFFFF
+                    [profile_background_image_url] => http://a0.twimg.com/profile_background_images/68539068/python-logo.png
+                    [profile_background_image_url_https] => https://si0.twimg.com/profile_background_images/68539068/python-logo.png
+                    [profile_background_tile] => 
+                    [profile_image_url] => http://a0.twimg.com/profile_images/2549311960/ooc473od4tv58hlffxvy_normal.jpeg
+                    [profile_image_url_https] => https://si0.twimg.com/profile_images/2549311960/ooc473od4tv58hlffxvy_normal.jpeg
+                    [profile_link_color] => 0F6FFF
+                    [profile_sidebar_border_color] => FFFFFF
+                    [profile_sidebar_fill_color] => FFFFFF
+                    [profile_text_color] => 333333
+                    [profile_use_background_image] => 
+                    [default_profile] => 
+                    [default_profile_image] => 
+                    [following] => 
+                    [follow_request_sent] => 
+                    [notifications] => 
+                )
+ 
+            [geo] => 
+            [coordinates] => 
+            [place] => 
+            [contributors] => 
+            [retweet_count] => 0
+            [favorite_count] => 0
+            [entities] => Array
+                (
+                    [hashtags] => Array
+                        (
+                        )
+ 
+                    [urls] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [url] => http://t.co/OQ8IDYBc
+                                    [expanded_url] => http://db.tt/fJi2Poc
+                                    [display_url] => db.tt/fJi2Poc
+                                    [indices] => Array
+                                        (
+                                            [0] => 118
+                                            [1] => 138
+                                        )
+ 
+                                )
+ 
+                        )
+ 
+                    [user_mentions] => Array
+                        (
+                        )
+ 
+                )
+ 
+            [favorited] => 
+            [retweeted] => 
+            [possibly_sensitive] => 
+            [lang] => en
+        )
