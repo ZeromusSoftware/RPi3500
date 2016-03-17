@@ -1,8 +1,7 @@
 #[Adamant](http://adamant.ga) 
 
-
- * Feature to send a new direct message
- *  
+## Feature to send a new direct message
+  
  * @package  TwitterAPI-PHP-AJAX
  * @author   Bastien Pederencino <bpderencino@legtux.org>
  * @license  GNU General Public License 2

@@ -1,7 +1,8 @@
 #[Adamant](http://adamant.ga) 
 
-##TwitterAPI-PHP-AJAX
+## Feature to get last direct messages
    
+ * @package  TwitterAPI-PHP-AJAX
  * @author   Bastien Pederencino <bpderencino@legtux.org>
  * @license  GNU General Public License 2
  * @version  0.1.0
