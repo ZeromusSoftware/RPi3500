@@ -35,9 +35,16 @@ def refresh_auth():
     auth = tw.OAuthHandler(app_to_be_used[0][0],app_to_be_used[0][1])
     auth.set_access_token(app_to_be_used[1][0],app_to_be_used[1][1])
     api = tw.API(auth)
+    
+testmsg = "test n°1 (20s) message post limit"
+global i
+i=0
 
 def send_message(message):
+    global i
     api.send_direct_message(user_id=int(adam_menthe_id),text=message)
+    i+=1
+    print(i)
 
 
 def fetch_last_message():#everything is in the title
@@ -94,12 +101,13 @@ def add_new_id(id_to_add): #add the id of the last task recieved on top of the m
     print('id : ' + id_to_add + ' added')
 
 def refresh_messages(sc):
-    fetch_last_message()
-    sc.enter(5, 1, refresh_messages, (sc,))
-    print("waiting 5sec..")
+    #fetch_last_message()
+    send_message(testmsg)
+    sc.enter(20, 1, refresh_messages, (sc,))
+    print("waiting 20secs..")
 
 
 #On fait tourner la fonction refresh_messages toutes les 60s
 s = sched.scheduler(time.time, time.sleep)
-s.enter(5, 1, refresh_messages, (s,))
+s.enter(20, 1, refresh_messages, (s,))
 s.run()

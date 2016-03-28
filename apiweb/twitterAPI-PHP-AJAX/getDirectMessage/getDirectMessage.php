@@ -10,7 +10,7 @@
  ********************************************************/
 
 
-require('../info.php'); // to load $settings and TwitterAPIExchange
+require('../info1.php'); // to load $settings and TwitterAPIExchange
 
 /* URL and settings from http://dev.twitter.com/rest/public */
 $url = 'https://api.twitter.com/1.1/direct_messages.json';
