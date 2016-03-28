@@ -19,7 +19,7 @@ adam_menthe_id="709007460401606656"
 ids="id_memory_file.txt"
 
 global app_to_be_used
-app_to_be_used = app1
+app_to_be_used = app2
 
 auth = tw.OAuthHandler(app_to_be_used[0][0],app_to_be_used[0][1])
 auth.set_access_token(app_to_be_used[1][0],app_to_be_used[1][1])
@@ -28,7 +28,7 @@ api = tw.API(auth)
 
 global count
 count = 0
-print("app1")
+print("app2")
 
 def refresh_auth():
     global api
@@ -36,7 +36,7 @@ def refresh_auth():
     auth.set_access_token(app_to_be_used[1][0],app_to_be_used[1][1])
     api = tw.API(auth)
     
-testmsg = "test n°1 (20s) message post limit"
+testmsg = "test n°24 (21s) message post limit"
 global i
 i=0
 
@@ -103,11 +103,11 @@ def add_new_id(id_to_add): #add the id of the last task recieved on top of the m
 def refresh_messages(sc):
     #fetch_last_message()
     send_message(testmsg)
-    sc.enter(20, 1, refresh_messages, (sc,))
+    sc.enter(21, 1, refresh_messages, (sc,))
     print("waiting 20secs..")
 
 
 #On fait tourner la fonction refresh_messages toutes les 60s
 s = sched.scheduler(time.time, time.sleep)
-s.enter(20, 1, refresh_messages, (s,))
+s.enter(21, 1, refresh_messages, (s,))
 s.run()

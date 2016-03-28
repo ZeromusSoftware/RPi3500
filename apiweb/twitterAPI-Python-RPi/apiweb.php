@@ -12,7 +12,7 @@
 				}  
 			</script>  
 
-			<input type="button" class="power"  value="Power '.$buttonValue.'" onClick="switch'.$buttonSelected.$buttonValue.'()" /> 	
+			<input type="button" class="power"  value="Power '.$buttonValue.' gpio '.$buttonSelected.'" onClick="switch'.$buttonSelected.$buttonValue.'()" /> 	
 		';
 	}
 	

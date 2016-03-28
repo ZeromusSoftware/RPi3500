@@ -9,21 +9,22 @@
  * @link     http://github.com/ZeromusSoftware/RPi3500
  ********************************************************/
  
- 
-/* Update the URL to go to getDirectMessage.php */
-function getDirectMessage() {
-	$.ajax({
-		url: '/twitterAPI-PHP-AJAX/getDirectMessage/getDirectMessage.php',
-		type: 'GET',
-		success: function(data) {
-			if(document.getElementById("loading")) {
-				$("#text").html(data);
-			} else {
-				$("#text").html(data);
+setInterval(function() {
+	/* Update the URL to go to getDirectMessage.php */
+	function getDirectMessage() {
+		$.ajax({
+			url: '/twitterAPI-PHP-AJAX/getDirectMessage/getDirectMessage.php',
+			type: 'GET',
+			success: function(data) {
+				if(document.getElementById("loading")) {
+					$("#text").html(data);
+				} else {
+					$("#text").html(data);
+				}
+			},
+			error: function(data) {
+				alert("Error ajax getMessage");
 			}
-		},
-		error: function(data) {
-			alert("Error ajax getMessage");
-		}
-	});
-}
+		});
+	}
+}, 60 * 1000);
