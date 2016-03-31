@@ -10,7 +10,7 @@
  ********************************************************/
 
 
-require('../info.php'); // to load $settings and TwitterAPIExchange
+require('../info0.php'); // to load $settings and TwitterAPIExchange
 
 /* URL and settings from http://dev.twitter.com/rest/public */
 $userID  = "709011390850330624"; // Rasta BerryPi's ID

@@ -9,22 +9,40 @@
  * @link     http://github.com/ZeromusSoftware/RPi3500
  ********************************************************/
  
-setInterval(function() {
-	/* Update the URL to go to getDirectMessage.php */
-	function getDirectMessage() {
-		$.ajax({
-			url: '/twitterAPI-PHP-AJAX/getDirectMessage/getDirectMessage.php',
-			type: 'GET',
-			success: function(data) {
-				if(document.getElementById("loading")) {
-					$("#text").html(data);
-				} else {
-					$("#text").html(data);
-				}
-			},
-			error: function(data) {
-				alert("Error ajax getMessage");
-			}
-		});
+/* Update the URL to go to getDirectMessage.php */
+function getDirectMessage() {
+
+	if (localStorage.length()==0) { //peut y avoir un probleme, si localStorage.length()!=0 au premier lancement
+		localStorage.setItem("calls",1)
 	}
-}, 60 * 1000);
+	var nbrOfCalls = localStorage.getItem("calls");
+
+	var appToUse = "app0";
+	
+	if (nbrOfCalls < 16) {
+		appToUse = "app0";
+	else if (nbrOfCalls < 31) {
+		appToUse = "app1";
+	else if (nbrOfCalls < 46) {
+		appToUse = "app2";
+	else if (nbrOfCalls == 46) {
+		appToUse = "app0";
+		localStorage.setItem("calls",1);
+
+	localStorage.setItem("calls", nbrOfCalls+1)
+
+	$.ajax({
+		url: '/twitterAPI-PHP-AJAX/getDirectMessage/getDirectMessage.php',
+		type: 'GET',
+		success: function(data) {
+			if(document.getElementById("loading")) {
+				$("#text").html(data);
+			} else {
+				$("#text").html(data);
+			}
+		},
+		error: function(data) {
+			alert("Error ajax getMessage");
+		}	
+	});
+}
