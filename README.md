@@ -4,7 +4,7 @@
 
 
 ---
-### *Because we are found of Camembert and Croissant, But Fish & Chips and Guinness too.*
+### *Because we are found of Camembert and Croissant, but Fish & Chips and Guinness too.*
 
  - **French** 
  - **English**
@@ -65,7 +65,7 @@ Le Système comporte des éléments qui sont susceptibles de chauffer et une cha
 #### Génie Electrique
 Nous devons alimenter notre Data center conformément aux caractéristiques des composants présents tels les RPi2 et RPiB+ ainsi que le Switch Ethernet et le système de refroidissement.
 
-Aussi de Data Center doit pouvoir continuer à fonctionner en cas de coupure prolongée de l'alimentation du réseau électrique, c'est pourquoi il sera doté de batteries.
+Aussi ce Data Center doit pouvoir continuer à fonctionner en cas de coupure prolongée de l'alimentation du réseau électrique, c'est pourquoi il sera doté de batteries.
 
 Pour de plus amples informations, rendez-vous dans la rubrique [Power Supply](https://github.com/ZeromusSoftware/RPi3500/tree/master/power_supply)
 
