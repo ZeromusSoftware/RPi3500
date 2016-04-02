@@ -10,7 +10,7 @@
  ********************************************************/
  
 
-var reloadTime = 60000;
+var reloadTime = 20500;
 
 $(document).ready(function() {
 	if(document.getElementById("message")) {

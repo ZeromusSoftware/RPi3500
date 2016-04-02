@@ -10,18 +10,27 @@
  ********************************************************/
 
 
-require('../info1.php'); // to load $settings and TwitterAPIExchange
+if (isset($_GET['info']) and int($_GET(['info'])) % 3) < 3 ) {
 
-/* URL and settings from http://dev.twitter.com/rest/public */
-$url = 'https://api.twitter.com/1.1/direct_messages.json';
-$getfield = '?count=5';
-$requestMethod = 'GET';
+	//'.string(int($_GET['info']) % 3).'
 
-/* Create a TwitterOAuth object with consumer tokens */
-$twitter = new TwitterAPIExchange($settings);
-echo $twitter->setGetfield($getfield)
-    ->buildOauth($url, $requestMethod)
-    ->performRequest(); // to return data to AJAX
+	require('../info1.php'); // to load $settings and TwitterAPIExchange
 
+	/* URL and settings from http://dev.twitter.com/rest/public */
+	$url = 'https://api.twitter.com/1.1/direct_messages.json';
+	$getfield = '?count=5';
+	$requestMethod = 'GET';
+
+	/* Create a TwitterOAuth object with consumer tokens */
+	$twitter = new TwitterAPIExchange($settings);
+	echo $twitter->setGetfield($getfield)
+	    ->buildOauth($url, $requestMethod)
+	    ->performRequest(); // to return data to AJAX
+
+} else {
+
+	echo 'borgne';
+
+}
 
 ?>
