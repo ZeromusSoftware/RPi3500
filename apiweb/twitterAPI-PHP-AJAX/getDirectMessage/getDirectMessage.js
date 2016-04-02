@@ -10,14 +10,14 @@
  ********************************************************/
  
 /* Update the URL to go to getDirectMessage.php */
-function getDirectMessage() {
+function getDirectMessage() { 
 
 	if (!localStorage.getItem("calls")) {
-		localStorage.setItem("calls",1);
+		localStorage.setItem("calls","1"); //we can store only strings with localStorage
 	}
-	var nbrOfCalls = localStorage.getItem("calls");
+	var nbrOfCalls = +localStorage.getItem("calls"); // "+" converts string to integer
 
-	localStorage.setItem("calls", nbrOfCalls+1);
+	localStorage.setItem("calls", (nbrOfCalls+1).toString());
 
 	var i = nbrOfCalls.toString();
 	

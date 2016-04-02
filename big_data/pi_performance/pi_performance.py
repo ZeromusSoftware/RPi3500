@@ -79,8 +79,8 @@ for i in range(10):
     plt.title("PI performance")
     plt.xlabel("Accuracy")
     plt.ylabel("Time (s)")
-    plt.grid()
     plt.axis()
+    plt.grid()
     plt.show()
     ppf_list.append(ppf)
 
