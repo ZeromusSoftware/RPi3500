@@ -27,8 +27,8 @@ Pour la partie Refroidissement :
 
 Nous pouvons établir le courant nécéssaire pour l'alimentation du système 
 
-* Sur le 5V : 4*1,8 + 0,7 = **7,9A**
-* Sur le 12V : 0,5 + 2*0,45 + 0,7 +0,16 = **2,26A**
+* Sur le 5V : 4 x 1,8 + 0,7 = **7,9A**
+* Sur le 12V : 0,5 + 2 x 0,45 + 0,7 + 0,16 = **2,26A**
 
 ###Solution Apportée
  Nous avons récupéré une alimentation de PC 500W. Ces générateurs sont destinés à alimenter des composants éléctroniques fragiles, elle sera donc particulièrement bien adapté à l'alimentation de notre Data Center.
