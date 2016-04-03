@@ -9,8 +9,13 @@
  * @link     http://github.com/ZeromusSoftware/RPi3500
  ********************************************************/
 
+if (isset($_POST['info'])){
+	require('../info'.$_POST['info'].'.php'); // to load $settings and TwitterAPIExchange
+} else {
+	require('../info0.php');
+}
 
-require('../info0.php'); // to load $settings and TwitterAPIExchange
+
 
 /* URL and settings from http://dev.twitter.com/rest/public */
 $userID  = "709011390850330624"; // Rasta BerryPi's ID

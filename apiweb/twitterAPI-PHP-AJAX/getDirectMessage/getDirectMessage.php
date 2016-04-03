@@ -10,25 +10,29 @@
  ********************************************************/
 
 
-if (isset($_GET['info']) /*and int($_GET(['info'])) % 3) < 3*/ ) {
+if (isset($_GET['info'])) {
 
-	//'.string(int($_GET['info']) % 3).'
+	/*'.string(int($_GET['info']) % 3).'*/
 
-	//require('../info1.php'); // to load $settings and TwitterAPIExchange
+	require('../info'.$_GET['info'].'.php'); // to load $settings and TwitterAPIExchange
 
-	/* URL and settings from http://dev.twitter.com/rest/public */
-	/*$url = 'https://api.twitter.com/1.1/direct_messages.json';
+	/*URL and settings from http://dev.twitter.com/rest/public*/
+	$url = 'https://api.twitter.com/1.1/direct_messages.json';
 	$getfield = '?count=5';
-	$requestMethod = 'GET';*/
+	$requestMethod = 'GET';
 
 	/* Create a TwitterOAuth object with consumer tokens */
-	/*$twitter = new TwitterAPIExchange($settings);
-	echo $twitter->setGetfield($getfield)
+	$twitter = new TwitterAPIExchange($settings);
+	$response = $twitter->setGetfield($getfield)
 	    ->buildOauth($url, $requestMethod)
-	    ->performRequest(); // to return data to AJAX*/
+	    ->performRequest(); // to return data to AJAX
 
-	echo $_GET(['info'])
-
+	$tweets = json_decode($response,true);
+	$last_messages = "";
+	foreach ($tweets as $tweet) {
+		$last_messages = $last_messages.$tweet['text']."</br></br>";
+	}
+	echo $last_messages;
 } else {
 
 	echo 'borgne';
