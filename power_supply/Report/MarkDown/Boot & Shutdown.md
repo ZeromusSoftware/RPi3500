@@ -24,12 +24,12 @@ Nous restranscrirons toutes nos mesures sous forme de graphiques que nous analys
 
 1. Démarrage
 
- ![Boot](http://)
+ ![Boot](https://github.com/ZeromusSoftware/RPi3500/blob/master/power_supply/Report/Ressources/Boot%20RPi.png?raw=true)
 
 2. Extinction
 
 
-![Shutdown](http://)
+![Shutdown](https://github.com/ZeromusSoftware/RPi3500/blob/master/power_supply/Report/Ressources/Shutdown%20RPi.png?raw=true)
 
 ###Analyse des Courbes
 --
