@@ -76,8 +76,9 @@ def fetch_last_message():#everything is in the title
         p = subprocess.Popen([message_str_list[n-i-1]], stdout=PIPE, stderr=PIPE, shell=True)
         output, err = p.communicate()
         if err == "":
-            err = 'None'
-        send_message("out : " + output + "error : " + err)
+            send_message("out : " + output)
+        else:
+            send_message("error : " + err)
     return True
     
 def last_id():#fetches the id of the last task in the memory file

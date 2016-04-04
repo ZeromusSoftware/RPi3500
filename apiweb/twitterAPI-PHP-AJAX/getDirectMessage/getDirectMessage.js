@@ -20,49 +20,31 @@ function getDirectMessage() {
 	localStorage.setItem("calls", (nbrOfCalls+1).toString());
 
 	var appToUse = (nbrOfCalls%3).toString();
+
+	if (!localStorage.getItem("last_id") || localStorage.getItem("last_id")=="0") {
+		localStorage.setItem("last_id","717044642315968515");
+	}
+	var last_id_printed = localStorage.getItem("last_id");
 	
 	
 	$.ajax({
 		url: '/twitterAPI-PHP-AJAX/getDirectMessage/getDirectMessage.php',
 		type: 'GET',
-		data:'info='+ appToUse,
+		data:'info='+ appToUse + "&last_id=" + last_id_printed,
 		success: function(data) {
-			/*
-			var dataToUse = data.split("</br></br>")
-			if (!localStorage.getItem("register0")) {
-				for ( var i = 0; i < dataToUse.length; i++ ) {
-					localStorage.setItem("register"+i.toString(),dataToUse[i]); //we can store only strings with localStorage
-				}
-			} else {
-				for ( var i = 0; i < dataToUse.length; i++ ) {
-					var index = dataToUse.indexOf(localStorage.getItem("register"+i.toString()));
-					localStorage.setItem("register"+i.toString(),dataToUse[i]);
-					if (index > -1) {
-						dataToUse.splice(index,1);
-					}
+			
+			var new_id = data.split(' - and last_id : ')[data.split(' - and last_id : ').length -1];
+			if (new_id.length > 1) {
+				localStorage.setItem("last_id",new_id);
 			}
-			
-			
-			
-			var messagesToPrint = data.split("out :");
-			var currentMessages = document.getElementById('text').innerHTML.toString().split("out :");
-			for ( var i = 0; i < currentMessages.length; i++ ) {
-				var index = messagesToPrint.indexOf("out :" + currentMessages[i]);
-				if (index > -1) {
-					messagesToPrint.splice(index,1);
-				}
-			}
-			var final_text = "";
-			for (var i = 0; i < messagesToPrint.length; i++) {
-				final_text = final_text + "out :" + messagesToPrint[i] + "</br></br>";
-			}*/
+			var data_to_print = data.split(' - and last_id : ')[0];
 
+			
 			if(document.getElementById("loading")) {
-				$("#text").html(data);
+				$("#text").html("<div class='get'>" + data_to_print + "</div>");
 			} else {
-				var truc = document.getElementById('text').innerHTML.toString();
-				$("#text").prepend(data + "</br>");
-			}
+				$("#text").prepend("<div class='get'>" + data_to_print + "</div>");
+			}		
 		},
 		error: function(data) {
 			alert("Error ajax getMessage");

@@ -31,8 +31,10 @@ function postMessage() {
 			url: "/twitterAPI-PHP-AJAX/postDirectMessage/postDirectMessage.php",
 			data: "message="+message+"&info="+appToUse,
 			success: function(msg) {
-				if(document.getElementById("text")) {
-					$("#text").prepend("in : " + $("#message").val() + '</br></br>');
+				if(document.getElementById("loading")) {
+					$("#text").html("<div class='sent'>" + "-->" + $("#message").val() + "</div></br></br>");
+				} else {
+					$("#text").prepend("<div class='sent'>" + "-->" + $("#message").val() + "</div></br></br>");
 				}
 				$("#message").val('');
 				$("#message").focus();

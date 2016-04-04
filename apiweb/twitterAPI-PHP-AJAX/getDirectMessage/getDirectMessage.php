@@ -12,13 +12,14 @@
 
 if (isset($_GET['info'])) {
 
-	/*'.string(int($_GET['info']) % 3).'*/
 
 	require('../info'.$_GET['info'].'.php'); // to load $settings and TwitterAPIExchange
+	
+	$last_id = $_GET['last_id'];
 
 	/*URL and settings from http://dev.twitter.com/rest/public*/
 	$url = 'https://api.twitter.com/1.1/direct_messages.json';
-	$getfield = '?count=5';
+	$getfield = '?count=10&since_id='.$last_id;
 	$requestMethod = 'GET';
 
 	/* Create a TwitterOAuth object with consumer tokens */
@@ -29,10 +30,15 @@ if (isset($_GET['info'])) {
 
 	$tweets = json_decode($response,true);
 	$last_messages = "";
-	foreach ($tweets as $tweet) {
-		$last_messages = $last_messages.$tweet['text']."</br></br>";
+	$last_id = "";
+	if (sizeof($tweets) > 0) {
+		foreach ($tweets as $tweet) {
+			$last_messages = $last_messages.$tweet['text']."</br></br>";
+		}
+
+		$last_id = $tweets[0]['id'];
 	}
-	echo $last_messages;
+	echo $last_messages." - and last_id : ".$last_id;
 } else {
 
 	echo 'borgne';
