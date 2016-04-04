@@ -17,18 +17,18 @@ Puisque nous utilisons deux circuits de deux tensions différentes, nous utilise
 ###Sous Tension de 5V
 
 Sous cette tension, nous alimenterons les 4 Raspberry Pi 2 et le Raspberry Pi B+.
-Au cours de nos tests, la consommation maximale relevé à été de 0,5 Ampères.  
+Au cours de nos tests, la consommation maximale relevé à été de 0,55 Ampères.  
 
-En prenant une marge de sécurité alors de 0,1 Ampère :
+En prenant une marge de sécurité alors de 0,25 Ampères :
 
-* 0,6 A x 5 RPi = **3,5 A**
+* 0,8 A x 5 RPi = **4 A**
 
 Or nous souhaitons 3h d'autonomie :
 
  * Q = I x T 
- * 3,5 A x 3h = **10,5 A.h**
+ * 4 A x 3h = **12 A.h**
 
- Il nous faudra alors une batterie avec une capacité de 10,5 A.h et capable de délivrer un courant superieur à 3,5 A sous une tension continue de 5V.
+ Il nous faudra alors une batterie avec une capacité de 12 A.h et capable de délivrer un courant superieur à 4 A sous une tension continue de 5V.
 
 
 ###Sous Tension de 12V
