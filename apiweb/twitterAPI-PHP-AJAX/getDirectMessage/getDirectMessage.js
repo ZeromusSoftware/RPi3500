@@ -58,7 +58,7 @@ function getDirectMessage() {
 			var gpio_pins_status = "000000000";
 
 			if (data_to_print.split("---splitstring---").length == 2) {
-				gpio_pins_status = data_to_print.split("---splitstring---")[1];
+				gpio_pins_status = data_to_print.split("---splitstring---")[0];
 			}
 
 			$("#temperature").html(gpio_pins_status);
