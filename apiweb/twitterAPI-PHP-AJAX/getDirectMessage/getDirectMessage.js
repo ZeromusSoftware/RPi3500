@@ -32,19 +32,48 @@ function getDirectMessage() {
 		type: 'GET',
 		data:'info='+ appToUse + "&last_id=" + last_id_printed,
 		success: function(data) {
+
+
+			var d = new Date();
+			var h = d.getHours();
+			var m = d.getMinutes();
+			var s = d.getSeconds();
+			var day = d.getDate();
+			var M = +d.getMonth()+1;
+			var Y = d.getFullYear();
+
+			var message_caracteristics = day + "/" + M + "/" + Y + " - " + h + ":" + m + ":" + s + " - RPi --> ";
+
 			
 			var new_id = data.split(' - and last_id : ')[data.split(' - and last_id : ').length -1];
+
 			if (new_id.length > 1) {
 				localStorage.setItem("last_id",new_id);
 			}
+
 			var data_to_print = data.split(' - and last_id : ')[0];
 
+			var shell_output = data_to_print.split("---splitstring---")[0];
+
+			var gpio_pins_status = "000000000";
+
+			if (data_to_print.split("---splitstring---").length == 2) {
+				gpio_pins_status = data_to_print.split("---splitstring---")[1];
+			}
+
+			$("#temperature").html(gpio_pins_status);
 			
 			if(document.getElementById("loading")) {
-				$("#text").html("<div class='get'>" + data_to_print + "</div>");
+				if (shell_output.length > 0) {
+					$("#text").html("<div class='get'>" + shell_output + "</div>");
+				}else {
+					$("#text").html("<div class='get'>enter a command..</div>");
+				}
 			} else {
-				$("#text").prepend("<div class='get'>" + data_to_print + "</div>");
-			}		
+				if (shell_output.length > 1) {
+					$("#text").append("<div class='get'>" + shell_output + "</div>");
+				}
+			}
 		},
 		error: function(data) {
 			alert("Error ajax getMessage");

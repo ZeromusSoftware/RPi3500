@@ -10,6 +10,8 @@ import tweepy as tw
 import unicodedata
 import subprocess
 from subprocess import PIPE
+from datetime import datetime
+#import RPi.GPIO as GPIO
 
 # [[consumer key, consumer key secret],[access token, access token secret]]
 app1=[["WC1jZvkBEcieApsIMLM0y0cxv","ngcC1zVUjVGmev5GP25Pr5mZFst7LwxhiJlLoeAdwpyuc2bUiT"],["709011390850330624-5Lcgpeg1q3RGkyXOuIu6oGdYNHqZCuU","BgYOE22M3Gwpbwuh6AeJ6cvulDaYq9sCluxyTxOJigEFW"]]
@@ -19,7 +21,7 @@ adam_menthe_id="709007460401606656"
 ids="id_memory_file.txt"
 
 global app_to_be_used
-app_to_be_used = app1
+app_to_be_used = app2
 
 auth = tw.OAuthHandler(app_to_be_used[0][0],app_to_be_used[0][1])
 auth.set_access_token(app_to_be_used[1][0],app_to_be_used[1][1])
@@ -70,17 +72,29 @@ def fetch_last_message():#everything is in the title
     print("messages recus :", message_str_list)
     print("id des messages recus :", message_id_list)
     
+    
     n=len(message_str_list)
     for i in range(n): #for each message, execute in the shell and respond to Adam_Menthe
         add_new_id(message_id_list[n-i-1])#index meaning that we execute commands with the recieving order
         p = subprocess.Popen([message_str_list[n-i-1]], stdout=PIPE, stderr=PIPE, shell=True)
         output, err = p.communicate()
+        
+        maintenant = datetime.now()
+        Y,M,day = str(maintenant.year), str(maintenant.month), str(maintenant.day)
+        h,m,s = str(maintenant.hour), str(maintenant.minute), str(maintenant.second)
+        message_caracteristics = day + "/" + M + "/" + Y + " - " + h + ":" + m + ":" + s + " - RPi --> "
+        
+        
         if err == "":
-            send_message("out : " + output)
+            send_message(message_caracteristics + "out : " + output)
         else:
-            send_message("error : " + err)
+            send_message(message_caracteristics + "error : " + err)
+            
+    gpio_status = getGpioStatus()
+    send_message("---splitstring---" + gpio_status)
+            
     return True
-    
+
 def last_id():#fetches the id of the last task in the memory file
     id_file = open(ids,"r")
     last_id = id_file.read().split("\n")[0]
@@ -100,8 +114,37 @@ def refresh_messages(sc):
     sc.enter(21, 1, refresh_messages, (sc,))
     print("waiting 20secs..")
 
+gpio = {
+    "capteur":3,
+    "rpi1":5,
+    "rpi2":7,
+    "rpi3":8,
+    "rpi4":10,
+    "ventilo1":2,
+    "ventilo2":4,
+    }
+
+def getGpioStatus():
+    
+    """
+    pins_status = ""
+    
+    for name, value in gpio:
+        GPIO.setup(value, GPIO.IN) 
+        state = GPIO.input(value)
+        if state == True:
+            pins_status += "1"
+        elif state == False:
+            pins_status += "0"
+        else :
+            pins_status += str(state)
+    """
+            
+    return "375000111" #on renverra pins_status
+        
 
 #On fait tourner la fonction refresh_messages toutes les 60s
 s = sched.scheduler(time.time, time.sleep)
 s.enter(21, 1, refresh_messages, (s,))
 s.run()
+

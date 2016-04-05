@@ -31,10 +31,21 @@ function postMessage() {
 			url: "/twitterAPI-PHP-AJAX/postDirectMessage/postDirectMessage.php",
 			data: "message="+message+"&info="+appToUse,
 			success: function(msg) {
+				
+				var d = new Date();
+				var h = d.getHours();
+				var m = d.getMinutes();
+				var s = d.getSeconds();
+				var day = d.getDate();
+				var M = +d.getMonth()+1;
+				var Y = d.getFullYear();
+
+				var message_caracteristics = day + "/" + M + "/" + Y + " - " + h + ":" + m + ":" + s + " - Adamant --> "; 
+	
 				if(document.getElementById("loading")) {
-					$("#text").html("<div class='sent'>" + "-->" + $("#message").val() + "</div></br></br>");
+					$("#text").html("</br><div class='sent'>" + message_caracteristics + $("#message").val() + "</div>");
 				} else {
-					$("#text").prepend("<div class='sent'>" + "-->" + $("#message").val() + "</div></br></br>");
+					$("#text").append("</br><div class='sent'>" + message_caracteristics + $("#message").val() + "</div>");
 				}
 				$("#message").val('');
 				$("#message").focus();
