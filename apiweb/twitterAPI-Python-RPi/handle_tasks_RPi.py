@@ -72,6 +72,8 @@ def fetch_last_message():#everything is in the title
     print("messages recus :", message_str_list)
     print("id des messages recus :", message_id_list)
     
+    gpio_status = getGpioStatus()
+    petit_test(gpio_status)    
     
     n=len(message_str_list)
     for i in range(n): #for each message, execute in the shell and respond to Adam_Menthe
@@ -90,10 +92,12 @@ def fetch_last_message():#everything is in the title
         else:
             send_message(message_caracteristics + "error : " + err)
             
-    gpio_status = getGpioStatus()
-    send_message("---splitstring---" + gpio_status)
-            
+    
+    
     return True
+    
+def petit_test(pins):
+    send_message("---splitstring---" + pins)
 
 def last_id():#fetches the id of the last task in the memory file
     id_file = open(ids,"r")
@@ -140,11 +144,10 @@ def getGpioStatus():
             pins_status += str(state)
     """
             
-    return "375000111" #on renverra pins_status
+    return "375011110" #on renverra pins_status
         
 
 #On fait tourner la fonction refresh_messages toutes les 60s
 s = sched.scheduler(time.time, time.sleep)
 s.enter(21, 1, refresh_messages, (s,))
 s.run()
-

@@ -55,13 +55,17 @@ function getDirectMessage() {
 
 			var shell_output = data_to_print.split("---splitstring---")[0];
 
-			var gpio_pins_status = "000000000";
+			var gpio_pins_status = data_to_print.split("---splitstring---")[1];
+			var temp = gpio_pins_status.slice(0,3);
+			var RPi1 = gpio_pins_status.charAt(3);
+			var RPi2 = gpio_pins_status.charAt(4);
+			var RPi3 = gpio_pins_status.charAt(5);
+			var RPi4 = gpio_pins_status.charAt(6);
+			var ventilo1 = gpio_pins_status.charAt(7);
+			var ventilo2 = gpio_pins_status.charAt(8);
 
-			if (data_to_print.split("---splitstring---").length == 2) {
-				gpio_pins_status = data_to_print.split("---splitstring---")[0];
-			}
 
-			$("#temperature").html(gpio_pins_status);
+			$("#temperature").html(temp);
 			
 			if(document.getElementById("loading")) {
 				if (shell_output.length > 0) {
@@ -70,7 +74,7 @@ function getDirectMessage() {
 					$("#text").html("<div class='get'>enter a command..</div>");
 				}
 			} else {
-				if (shell_output.length > 1) {
+				if (shell_output.length > 0) {
 					$("#text").append("<div class='get'>" + shell_output + "</div>");
 				}
 			}
