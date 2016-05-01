@@ -11,6 +11,7 @@ import unicodedata
 import subprocess
 from subprocess import PIPE
 from datetime import datetime
+import Adafruit_DHT
 #import RPi.GPIO as GPIO
 
 # [[consumer key, consumer key secret],[access token, access token secret]]
@@ -129,9 +130,10 @@ gpio = {
     }
 
 def getGpioStatus():
-    
     """
-    pins_status = ""
+    pins_code = ""
+    
+    pins_code+=get_temperature(
     
     for name, value in gpio:
         GPIO.setup(value, GPIO.IN) 
@@ -143,10 +145,25 @@ def getGpioStatus():
         else :
             pins_status += str(state)
     """
+    
             
     return "375011110" #on renverra pins_status
-        
 
+def get_temperature():
+    sensor = Adafruit_DHT.DHT11
+    pin = gpio["capteur"]
+    humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
+    k=0
+    while (humidity is None or temperature is None) and k<30:
+        humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
+        k+=1
+    temp = "%.1f" % temperature
+    temp_code = ""
+    for i in temp:
+        if i!=".":
+            temp_code += i
+    return temp_code
+    
 #On fait tourner la fonction refresh_messages toutes les 60s
 s = sched.scheduler(time.time, time.sleep)
 s.enter(21, 1, refresh_messages, (s,))
