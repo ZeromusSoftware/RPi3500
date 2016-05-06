@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Mar  8 22:16:26 2016
+#"""
+#Created on Tue Mar  8 22:16:26 2016
 
-@author: william
-"""
+#@author: william
+#"""
 
 import sched, time
 import tweepy as tw
@@ -12,7 +12,7 @@ import subprocess
 from subprocess import PIPE
 from datetime import datetime
 import Adafruit_DHT
-#import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 
 # [[consumer key, consumer key secret],[access token, access token secret]]
 app1=[["WC1jZvkBEcieApsIMLM0y0cxv","ngcC1zVUjVGmev5GP25Pr5mZFst7LwxhiJlLoeAdwpyuc2bUiT"],["709011390850330624-5Lcgpeg1q3RGkyXOuIu6oGdYNHqZCuU","BgYOE22M3Gwpbwuh6AeJ6cvulDaYq9sCluxyTxOJigEFW"]]
@@ -67,22 +67,23 @@ def fetch_last_message():#everything is in the title
     #we fetch the direct messages (with their id) sent to us (Rasp_Berrypi), ignoring smileys ;)
     direct_message_unicode = api.direct_messages(since_id=last_id(),full_text=True)
     message=[]
-	for i in direct_message_unicode :
-		if (i.sender_id == adam_menthe_id) :
-			message.append(i.text)
-    message_str_list=[unicodedata.normalize('NFKD', message[i]).encode('ascii','ignore') for i in range(len(message))]
-    message_id_list = [str(i.id) for i in direct_message_unicode]
+    message_id_list = []
+    for i in direct_message_unicode :
+	if (str(i.sender_id) == adam_menthe_id) :
+            message.append(i.text)
+            message_id_list.append(str(i.id))
     
-    print("messages recus :", message_str_list)
+    
+    print("messages recus :", message)
     print("id des messages recus :", message_id_list)
     
     gpio_status = getGpioStatus()
     petit_test(gpio_status)    
     
-    n=len(message_str_list)
+    n=len(message)
     for i in range(n): #for each message, execute in the shell and respond to Adam_Menthe
         add_new_id(message_id_list[n-i-1])#index meaning that we execute commands with the recieving order
-        p = subprocess.Popen([message_str_list[n-i-1]], stdout=PIPE, stderr=PIPE, shell=True)
+        p = subprocess.Popen([message[n-i-1]], stdout=PIPE, stderr=PIPE, shell=True)
         output, err = p.communicate()
         
         maintenant = datetime.now()
@@ -123,9 +124,9 @@ def refresh_messages(sc):
     print("waiting 20secs..")
 
 gpio = {
-    "capteur":3,
+    "capteur":4,
     "rpi1":5,
-    "rpi2":7,
+    "rpi2":3,
     "rpi3":8,
     "rpi4":10,
     "ventilo1":2,
@@ -133,24 +134,21 @@ gpio = {
     }
 
 def getGpioStatus():
-    """
     pins_code = ""
     
-    pins_code+=get_temperature(
-    
-    for name, value in gpio:
-        GPIO.setup(value, GPIO.IN) 
-        state = GPIO.input(value)
-        if state == True:
-            pins_status += "1"
-        elif state == False:
-            pins_status += "0"
-        else :
-            pins_status += str(state)
-    """
+    pins_code+=get_temperature()
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(3, GPIO.IN) 
+    state = GPIO.input(3)
+    if state == True:
+        pins_code += "1"
+    elif state == False:
+        pins_code += "0"
+    else :
+        pins_code += str(state)
     
             
-    return "375011110" #on renverra pins_status
+    return pins_code #on renverra pins_status
 
 def get_temperature():
     sensor = Adafruit_DHT.DHT11
@@ -161,11 +159,7 @@ def get_temperature():
         humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
         k+=1
     temp = "%.1f" % temperature
-    temp_code = ""
-    for i in temp:
-        if i!=".":
-            temp_code += i
-    return temp_code
+    return temp
     
 #On fait tourner la fonction refresh_messages toutes les 60s
 s = sched.scheduler(time.time, time.sleep)

@@ -33,10 +33,12 @@ if (isset($_GET['info'])) {
 	$last_id = "";
 	if (sizeof($tweets) > 0) {
 		foreach ($tweets as $tweet) {
-			if (sizeof($tweets) == 1) {
-				$last_messages = $tweet['text'];
-			} else {
-				$last_messages = $last_messages."</br></br>".$tweet['text'];
+			if ($tweet['sender_id'] == '709011390850330624') {
+				if (sizeof($tweets) == 1) {
+					$last_messages = $tweet['text'];
+				} else {
+					$last_messages = $last_messages."</br></br>".$tweet['text'];
+				}
 			}
 		}
 
