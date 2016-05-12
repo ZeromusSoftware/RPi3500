@@ -37,7 +37,7 @@ if (isset($_GET['info'])) {
 				if (sizeof($tweets) == 1) {
 					$last_messages = $tweet['text'];
 				} else {
-					$last_messages = $last_messages."</br></br>".$tweet['text'];
+					$last_messages = $last_messages."{split_messages}".$tweet['text'];
 				}
 			}
 		}

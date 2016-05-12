@@ -1,0 +1,19 @@
+
+Message envoyé par le RPi:
+
+"12/12/1997 - 12:32:43 - RPi --> out : message1{separationdesmessage}12/12/1997 - 12:32:43 - RPi --> out : message2{GpioCode}25111000"
+
+Exemple message envoyé par getDirectMessage.php à getDirectMessage.js:
+
+data = "12/12/1997 - 12:32:43 - RPi --> out : message1{separationdesmessage}12/12/1997 - 12:32:43 - RPi --> out : message2{GpioCode}25111000{split_messages}12/12/1997 - 12:32:43 - RPi --> out : message3{separationdesmessage}12/12/1997 - 12:32:43 - RPi --> out : message4{GpioCode}25111000 - and last_id : 717044642315968515"
+
+data_without_id = "12/12/1997 - 12:32:43 - RPi --> out : message1{separationdesmessage}12/12/1997 - 12:32:43 - RPi --> out : message2{GpioCode}25111000{split_messages}12/12/1997 - 12:32:43 - RPi --> out : message3{separationdesmessage}12/12/1997 - 12:32:43 - RPi --> out : message4{GpioCode}25111000"
+
+messages = ['12/12/1997 - 12:32:43 - RPi --> out : message1{separationdesmessage}12/12/1997 - 12:32:43 - RPi --> out : message2{GpioCode}25111000','12/12/1997 - 12:32:43 - RPi --> out : message3{separationdesmessage}12/12/1997 - 12:32:43 - RPi --> out : message4{GpioCode}25111000']
+
+gpio_pins_status = '25111000'
+
+test = ['12/12/1997 - 12:32:43 - RPi --> out : message1','12/12/1997 - 12:32:43 - RPi --> out : message2']
+
+shell_output += '<br>12/12/1997 - 12:32:43 - RPi --> out : message1'
+...

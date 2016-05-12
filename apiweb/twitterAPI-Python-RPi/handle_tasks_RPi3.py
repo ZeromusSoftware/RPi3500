@@ -7,12 +7,11 @@
 
 import sched, time
 import tweepy as tw
-import unicodedata
 import subprocess
 from subprocess import PIPE
 from datetime import datetime
-import Adafruit_DHT
-import RPi.GPIO as GPIO
+#import Adafruit_DHT
+#import RPi.GPIO as GPIO
 
 # [[consumer key, consumer key secret],[access token, access token secret]]
 app1=[["WC1jZvkBEcieApsIMLM0y0cxv","ngcC1zVUjVGmev5GP25Pr5mZFst7LwxhiJlLoeAdwpyuc2bUiT"],["709011390850330624-5Lcgpeg1q3RGkyXOuIu6oGdYNHqZCuU","BgYOE22M3Gwpbwuh6AeJ6cvulDaYq9sCluxyTxOJigEFW"]]
@@ -22,7 +21,7 @@ adam_menthe_id="709007460401606656"
 ids="id_memory_file.txt"
 
 global app_to_be_used
-app_to_be_used = app2
+app_to_be_used = app1
 
 auth = tw.OAuthHandler(app_to_be_used[0][0],app_to_be_used[0][1])
 auth.set_access_token(app_to_be_used[1][0],app_to_be_used[1][1])
@@ -77,8 +76,8 @@ def fetch_last_message():#everything is in the title
     print("messages recus :", message)
     print("id des messages recus :", message_id_list)
     
-    gpio_status = getGpioStatus()
-    petit_test(gpio_status)    
+    
+    sendback_text = ""    
     
     n=len(message)
     for i in range(n): #for each message, execute in the shell and respond to Adam_Menthe
@@ -93,16 +92,22 @@ def fetch_last_message():#everything is in the title
         
         
         if err == "":
-            send_message(message_caracteristics + "out : " + output)
+            if i==0:
+                sendback_text += message_caracteristics + "out : " + output
+            else :
+                sendback_text += "{separationdesmessage}" + message_caracteristics + "out : " + output
         else:
-            send_message(message_caracteristics + "error : " + err)
-            
+            if i==0:
+                sendback_text += message_caracteristics + "error : " + err
+            else:
+                sendback_text += "{separationdesmessage}" + message_caracteristics + "error : " + err
+
+    sendback_text += "{GpioCode}" + getGpioStatus()
     
+    send_message(sendback_text)
     
     return True
     
-def petit_test(pins):
-    send_message("---splitstring---" + pins)
 
 def last_id():#fetches the id of the last task in the memory file
     id_file = open(ids,"r")
@@ -134,6 +139,8 @@ gpio = {
     }
 
 def getGpioStatus():
+    
+    """
     pins_code = ""
     
     pins_code+=get_temperature()
@@ -146,9 +153,9 @@ def getGpioStatus():
         pins_code += "0"
     else :
         pins_code += str(state)
-    
+    """
             
-    return pins_code #on renverra pins_status
+    return "256111000" #on renverra pins_code
 
 def get_temperature():
     sensor = Adafruit_DHT.DHT11
@@ -163,5 +170,5 @@ def get_temperature():
     
 #On fait tourner la fonction refresh_messages toutes les 60s
 s = sched.scheduler(time.time, time.sleep)
-s.enter(21, 1, refresh_messages, (s,))
+s.enter(41, 1, refresh_messages, (s,))
 s.run()
