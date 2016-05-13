@@ -30,7 +30,6 @@ api = tw.API(auth)
 
 global count
 count = 0
-print("app1")
 
 def refresh_auth():
     global api
@@ -49,19 +48,21 @@ def fetch_last_message():#everything is in the title
     global app_to_be_used    
     
     count+=1
-    if count==16:
-        app_to_be_used = app2
-        refresh_auth()
-        print("app2")
-    if count==31:
-        app_to_be_used = app3
-        refresh_auth()
-        print("app3")
-    if count==46:
+    
+    if count%3==1:
         app_to_be_used = app1
         refresh_auth()
         print("app1")
-        count = 0
+    if count%3==2:
+        app_to_be_used = app2
+        refresh_auth()
+        print("app2")
+    if count%3==0:
+        app_to_be_used = app3
+        refresh_auth()
+        print("app3")
+        
+    count+=1
         
     #we fetch the direct messages (with their id) sent to us (Rasp_Berrypi), ignoring smileys ;)
     direct_message_unicode = api.direct_messages(since_id=last_id(),full_text=True)
@@ -170,5 +171,5 @@ def get_temperature():
     
 #On fait tourner la fonction refresh_messages toutes les 60s
 s = sched.scheduler(time.time, time.sleep)
-s.enter(41, 1, refresh_messages, (s,))
+s.enter(21, 1, refresh_messages, (s,))
 s.run()

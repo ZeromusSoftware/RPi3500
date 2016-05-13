@@ -1,4 +1,3 @@
-
 /*********************************************************
  * Feature to get last direct messages
  *  
@@ -51,13 +50,15 @@ function getDirectMessage() {
 					}
 					var test = messages[i].split("{GpioCode}")[0].split('{separationdesmessage}');
 					for (j = 0; j < test.length; j++) {
-						shell_output += "<br>" + test[i];
+						if (test[i].length > 3){
+							shell_output += "<br>" + test[i];
+						}					
 					}
 				}
 			}
 
 
-			var temp = gpio_pins_status.slice(0,3);
+			var temp = gpio_pins_status.slice(0,2)+","+gpio_pins_status.charAt(2)+"°C";
 			var RPi1 = gpio_pins_status.charAt(3);
 			var RPi2 = gpio_pins_status.charAt(4);
 			var RPi3 = gpio_pins_status.charAt(5);
@@ -65,17 +66,18 @@ function getDirectMessage() {
 			var ventilo1 = gpio_pins_status.charAt(7);
 			var ventilo2 = gpio_pins_status.charAt(8);
 
-
-			$("#temperature").html(temp);
+			if(temp!="00,0°C" && temp!="..,.°C"){
+				$("#temperature").html(temp);
+			}
 			
 			if(document.getElementById("loading")) {
-				if (shell_output.length > 0) {
+				if (shell_output.length > 1) {
 					$("#text").html("<div class='get'>" + shell_output + "</div>");
 				}else {
 					$("#text").html("<div class='get'>enter a command..</div>");
 				}
 			} else {
-				if (shell_output.length > 0) {
+				if (shell_output.length > 1) {
 					$("#text").append("<div class='get'>" + shell_output + "</div>");
 				}
 			}
