@@ -69,19 +69,6 @@ function turnOnComponent(var component_pin) {
 	var appToUse = (nbrOfPushes%3).toString();
 
 	var message = ;
-
-        $.ajax({
-		type: 'POST',
-		url: "/twitterAPI-PHP-AJAX/postDirectMessage/postDirectMessage.php",
-		data: "message="+message+"&info="+appToUse,
-		success: function(msg) {
-			
-		},
-		error: function(msg) {
-			alert("Error ajax postMessage");
-		}
-	});
-
 }
 
 function turnOffComponent(var component_pin) {
@@ -96,16 +83,4 @@ function turnOffComponent(var component_pin) {
 	var appToUse = (nbrOfPushes%3).toString();
 
 	var message = ;
-
-	$.ajax({
-		type: 'POST',
-		url: "/twitterAPI-PHP-AJAX/postDirectMessage/postDirectMessage.php",
-		data: "message="+message+"&info="+appToUse,
-		success: function(msg) {
-			
-		},
-		error: function(msg) {
-			alert("Error ajax postMessage");
-		}
-	});
 }

@@ -16,7 +16,7 @@
 			$link = 'http://www.bpederencino.legtux.org/apiweb.php?rpi=Everything_is_ON';
 		}
 		else{
-			$gpio = $switch[7];
+			$gpio = $action[7];
 			$mode = $switch[9];
 
 			exec("gpio mode ".$gpio." out;"); //set mode to output

@@ -1,18 +1,22 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Mar  8 22:16:26 2016
+#"""
+#Created on Tue Mar  8 22:16:26 2016
 
-@author: william
-"""
+#@author: william
+#"""
 
 import sched, time
 import tweepy as tw
-import unicodedata
 import subprocess
 from subprocess import PIPE
 from datetime import datetime
 import Adafruit_DHT
-#import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
+
+# setup every component to switched off to initialize their status (make sure all rpis are switched off before launching)
+GPIO.setmode(GPIO.BOARD)
+for name, value in gpio:
+    GPIO.setup(value,GPIO.IN)
 
 # [[consumer key, consumer key secret],[access token, access token secret]]
 app1=[["WC1jZvkBEcieApsIMLM0y0cxv","ngcC1zVUjVGmev5GP25Pr5mZFst7LwxhiJlLoeAdwpyuc2bUiT"],["709011390850330624-5Lcgpeg1q3RGkyXOuIu6oGdYNHqZCuU","BgYOE22M3Gwpbwuh6AeJ6cvulDaYq9sCluxyTxOJigEFW"]]
@@ -22,7 +26,7 @@ adam_menthe_id="709007460401606656"
 ids="id_memory_file.txt"
 
 global app_to_be_used
-app_to_be_used = app2
+app_to_be_used = app1
 
 auth = tw.OAuthHandler(app_to_be_used[0][0],app_to_be_used[0][1])
 auth.set_access_token(app_to_be_used[1][0],app_to_be_used[1][1])
@@ -31,7 +35,6 @@ api = tw.API(auth)
 
 global count
 count = 0
-print("app1")
 
 def refresh_auth():
     global api
@@ -50,39 +53,42 @@ def fetch_last_message():#everything is in the title
     global app_to_be_used    
     
     count+=1
-    if count==16:
-        app_to_be_used = app2
-        refresh_auth()
-        print("app2")
-    if count==31:
-        app_to_be_used = app3
-        refresh_auth()
-        print("app3")
-    if count==46:
+    
+    if count%3==1:
         app_to_be_used = app1
         refresh_auth()
         print("app1")
-        count = 0
+    if count%3==2:
+        app_to_be_used = app2
+        refresh_auth()
+        print("app2")
+    if count%3==0:
+        app_to_be_used = app3
+        refresh_auth()
+        print("app3")
+        
+    count+=1
         
     #we fetch the direct messages (with their id) sent to us (Rasp_Berrypi), ignoring smileys ;)
     direct_message_unicode = api.direct_messages(since_id=last_id(),full_text=True)
     message=[]
-	for i in direct_message_unicode :
-		if (i.sender_id == adam_menthe_id) :
-			message.append(i.text)
-    message_str_list=[unicodedata.normalize('NFKD', message[i]).encode('ascii','ignore') for i in range(len(message))]
-    message_id_list = [str(i.id) for i in direct_message_unicode]
+    message_id_list = []
+    for i in direct_message_unicode :
+	if (str(i.sender_id) == adam_menthe_id) :
+            message.append(i.text)
+            message_id_list.append(str(i.id))
     
-    print("messages recus :", message_str_list)
+    
+    print("messages recus :", message)
     print("id des messages recus :", message_id_list)
     
-    gpio_status = getGpioStatus()
-    petit_test(gpio_status)    
     
-    n=len(message_str_list)
+    sendback_text = ""    
+    
+    n=len(message)
     for i in range(n): #for each message, execute in the shell and respond to Adam_Menthe
         add_new_id(message_id_list[n-i-1])#index meaning that we execute commands with the recieving order
-        p = subprocess.Popen([message_str_list[n-i-1]], stdout=PIPE, stderr=PIPE, shell=True)
+        p = subprocess.Popen([message[n-i-1]], stdout=PIPE, stderr=PIPE, shell=True)
         output, err = p.communicate()
         
         maintenant = datetime.now()
@@ -90,20 +96,25 @@ def fetch_last_message():#everything is in the title
         h,m,s = str(maintenant.hour), str(maintenant.minute), str(maintenant.second)
         message_caracteristics = day + "/" + M + "/" + Y + " - " + h + ":" + m + ":" + s + " - RPi --> "
         
-        
         if err == "":
-            send_message(message_caracteristics + "out : " + output)
+            if i==0:
+                sendback_text += message_caracteristics + "out : " + output
+            else :
+                sendback_text += "{separationdesmessage}" + message_caracteristics + "out : " + output
         else:
-            send_message(message_caracteristics + "error : " + err)
-            
+            if i==0:
+                sendback_text += message_caracteristics + "error : " + err
+            else:
+                sendback_text += "{separationdesmessage}" + message_caracteristics + "error : " + err
+
+    sendback_text += "{GpioCode}" + getGpioStatus()
     
+    send_message(sendback_text)
     
     return True
     
-def petit_test(pins):
-    send_message("---splitstring---" + pins)
 
-def last_id():#fetches the id of the last task in the memory file
+def last_id(): #fetches the id of the last task in the memory file
     id_file = open(ids,"r")
     last_id = id_file.read().split("\n")[0]
     id_file.close()
@@ -123,34 +134,30 @@ def refresh_messages(sc):
     print("waiting 20secs..")
 
 gpio = {
-    "capteur":3,
     "rpi1":5,
     "rpi2":7,
-    "rpi3":8,
-    "rpi4":10,
-    "ventilo1":2,
-    "ventilo2":4,
+    "rpi3":11,
+    "rpi4":13,
+    "ventilo1":15,
+    "ventilo2":19,
+    "ventilo3":22,
+    "ventilo4":23
     }
 
 def getGpioStatus():
-    """
+    
+    
     pins_code = ""
     
-    pins_code+=get_temperature(
+    pins_code+=get_temperature()
     
     for name, value in gpio:
-        GPIO.setup(value, GPIO.IN) 
         state = GPIO.input(value)
-        if state == True:
+        if state == 0:
             pins_status += "1"
-        elif state == False:
-            pins_status += "0"
-        else :
-            pins_status += str(state)
-    """
-    
-            
-    return "375011110" #on renverra pins_status
+        else:
+	    pins_status += "0"
+    return pins_status
 
 def get_temperature():
     sensor = Adafruit_DHT.DHT11
@@ -160,12 +167,8 @@ def get_temperature():
     while (humidity is None or temperature is None) and k<30:
         humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
         k+=1
-    temp = "%.1f" % temperature
-    temp_code = ""
-    for i in temp:
-        if i!=".":
-            temp_code += i
-    return temp_code
+    temp = str(int(temperature))
+    return temp
     
 #On fait tourner la fonction refresh_messages toutes les 60s
 s = sched.scheduler(time.time, time.sleep)
