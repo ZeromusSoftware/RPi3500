@@ -10,13 +10,24 @@ import tweepy as tw
 import subprocess
 from subprocess import PIPE
 from datetime import datetime
-import Adafruit_DHT
+#import Adafruit_DHT
 import RPi.GPIO as GPIO
+
+gpio = {
+    "rpi1":5,
+    "rpi2":7,
+    "rpi3":11,
+    "rpi4":13,
+    "ventilo1":15,
+    "ventilo2":19,
+    "ventilo3":22,
+    "ventilo4":23
+    }
 
 # setup every component to switched off to initialize their status (make sure all rpis are switched off before launching)
 GPIO.setmode(GPIO.BOARD)
-for name, value in gpio:
-    GPIO.setup(value,GPIO.IN)
+for name in gpio:
+    GPIO.setup(gpio[name],GPIO.IN)
 
 # [[consumer key, consumer key secret],[access token, access token secret]]
 app1=[["WC1jZvkBEcieApsIMLM0y0cxv","ngcC1zVUjVGmev5GP25Pr5mZFst7LwxhiJlLoeAdwpyuc2bUiT"],["709011390850330624-5Lcgpeg1q3RGkyXOuIu6oGdYNHqZCuU","BgYOE22M3Gwpbwuh6AeJ6cvulDaYq9sCluxyTxOJigEFW"]]
@@ -57,21 +68,12 @@ def fetch_last_message():#everything is in the title
     global app_to_be_used    
     
     count+=1
-    
-    if count%3==1:
-        app_to_be_used = app1
-        refresh_auth()
-        print("app1")
-    if count%3==2:
-        app_to_be_used = app2
-        refresh_auth()
-        print("app2")
-    if count%3==0:
-        app_to_be_used = app3
-        refresh_auth()
-        print("app3")
-        
-    count+=1
+    if count==7:
+        count=1
+    app_to_be_used = eval("app"+str(count))
+    print("app"+str(count))
+    refresh_auth()
+
         
     #we fetch the direct messages (with their id) sent to us (Rasp_Berrypi), ignoring smileys ;)
     direct_message_unicode = api.direct_messages(since_id=last_id(),full_text=True)
@@ -134,47 +136,42 @@ def add_new_id(id_to_add): #add the id of the last task recieved on top of the m
 
 def refresh_messages(sc):
     fetch_last_message()
-    sc.enter(21, 1, refresh_messages, (sc,))
-    print("waiting 20secs..")
+    sc.enter(11, 1, refresh_messages, (sc,))
+    print("waiting 10secs..")
 
-gpio = {
-    "rpi1":5,
-    "rpi2":7,
-    "rpi3":11,
-    "rpi4":13,
-    "ventilo1":15,
-    "ventilo2":19,
-    "ventilo3":22,
-    "ventilo4":23
-    }
+
 
 def getGpioStatus():
-    
     
     pins_code = ""
     
     pins_code+=get_temperature()
+
+    sorted_gpio_list = [x for x in gpio.iteritems()] 
+    sorted_gpio_list.sort(key=lambda x: x[0]) # sort by key
     
-    for name, value in gpio:
-        state = GPIO.input(value)
+    for i in sorted_gpio_list:
+        state = GPIO.input(i[1])
         if state == 0:
-            pins_status += "1"
+            pins_code += "1"
         else:
-	    pins_status += "0"
-    return pins_status
+	    pins_code += "0"
+    return pins_code
 
 def get_temperature():
+    """
     sensor = Adafruit_DHT.DHT11
-    pin = gpio["capteur"]
+    pin = 3
     humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
     k=0
     while (humidity is None or temperature is None) and k<30:
         humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
         k+=1
     temp = str(int(temperature))
-    return temp
+    """
+    return "25"
     
 #On fait tourner la fonction refresh_messages toutes les 60s
 s = sched.scheduler(time.time, time.sleep)
-s.enter(21, 1, refresh_messages, (s,))
+s.enter(11, 1, refresh_messages, (s,))
 s.run()
