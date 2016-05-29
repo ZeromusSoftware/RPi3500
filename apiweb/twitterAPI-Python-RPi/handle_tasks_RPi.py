@@ -11,7 +11,7 @@ import subprocess
 from subprocess import PIPE
 from datetime import datetime
 #import Adafruit_DHT
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 
 gpio = {
     "rpi1":5,
@@ -25,9 +25,9 @@ gpio = {
     }
 
 # setup every component to switched off to initialize their status (make sure all rpis are switched off before launching)
-GPIO.setmode(GPIO.BOARD)
+"""GPIO.setmode(GPIO.BOARD)
 for name in gpio:
-    GPIO.setup(gpio[name],GPIO.IN)
+    GPIO.setup(gpio[name],GPIO.IN)"""
 
 # [[consumer key, consumer key secret],[access token, access token secret]]
 app1=[["WC1jZvkBEcieApsIMLM0y0cxv","ngcC1zVUjVGmev5GP25Pr5mZFst7LwxhiJlLoeAdwpyuc2bUiT"],["709011390850330624-5Lcgpeg1q3RGkyXOuIu6oGdYNHqZCuU","BgYOE22M3Gwpbwuh6AeJ6cvulDaYq9sCluxyTxOJigEFW"]]
@@ -146,7 +146,7 @@ def getGpioStatus():
     pins_code = ""
     
     pins_code+=get_temperature()
-
+    '''
     sorted_gpio_list = [x for x in gpio.iteritems()] 
     sorted_gpio_list.sort(key=lambda x: x[0]) # sort by key
     
@@ -156,7 +156,8 @@ def getGpioStatus():
             pins_code += "1"
         else:
 	    pins_code += "0"
-    return pins_code
+     '''
+    return pins_code+"11100110"
 
 def get_temperature():
     """

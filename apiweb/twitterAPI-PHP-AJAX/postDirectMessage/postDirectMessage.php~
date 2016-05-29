@@ -10,7 +10,7 @@
  ********************************************************/
 
 
-require('../post_info'.$_POST['info'].'.php'); // to load $settings and TwitterAPIExchange
+require('../info'.$_POST['info'].'.php'); // to load $settings and TwitterAPIExchange
 
 
 /* URL and settings from http://dev.twitter.com/rest/public */

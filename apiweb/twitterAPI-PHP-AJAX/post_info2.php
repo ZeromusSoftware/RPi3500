@@ -13,10 +13,10 @@
 session_start();
 
 /*---------------- From http://apps.twitter.com---------*/
-$consumer_key = "RfguuVtq4T9Xz3PeYBc2sCIEV";
-$consumer_secret = "Ov3dDApzrFpckTcEAMUmwvA9k7Y9SEnDHg7T0AlBEAvTOVNGuI";
-$oauth_token = "709007460401606656-cbFxI1puyVymLQjd2psTJ6QjFa9l47F";
-$oauth_token_secret = "30ugVkeKsYFuqeMKmuq2IdaOa6TGkVYSPuobWTVGTW9eY";
+$consumer_key = "NbtHbQap7nSGk20csKmEvEpLi";
+$consumer_secret = "CIq9WRd8CyhnVfM2SOSSPS63elXklQ2vGIuM3MALBYG90y4ZTc";
+$oauth_token = "735446697724268545-Op2pZR4ce4ZcF49kbnNW44rRI5KBc2v";
+$oauth_token_secret = "RFy1CYTghZY590vyIWlH4OOAF7xx7Bx4WksNEMtZwBk1t";
 
 $settings = array(
     'oauth_access_token' => $oauth_token,

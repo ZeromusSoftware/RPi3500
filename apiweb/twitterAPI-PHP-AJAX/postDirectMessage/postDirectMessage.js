@@ -19,9 +19,13 @@ function postMessage() {
 	}
 	var nbrOfPushes = +localStorage.getItem("pushes"); // "+" converts string to integer
 
-	localStorage.setItem("pushes", (nbrOfPushes+1).toString());
-
-	var appToUse = (nbrOfPushes%3).toString();
+	if (nbrOfPushes>=7){
+		localStorage.setItem("pushes","1");
+		nbrOfPushes=1;
+	} else {
+		localStorage.setItem("pushes", (nbrOfPushes+1).toString());
+	}
+	var appToUse = nbrOfPushes.toString();
 	
 	var message = encodeURIComponent($("#message").val());
 
@@ -56,7 +60,7 @@ function postMessage() {
 		});
 	}
 }
-
+/*
 function turnOnComponent(var component_pin) {
 
 	if (!localStorage.getItem("pushes")) {
@@ -109,3 +113,4 @@ function turnOffComponent(var component_pin) {
 		}
 	});
 }
+*/
