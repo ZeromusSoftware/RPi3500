@@ -71,6 +71,19 @@ function getDirectMessage() {
 			var ventilo2 = gpio_pins_status.charAt(7);
 			var ventilo3 = gpio_pins_status.charAt(8);
 			var ventilo4 = gpio_pins_status.charAt(9);
+			
+			var components_array = [RPi1,RPi2,RPi3,RPi4,ventilo1,ventilo2,ventilo3,ventilo4];
+	
+
+
+			for (i = 0; i < components_array.length; i++) {
+				if(components_array[i]=="1") {
+					//set button i color to green
+				} else {
+					//set button i color to red
+				}
+			}
+
 
 			if(temp!="00°C" && temp!="..°C"){
 				$("#temperature").html(temp);

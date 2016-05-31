@@ -29,58 +29,120 @@ gpio = {
 for name in gpio:
     GPIO.setup(gpio[name],GPIO.IN)"""
 
-# [[consumer key, consumer key secret],[access token, access token secret]]
-app1=[["WC1jZvkBEcieApsIMLM0y0cxv","ngcC1zVUjVGmev5GP25Pr5mZFst7LwxhiJlLoeAdwpyuc2bUiT"],["709011390850330624-5Lcgpeg1q3RGkyXOuIu6oGdYNHqZCuU","BgYOE22M3Gwpbwuh6AeJ6cvulDaYq9sCluxyTxOJigEFW"]]
-app2=[["XZvYSDfMghAbZeFUEVc6EW9y3","F2GyoFeA4OCNKZIQtjV3IqN4gM87XhCdzbfVUtJPs2Y0purghc"],["709011390850330624-8UuDVQSoPDeMmeXMbplIHo4Fae7k9VK","7hVWltqz8HaxQ6KBwBSx6OFPchJpA2iACkL8v68VaJrBT"]]
-app3=[["in1yxCzzWsF0gYlhJurALdlVA","J0xbQ0wVpwDF28C4ecZn8papkFqMyDT6VF0UFgeoYHZAdAc7tr"],["709011390850330624-vynHnIJJpNhh9WhtF2gVIZT70t33n6u","9cEg8zmtPxwyIhPpTxpNYjDCC29eGCdz9pFNtknyEFqXu"]]
-app4=[["c2J5PCIOr6zujJJJKj6sbZaDV","ZpgtMptXM03gNP0Jao3V9hlHUYpWrQ7RBo6Kw1Z74QjbB0uOO9"],["709011390850330624-E5XkrKzl3vibJ3mCkMEhSZ6ISFyl3gg","i61kOZALoyJCJ8dJrdaGaROweZ9SyRPOdkZQxeETSrXiF"]]
-app5=[["qEsDRGYAJGoiNnZqTqPBQDNGk","rMG4T0N5y7G6XvyWcDIsGb5WPp5RLu6A7zZPA0ClpOEuuzK8xY"],["709011390850330624-MmEBD7cRWbu2pYwfrYEkgszNXzpPJ2z","k8NsOMPhAZwQsX2j83eEtVmkkl8QCHeX7NPe5FJgv2Peb"]]
-app6=[["h15tLod2LvMqauMAYJVvzPAtX","J3VvUxQc74zBkOdhYsp12AowjWTn89qZRmdDqgLlWsFzyKg4S5"],["709011390850330624-umFmzlptmP97bGMG37DuV3Zsiv9iG1Z","TjpaJfUKo7RmioQ7vcMOqdWAhhaJE8AlrPzpuoctGXWSc"]]
+#///////// FOR FETCHING MESSAGES ONLY \\\\\\\\\\\\
 
-adam_menthe_id="709007460401606656"
+# [[consumer key, consumer key secret],[access token, access token secret]]
+getapp1=[["WC1jZvkBEcieApsIMLM0y0cxv","ngcC1zVUjVGmev5GP25Pr5mZFst7LwxhiJlLoeAdwpyuc2bUiT"],["709011390850330624-5Lcgpeg1q3RGkyXOuIu6oGdYNHqZCuU","BgYOE22M3Gwpbwuh6AeJ6cvulDaYq9sCluxyTxOJigEFW"]]
+getapp2=[["XZvYSDfMghAbZeFUEVc6EW9y3","F2GyoFeA4OCNKZIQtjV3IqN4gM87XhCdzbfVUtJPs2Y0purghc"],["709011390850330624-8UuDVQSoPDeMmeXMbplIHo4Fae7k9VK","7hVWltqz8HaxQ6KBwBSx6OFPchJpA2iACkL8v68VaJrBT"]]
+getapp3=[["in1yxCzzWsF0gYlhJurALdlVA","J0xbQ0wVpwDF28C4ecZn8papkFqMyDT6VF0UFgeoYHZAdAc7tr"],["709011390850330624-vynHnIJJpNhh9WhtF2gVIZT70t33n6u","9cEg8zmtPxwyIhPpTxpNYjDCC29eGCdz9pFNtknyEFqXu"]]
+getapp4=[["c2J5PCIOr6zujJJJKj6sbZaDV","ZpgtMptXM03gNP0Jao3V9hlHUYpWrQ7RBo6Kw1Z74QjbB0uOO9"],["709011390850330624-E5XkrKzl3vibJ3mCkMEhSZ6ISFyl3gg","i61kOZALoyJCJ8dJrdaGaROweZ9SyRPOdkZQxeETSrXiF"]]
+getapp5=[["qEsDRGYAJGoiNnZqTqPBQDNGk","rMG4T0N5y7G6XvyWcDIsGb5WPp5RLu6A7zZPA0ClpOEuuzK8xY"],["709011390850330624-MmEBD7cRWbu2pYwfrYEkgszNXzpPJ2z","k8NsOMPhAZwQsX2j83eEtVmkkl8QCHeX7NPe5FJgv2Peb"]]
+getapp6=[["h15tLod2LvMqauMAYJVvzPAtX","J3VvUxQc74zBkOdhYsp12AowjWTn89qZRmdDqgLlWsFzyKg4S5"],["709011390850330624-umFmzlptmP97bGMG37DuV3Zsiv9iG1Z","TjpaJfUKo7RmioQ7vcMOqdWAhhaJE8AlrPzpuoctGXWSc"]]
+
+
+
+#///////// FOR SENDING MESSAGES ONLY \\\\\\\\\\\\
+
+# [[consumer key, consumer key secret],[access token, access token secret]]
+sendapp1=[["LmU0FahsKIwYQAKHy50MkVobC","l98QDvrECAbY4jrVIf1ek6y7fmGXG3dUFPSgMtuZTLuP3BcXBA"],["709011390850330624-Pn1ygWvoVSQSnV8wHXRqYFB9BoAdPYj","I5IUMGG4GyFwGGpyNiVfcPQqLllaRSFDpRGb7yDRvkEcN"]]
+sendapp2=[["sQggF2BnpJ6ascUJaraRtg3oo","xe26ixfCqGWlVkcSJJucfBG4Opqmn4Kz4N3SfcSuduoLg1jnTr"],["735457364149690368-z4fhKoc0BU0u9FBGycZaTPnSm2APExl","J20h8otYQsbYsob8MiEQSNrukwGAjRhgNZfYeLqBkXx6l"]]
+sendapp3=[["40MAgIBn73kgBSNK0qLXxHt4Q","FaZIjriiUKDi0dR0Z5wxylxMOJnJSM4QKhGSLU7RpAdr4AvqZd"],["736174072707612673-P7ax5iRMigIl6oxlFci0LhtAXawTWjc","8A2FEZysj3YTu8vIWz3YV2cc1tLdRhMWXXKOLDVcb3KDt"]]
+sendapp4=[["AYjfWoVshtnlUk4PIQhk4YssJ","JQWhka4Jco4SUEqZZQyWH856vD3RymErrmh2wgRp05467Ukelm"],["736208117084655617-bky9pR5bFxNoBT7ySWDjslj3UhYpWBw","60YS70tkXlQFbC1Y99dx8eJtPehOMhpNKX4Rgdqedx0RR"]]
+sendapp5=[["xuLWiSlRlAKUhvsIE7MPht4Y7","OisDD38Wqfts7rpehUTjRfIV00Iwpk72rLYSRwTZoyhjSCMRkI"],["736458575451656192-6VzajJ11uzkav6sPtg5ZRDMsBWHyOgw","xz5hcrNa4RKHLQKypgOZ7cCofA2q9C9iVbW5INCqtYxVL"]]
+sendapp6=[["tv9RNAeiFD7iu1Q8HrvJn8RVN","scQ8PiXj9RsfU3XKyxWzToLh2k2OmwcyGL2ZaXJJJjk5L2JHvq"],["736458941689925632-Lgh8q07B1TmnRDyDrbJAJR8FqvWrRVa","AVDsHo1sIvN7vopcZ1zTC2VNj6iVyFRNZvrGrv4ek8djj"]]
+
+
+adamant1user_id="709007460401606656"
+adamant2user_id="735446697724268545"
+adamant3user_id="736545163393257473"
+adamant4user_id="736555302527602688"
+adamant5user_id="736555302527602688"
+adamant6user_id="736555302527602688"
+adam_menthe_ids=[adamant1user_id,adamant2user_id,adamant3user_id,adamant4user_id,adamant5user_id,adamant6user_id]
+
+
+berrypi_1user_id="709011390850330624"
+berrypi_2user_id="735457364149690368"
+berrypi_3user_id="736174072707612673"
+berrypi_4user_id="736208117084655617"
+berrypi_5user_id="736458575451656192"
+berrypi_6user_id="736458941689925632"
 ids="id_memory_file.txt"
 
-global app_to_be_used
-app_to_be_used = app1
 
-auth = tw.OAuthHandler(app_to_be_used[0][0],app_to_be_used[0][1])
-auth.set_access_token(app_to_be_used[1][0],app_to_be_used[1][1])
-global api
-api = tw.API(auth)
+#setting initial authorizations for sending apps
+global send_app_to_be_used
+send_app_to_be_used = sendapp1
 
-global count
-count = 0
+send_auth = tw.OAuthHandler(send_app_to_be_used[0][0],send_app_to_be_used[0][1])
+send_auth.set_access_token(send_app_to_be_used[1][0],send_app_to_be_used[1][1])
+global send_api
+send_api = tw.API(send_auth)
+
+global send_count
+send_count = 0
+
+#setting initial authorizations for getting apps
+global get_app_to_be_used
+get_app_to_be_used = getapp1
+
+get_auth = tw.OAuthHandler(get_app_to_be_used[0][0],get_app_to_be_used[0][1])
+get_auth.set_access_token(get_app_to_be_used[1][0],get_app_to_be_used[1][1])
+global get_api
+get_api = tw.API(get_auth)
+
+global get_count
+get_count = 0
+
+
 
 def refresh_auth():
-    global api
-    auth = tw.OAuthHandler(app_to_be_used[0][0],app_to_be_used[0][1])
-    auth.set_access_token(app_to_be_used[1][0],app_to_be_used[1][1])
-    api = tw.API(auth)
+    global get_api
+    get_auth = tw.OAuthHandler(get_app_to_be_used[0][0],get_app_to_be_used[0][1])
+    get_auth.set_access_token(get_app_to_be_used[1][0],get_app_to_be_used[1][1])
+    get_api = tw.API(get_auth)
+    
+    global send_api
+    send_auth = tw.OAuthHandler(send_app_to_be_used[0][0],send_app_to_be_used[0][1])
+    send_auth.set_access_token(send_app_to_be_used[1][0],send_app_to_be_used[1][1])
+    send_api = tw.API(send_auth)
     
 
 def send_message(message):
-    api.send_direct_message(user_id=int(adam_menthe_id),text=message)
+    send_api.send_direct_message(user_id=int(adamant1user_id),text=message)
 
 
 def fetch_last_message():#everything is in the title
-
-    global count
-    global app_to_be_used    
     
-    count+=1
-    if count==7:
-        count=1
-    app_to_be_used = eval("app"+str(count))
-    print("app"+str(count))
+    global send_count
+    global send_app_to_be_used    
+
+    send_count+=1
+    if send_count==7:
+        send_count=1
+    send_app_to_be_used = eval("sendapp"+str(send_count))
+    print("sendapp"+str(send_count))    
+    
+    
+    global get_count
+    global get_app_to_be_used    
+        
+    get_count+=1
+    if get_count==7:
+        get_count=1
+    get_app_to_be_used = eval("getapp"+str(get_count))
+    print("getapp"+str(get_count))
+
+
     refresh_auth()
 
         
-    #we fetch the direct messages (with their id) sent to us (Rasp_Berrypi), ignoring smileys ;)
-    direct_message_unicode = api.direct_messages(since_id=last_id(),full_text=True)
+    #we fetch the direct messages (with their id) sent to us (Rasp_Berrypi)
+    direct_message_unicode = get_api.direct_messages(since_id=last_id(),full_text=True)
     message=[]
     message_id_list = []
     for i in direct_message_unicode :
-	if (str(i.sender_id) == adam_menthe_id) :
+	if (str(i.sender_id) in adam_menthe_ids) :
             message.append(i.text)
             message_id_list.append(str(i.id))
     
@@ -114,7 +176,7 @@ def fetch_last_message():#everything is in the title
                 sendback_text += "{separationdesmessage}" + message_caracteristics + "error : " + err
 
     sendback_text += "{GpioCode}" + getGpioStatus()
-    
+    print ("Sendback text : " + sendback_text)
     send_message(sendback_text)
     
     return True
