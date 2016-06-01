@@ -156,24 +156,29 @@ def fetch_last_message():#everything is in the title
     n=len(message)
     for i in range(n): #for each message, execute in the shell and respond to Adam_Menthe
         add_new_id(message_id_list[n-i-1])#index meaning that we execute commands with the recieving order
-        p = subprocess.Popen([message[n-i-1]], stdout=PIPE, stderr=PIPE, shell=True)
-        output, err = p.communicate()
+    
+        if message[n-i-1][:20] == "*****{gpio_setting}:" and len(message[n-i-1]) == 23:
+            gpio_changing , status_to_set = [message[n-i-1]][20:22], [message[n-i-1]][22]
+            exec("python2.7 switch_gpio.py " + gpio_changing + " " + status_to_set)            
+        else :
+            p = subprocess.Popen([message[n-i-1]], stdout=PIPE, stderr=PIPE, shell=True)
+            output, err = p.communicate()
         
-        maintenant = datetime.now()
-        Y,M,day = str(maintenant.year), str(maintenant.month), str(maintenant.day)
-        h,m,s = str(maintenant.hour), str(maintenant.minute), str(maintenant.second)
-        message_caracteristics = day + "/" + M + "/" + Y + " - " + h + ":" + m + ":" + s + " - RPi --> "
+            maintenant = datetime.now()
+            Y,M,day = str(maintenant.year), str(maintenant.month), str(maintenant.day)
+            h,m,s = str(maintenant.hour), str(maintenant.minute), str(maintenant.second)
+            message_caracteristics = day + "/" + M + "/" + Y + " - " + h + ":" + m + ":" + s + " - RPi --> "
         
-        if err == "":
-            if i==0:
-                sendback_text += message_caracteristics + "out : " + output
-            else :
-                sendback_text += "{separationdesmessage}" + message_caracteristics + "out : " + output
-        else:
-            if i==0:
-                sendback_text += message_caracteristics + "error : " + err
+            if err == "":
+                if i==0:
+                    sendback_text += message_caracteristics + "out : " + output
+                else :
+                    sendback_text += "{separationdesmessage}" + message_caracteristics + "out : " + output
             else:
-                sendback_text += "{separationdesmessage}" + message_caracteristics + "error : " + err
+                if i==0:
+                    sendback_text += message_caracteristics + "error : " + err
+                else:
+                    sendback_text += "{separationdesmessage}" + message_caracteristics + "error : " + err
 
     sendback_text += "{GpioCode}" + getGpioStatus()
     print ("Sendback text : " + sendback_text)
