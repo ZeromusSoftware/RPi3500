@@ -61,55 +61,38 @@ function postMessage() {
 	}
 }
 
-function turnOnComponent(var component_pin) {
+function turnOnOffComponent(var component_pin, var status_to_set) { //"status_to_set must be 0 or 1"
 
 	if (!localStorage.getItem("pushes")) {
 		localStorage.setItem("pushes","1"); //we can store only strings with localStorage
 	}
 	var nbrOfPushes = +localStorage.getItem("pushes"); // "+" converts string to integer
 
-	localStorage.setItem("pushes", (nbrOfPushes+1).toString());
-
-	var appToUse = (nbrOfPushes%3).toString();
-
-	var message = ;
-
-        $.ajax({
-		type: 'POST',
-		url: "/twitterAPI-PHP-AJAX/postDirectMessage/postDirectMessage.php",
-		data: "message="+message+"&info="+appToUse,
-		success: function(msg) {
-			
-		},
-		error: function(msg) {
-			alert("Error ajax postMessage");
-		}
-	});
-
-}
-
-function turnOffComponent(var component_pin) {
-
-	if (!localStorage.getItem("pushes")) {
-		localStorage.setItem("pushes","1"); //we can store only strings with localStorage
+	if (nbrOfPushes>=7){
+		localStorage.setItem("pushes","1");
+		nbrOfPushes=1;
+	} else {
+		localStorage.setItem("pushes", (nbrOfPushes+1).toString());
 	}
-	var nbrOfPushes = +localStorage.getItem("pushes"); // "+" converts string to integer
+	var appToUse = nbrOfPushes.toString();
 
-	localStorage.setItem("pushes", (nbrOfPushes+1).toString());
+	var message = "";
 
-	var appToUse = (nbrOfPushes%3).toString();
-
-	var message = ;
-
-	$.ajax({
-		type: 'POST',
-		url: "/twitterAPI-PHP-AJAX/postDirectMessage/postDirectMessage.php",
-		data: "message="+message+"&info="+appToUse,
-		success: function(msg) {
-			
-		},
-		error: function(msg) {
-			alert("Error ajax postMessage");
-		}
-	});
+	if ((status_to_set.toString() == "0" || status_to_set.toString() == "1") && component_pin.length == 2) {
+		message = "*****{gpio_setting}:" + component_pin + status_to_set;
+	}
+	if (message.length > 0) {
+        	$.ajax({
+			type: 'POST',
+			url: "/twitterAPI-PHP-AJAX/postDirectMessage/postDirectMessage.php",
+			data: "message="+message+"&info="+appToUse,
+			success: function(msg) {
+				
+			},
+			error: function(msg) {
+				alert("Error ajax postMessage");
+			}
+		});
+	}
 }
+

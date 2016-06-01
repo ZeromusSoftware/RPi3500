@@ -137,7 +137,7 @@ def fetch_last_message():#everything is in the title
     refresh_auth()
 
         
-    #we fetch the direct messages (with their id) sent to us (Rasp_Berrypi), ignoring smileys ;)
+    #we fetch the direct messages (with their id) sent to us (Rasp_Berrypi)
     direct_message_unicode = get_api.direct_messages(since_id=last_id(),full_text=True)
     message=[]
     message_id_list = []
@@ -176,7 +176,7 @@ def fetch_last_message():#everything is in the title
                 sendback_text += "{separationdesmessage}" + message_caracteristics + "error : " + err
 
     sendback_text += "{GpioCode}" + getGpioStatus()
-    
+    print ("Sendback text : " + sendback_text)
     send_message(sendback_text)
     
     return True
