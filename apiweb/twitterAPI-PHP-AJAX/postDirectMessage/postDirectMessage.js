@@ -60,7 +60,7 @@ function postMessage() {
 		});
 	}
 }
-
+/*
 function turnOnOffComponent(var component_pin, var status_to_set) { //"status_to_set must be 0 or 1"
 
 	
@@ -99,5 +99,5 @@ function turnOnOffComponent(var component_pin, var status_to_set) { //"status_to
 			}
 		});
 	}
-}
 
+}*/

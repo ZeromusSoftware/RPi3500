@@ -45,7 +45,7 @@ function getDirectMessage() {
 			
 			var data_without_id = data.split(' - and last_id : ')[0];
 			var shell_output = "";
-			var gpio_pins_status = "0000000000";
+			var gpio_pins_status = "xxxxxxxxxx";
 			if (data_without_id.length > 0){
 				var messages = data_without_id.split('{split_messages}');
 				for (i = 0; i < messages.length; i++) {
@@ -75,23 +75,24 @@ function getDirectMessage() {
 			var components_array = [RPi1,RPi2,RPi3,RPi4,ventilo1,ventilo2,ventilo3,ventilo4];
 	
 
-
-			for (i = 0; i < components_array.length; i++) {
-  				if(components_array[i]=="1") {
-       					// Pour changer le bouton i en vert
-       					var k = i.toString(); // pour transformer la variable i de la boucle for pour l'utiliser dans les ID 'button'+i
-       					document.getElementById("button" + k).style.background='green'; // On le fait devenir vert
-       					document.getElementById("button" + k).name='0'; // On lui donne la valeur correspondant au vert
-  				} else {
-       					//Pour changer le bouton en rouge
-       					var k = i.toString();  // pour transformer la variable i de la boucle for pour l'utiliser dans les ID 'button'+i
-       					document.getElementById("button" + k).style.background='red'; // On le fait devenir rouge
-       					document.getElementById("button" + k).name='1'; // On lui donne la valeur correspondant au rouge
-  				}
+			if (gpio_pins_status != "xxxxxxxxxx") {
+				for (i = 0; i < components_array.length; i++) {
+  					if(components_array[i]=="1") {
+       						// Pour changer le bouton i en vert
+       						var k = (i+1).toString(); // pour transformer la variable i de la boucle for pour l'utiliser dans les ID 'button'+i	
+       						document.getElementById("button" + k).style.background='green'; // On le fait devenir vert
+       						document.getElementById("button" + k).name='0'; // On lui donne la valeur correspondant au vert
+  					} else {
+       						//Pour changer le bouton en rouge
+       						var k = (i+1).toString();  // pour transformer la variable i de la boucle for pour l'utiliser dans les ID 'button'+i
+       						document.getElementById("button" + k).style.background='red'; // On le fait devenir rouge
+       						document.getElementById("button" + k).name='1'; // On lui donne la valeur correspondant au rouge
+  					}
+				}
 			}
 
 
-			if(temp!="00°C" && temp!="..°C"){
+			if(temp!="xx°C" && temp!="..°C"){
 				$("#temperature").html(temp);
 			}
 			
