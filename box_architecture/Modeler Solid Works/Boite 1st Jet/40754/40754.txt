@@ -1,0 +1,16 @@
+﻿"Symbol";"Value";"Unit";
+"REFERENCE";"5557562-1";"";
+"TraceParts.PartVersion";"1.0.1";"";
+"SUPPLIER";"TE Connectivity";"";
+"TraceParts.PartStatus";"Published";"";
+"RS_STOCK_NUMBER";"7950779";"";
+"TraceParts.PartLanguage";"en";"";
+"DESIGN";"Cat3, RJ45, R/A, modular jack,8/8 4 port";"";
+"TraceParts.InstanceId";"10-02092014-096072CJEA8TLWKW8TA1MG7MAXI3AZU";"";
+"TraceParts.PartTitle";"Cat3, RJ45, R/A, modular jack,8/8 4 port";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TIMESTAMP";"01/09/2014 16:25";"";
+"REVISION";"A";"";
+"TraceParts.PartNumber";"10-02092014-096072";"";
+"TraceParts.PartStatusId";"";"";
+"TraceParts.ClassPath";"RS_COMPONENTS:/F_RS_COMPONENTS/PSSS_435563/PSS_435656/PSF_435676/10-02092014-096072";"";

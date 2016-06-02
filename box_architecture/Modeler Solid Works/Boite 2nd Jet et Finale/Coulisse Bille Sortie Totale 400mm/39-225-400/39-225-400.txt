@@ -1,0 +1,12 @@
+﻿"Symbol";"Value";"Unit";
+"TraceParts.PartNumber";"10-06082008-155414";"";
+"REFERENCE";"39-225-400";"";
+"TraceParts.PartTitle";"39-22 : GLISSIÈRE POUR CHARGE FAIBLE COURSE 100%, AVEC DISCONNECTION";"";
+"TraceParts.InstanceId";"10-06082008-155414CD72OL8CFWGKP6FLF4WLH4CS5";"";
+"TraceParts.PartStatus";"Published";"";
+"TraceParts.PartStatusId";"";"";
+"SUPPLIER";"Emile Maurin";"";
+"TraceParts.PartVersion";"1.2.8";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartLanguage";"fr";"";
+"TraceParts.ClassPath";"EMILE_MAURIN:/ESM/MONTAGE_e_1/SERIE_39_e_2/TYPE_391_e_3/10-06082008-155414";"";

@@ -1,0 +1,12 @@
+﻿"Symbol";"Value";"Unit";
+"TraceParts.PartNumber";"10-06082008-155408";"";
+"REFERENCE";"39-222-400";"";
+"TraceParts.PartTitle";"39-22 : GLISSIÈRE POUR CHARGE FAIBLE COURSE 100%, AVEC DISCONNECTION ET FINITION ANTI-CORROSION";"";
+"TraceParts.InstanceId";"10-06082008-1554083KSG1L95JJ4NLVYXAO7GSARPO";"";
+"TraceParts.PartStatus";"Published";"";
+"TraceParts.PartStatusId";"";"";
+"SUPPLIER";"Emile Maurin";"";
+"TraceParts.PartVersion";"1.2.8";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartLanguage";"fr";"";
+"TraceParts.ClassPath";"EMILE_MAURIN:/ESM/MONTAGE_e_1/SERIE_39_e_2/TYPE_391_e_3/10-06082008-155408";"";

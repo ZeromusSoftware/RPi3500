@@ -1,0 +1,68 @@
+*****************************************************************
+      SolidWorks Corporation - Compte-rendu d'état du Processeur IGES
+*****************************************************************
+=================================================================
+Informations générales
+=================================================================
+Envoi de l'identification du produit système en cours  : ATX Power Supply v1.0.SLDASM
+Réception de l'identification du produit système en cours: ATX Power Supply v1.0.SLDASM
+Nom de fichier                    : D:\Área de Projecto\Componentes\Nao Codificados\Material Electrico\fontes de alimentação\New folder\ATX Power Supply v1.0.IGS
+Envoi du système en cours               : SolidWorks 2014
+Version du préprocesseur         : SolidWorks 2014
+Date de création du fichier           : 150107.132326
+Date de création du modèle          : 150107.132326
+Unités                        : MM
+Echelle de l'espace modèle            : 1
+Auteur                       : pedro.navarro
+Organisation                 : 
+
+
+=================================================================
+Informations sur le traitement des entités
+=================================================================
+
+
+=================================================================
+Analyse de précision d'un fichier IGES:
+=================================================================
+  Nombre le plus répandu de chiffres significatifs:              11
+  Nombre le plus grand de chiffres significatifs:                     13
+  Nombre moyen de chiffres significatifs :                7.69778
+  Distance maximale jusqu'à l'origine:                          1008.37
+  Distance minimale jusqu'à l'origine:                                0
+  Nombre effectif de chiffres significatifs:                   13
+
+
+=================================================================
+Récapitulatif des entités
+=================================================================
+-----------------------------------------------------------------
+Nom de type                                         Nombre converti
+---- ----                                         ----- ---------
+100  Arc                                           1409      1409
+102  Composite curve                               4896      4896
+110  Line                                          9577      9577
+120  Surface of revolution                          345       345
+124  Transformation matrix                         1145      1145
+126  Rational B-spline curve                      11553     11553
+128  Rational B-spline surface                     1582      1582
+142  Curve on a parametric surface                 2448      2448
+144  Trimmed parametric surface                    1927      1927
+308  Subfigure definition                             7         7
+314  Color definition                                90        90
+408  Singular subfigure instance                      7         7
+_________________________________________________________________
+
+
+=================================================================
+Récapitulatif des résultats
+=================================================================
+Type de fonction SolidWorks                Nombre
+-----------------------                -----
+Fonction(s) volumique(s)                       7
+Fonction(s) surfacique(s)                     0
+Fonction(s) de courbe/d'esquisse                0
+--------------------------------------------
+Heure de début: dimanche, janvier 17, 2016 17:52:57
+Heure de fin: dimanche, janvier 17, 2016 17:53:27
+Durée de traitement: 0 days, 00 hours, 00 mins, 30 secs

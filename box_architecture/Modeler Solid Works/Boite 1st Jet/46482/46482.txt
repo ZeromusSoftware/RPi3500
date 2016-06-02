@@ -1,0 +1,16 @@
+﻿"Symbol";"Value";"Unit";
+"REFERENCE";"8412N/2G-185";"";
+"TraceParts.PartVersion";"1.0.3";"";
+"SUPPLIER";"ebm-papst";"";
+"TraceParts.PartStatus";"Published";"";
+"RS_STOCK_NUMBER";"426364";"";
+"TraceParts.PartLanguage";"en";"";
+"DESIGN";"PC FAN, 80MM 12V DC";"";
+"TraceParts.InstanceId";"10-09122014-12004317S2UP562PJBJNZY2C3NP0NMB";"";
+"TraceParts.PartTitle";"PC FAN, 80MM 12V DC";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TIMESTAMP";"5/12/2014 16:05:16";"";
+"REVISION";"A";"";
+"TraceParts.PartNumber";"10-09122014-120043";"";
+"TraceParts.PartStatusId";"";"";
+"TraceParts.ClassPath";"RS_COMPONENTS:/F_RS_COMPONENTS/PSSS_438300/PSS_438367/PSF_438368/10-09122014-120043";"";
