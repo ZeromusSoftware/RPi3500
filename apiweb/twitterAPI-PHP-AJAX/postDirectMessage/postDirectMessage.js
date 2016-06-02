@@ -63,6 +63,8 @@ function postMessage() {
 
 function turnOnOffComponent(var component_pin, var status_to_set) { //"status_to_set must be 0 or 1"
 
+	
+
 	if (!localStorage.getItem("pushes")) {
 		localStorage.setItem("pushes","1"); //we can store only strings with localStorage
 	}
@@ -87,6 +89,9 @@ function turnOnOffComponent(var component_pin, var status_to_set) { //"status_to
 			url: "/twitterAPI-PHP-AJAX/postDirectMessage/postDirectMessage.php",
 			data: "message="+message+"&info="+appToUse,
 			success: function(msg) {
+				
+				document.getElementById(id).style.background='lightgrey'; // Au click le bouton devient gris clair
+				
 				
 			},
 			error: function(msg) {
