@@ -77,11 +77,17 @@ function getDirectMessage() {
 
 
 			for (i = 0; i < components_array.length; i++) {
-				if(components_array[i]=="1") {
-					//set button i color to green
-				} else {
-					//set button i color to red
-				}
+  				if(components_array[i]=="1") {
+       					// Pour changer le bouton i en vert
+       					var k = i.toString(); // pour transformer la variable i de la boucle for pour l'utiliser dans les ID 'button'+i
+       					document.getElementById("button" + k).style.background='green'; // On le fait devenir vert
+       					document.getElementById("button" + k).name='0'; // On lui donne la valeur correspondant au vert
+  				} else {
+       					//Pour changer le bouton en rouge
+       					var k = i.toString();  // pour transformer la variable i de la boucle for pour l'utiliser dans les ID 'button'+i
+       					document.getElementById("button" + k).style.background='red'; // On le fait devenir rouge
+       					document.getElementById("button" + k).name='1'; // On lui donne la valeur correspondant au rouge
+  				}
 			}
 
 
