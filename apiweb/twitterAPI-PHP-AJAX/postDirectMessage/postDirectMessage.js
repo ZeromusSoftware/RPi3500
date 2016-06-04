@@ -60,10 +60,12 @@ function postMessage() {
 		});
 	}
 }
-/*
-function turnOnOffComponent(var component_pin, var status_to_set) { //"status_to_set must be 0 or 1"
 
-	
+function turnOnOffComponent(component_pin, status_to_set, button_id) { //"status_to_set must be 0 or 1"
+
+	var status = status_to_set.toString();
+	var pin = component_pin.toString();
+	var id = button_id.toString();
 
 	if (!localStorage.getItem("pushes")) {
 		localStorage.setItem("pushes","1"); //we can store only strings with localStorage
@@ -80,8 +82,8 @@ function turnOnOffComponent(var component_pin, var status_to_set) { //"status_to
 
 	var message = "";
 
-	if ((status_to_set.toString() == "0" || status_to_set.toString() == "1") && component_pin.length == 2) {
-		message = "*****{gpio_setting}:" + component_pin + status_to_set;
+	if ((status.toString() == "0" || status.toString() == "1") && pin.length < 3) {
+		message = "*****{gpio_setting}:" + pin + status;
 	}
 	if (message.length > 0) {
         	$.ajax({
@@ -92,7 +94,6 @@ function turnOnOffComponent(var component_pin, var status_to_set) { //"status_to
 				
 				document.getElementById(id).style.background='lightgrey'; // Au click le bouton devient gris clair
 				
-				
 			},
 			error: function(msg) {
 				alert("Error ajax postMessage");
@@ -100,4 +101,5 @@ function turnOnOffComponent(var component_pin, var status_to_set) { //"status_to
 		});
 	}
 
-}*/
+}
+

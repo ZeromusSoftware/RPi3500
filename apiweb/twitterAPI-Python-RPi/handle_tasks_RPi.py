@@ -12,6 +12,7 @@ from subprocess import PIPE
 from datetime import datetime
 #import Adafruit_DHT
 #import RPi.GPIO as GPIO
+import switch_gpio
 
 gpio = {
     "rpi1":5,
@@ -157,9 +158,10 @@ def fetch_last_message():#everything is in the title
     for i in range(n): #for each message, execute in the shell and respond to Adam_Menthe
         add_new_id(message_id_list[n-i-1])#index meaning that we execute commands with the recieving order
     
-        if message[n-i-1][:20] == "*****{gpio_setting}:" and len(message[n-i-1]) == 23:
-            gpio_changing , status_to_set = [message[n-i-1]][20:22], [message[n-i-1]][22]
-            exec("python2.7 switch_gpio.py " + gpio_changing + " " + status_to_set)            
+        if message[n-i-1][:20] == "*****{gpio_setting}:" and (len(message[n-i-1]) == 23 or len(message[n-i-1]) == 22):
+            l = len(message[n-i-1])
+            gpio_changing , status_to_set = message[n-i-1][20:l-1], message[n-i-1][l-1]
+            switch_gpio.function(gpio_changing,status_to_set)
         else :
             p = subprocess.Popen([message[n-i-1]], stdout=PIPE, stderr=PIPE, shell=True)
             output, err = p.communicate()
