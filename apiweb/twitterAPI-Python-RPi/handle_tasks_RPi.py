@@ -10,10 +10,11 @@ import tweepy as tw
 import subprocess
 from subprocess import PIPE
 from datetime import datetime
-#import Adafruit_DHT
-#import RPi.GPIO as GPIO
+import Adafruit_DHT
+import RPi.GPIO as GPIO
 import switch_gpio
 
+# here is set the board pin number corresponding to each component
 gpio = {
     "rpi1":5,
     "rpi2":7,
@@ -26,9 +27,10 @@ gpio = {
     }
 
 # setup every component to switched off to initialize their status (make sure all rpis are switched off before launching)
-"""GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BOARD)
 for name in gpio:
-    GPIO.setup(gpio[name],GPIO.IN)"""
+    GPIO.setup(gpio[name],GPIO.OUT)
+    GPIO.output(gpio[name],1) #to switch off we must output 1
 
 #///////// FOR FETCHING MESSAGES ONLY \\\\\\\\\\\\
 
@@ -53,6 +55,7 @@ sendapp5=[["xuLWiSlRlAKUhvsIE7MPht4Y7","OisDD38Wqfts7rpehUTjRfIV00Iwpk72rLYSRwTZ
 sendapp6=[["tv9RNAeiFD7iu1Q8HrvJn8RVN","scQ8PiXj9RsfU3XKyxWzToLh2k2OmwcyGL2ZaXJJJjk5L2JHvq"],["736458941689925632-Lgh8q07B1TmnRDyDrbJAJR8FqvWrRVa","AVDsHo1sIvN7vopcZ1zTC2VNj6iVyFRNZvrGrv4ek8djj"]]
 
 
+# these users are those who will send us messages
 adamant1user_id="709007460401606656"
 adamant2user_id="735446697724268545"
 adamant3user_id="736545163393257473"
@@ -68,6 +71,8 @@ berrypi_3user_id="736174072707612673"
 berrypi_4user_id="736208117084655617"
 berrypi_5user_id="736458575451656192"
 berrypi_6user_id="736458941689925632"
+
+# in this file the successive message ids will be stored
 ids="id_memory_file.txt"
 
 
@@ -80,7 +85,7 @@ send_auth.set_access_token(send_app_to_be_used[1][0],send_app_to_be_used[1][1])
 global send_api
 send_api = tw.API(send_auth)
 
-global send_count
+global send_count # incremented for each message sent
 send_count = 0
 
 #setting initial authorizations for getting apps
@@ -92,12 +97,13 @@ get_auth.set_access_token(get_app_to_be_used[1][0],get_app_to_be_used[1][1])
 global get_api
 get_api = tw.API(get_auth)
 
-global get_count
+global get_count # incremented for each message recieved
 get_count = 0
 
 
 
-def refresh_auth():
+def refresh_auth(): # allows to use new applications for each count increment
+
     global get_api
     get_auth = tw.OAuthHandler(get_app_to_be_used[0][0],get_app_to_be_used[0][1])
     get_auth.set_access_token(get_app_to_be_used[1][0],get_app_to_be_used[1][1])
@@ -109,12 +115,13 @@ def refresh_auth():
     send_api = tw.API(send_auth)
     
 
-def send_message(message):
+def send_message(message): # sends the message with the application hidden in send_api
     send_api.send_direct_message(user_id=int(adamant1user_id),text=message)
 
 
-def fetch_last_message():#everything is in the title
+def fetch_last_message():# fetches last messages, executes it in the shell or switches gpios on/off
     
+    #for each getmessage ( <=> for each sendmessage), increment count variables, change the apps and refresh authorizations
     global send_count
     global send_app_to_be_used    
 
@@ -137,15 +144,16 @@ def fetch_last_message():#everything is in the title
 
     refresh_auth()
 
+
         
     #we fetch the direct messages (with their id) sent to us (Rasp_Berrypi)
     direct_message_unicode = get_api.direct_messages(since_id=last_id(),full_text=True)
     message=[]
     message_id_list = []
     for i in direct_message_unicode :
-	if (str(i.sender_id) in adam_menthe_ids) :
+	if (str(i.sender_id) in adam_menthe_ids) : # this filters senders for getting no disturbing messages
             message.append(i.text)
-            message_id_list.append(str(i.id))
+            message_id_list.append(str(i.id)) 
     
     
     print("messages recus :", message)
@@ -155,21 +163,31 @@ def fetch_last_message():#everything is in the title
     sendback_text = ""    
     
     n=len(message)
-    for i in range(n): #for each message, execute in the shell and respond to Adam_Menthe
-        add_new_id(message_id_list[n-i-1])#index meaning that we execute commands with the recieving order
+    for i in range(n): #f or each message, execute in the shell and respond to Adam_Menthe
+        add_new_id(message_id_list[n-i-1]) # index meaning that we execute commands with the recieving order
     
-        if message[n-i-1][:20] == "*****{gpio_setting}:" and (len(message[n-i-1]) == 23 or len(message[n-i-1]) == 22):
+        # two cases available : the message is a switch gpio message or a command
+    
+        if message[n-i-1][:20] == "*****{gpio_setting}:" and (len(message[n-i-1]) == 23 or len(message[n-i-1]) == 22): # to change gpio
             l = len(message[n-i-1])
             gpio_changing , status_to_set = message[n-i-1][20:l-1], message[n-i-1][l-1]
-            switch_gpio.function(gpio_changing,status_to_set)
-        else :
-            p = subprocess.Popen([message[n-i-1]], stdout=PIPE, stderr=PIPE, shell=True)
-            output, err = p.communicate()
+            switch_gpio.function(gpio_changing,status_to_set) # we use an imported python file "switch_gpio.py"
+        else : # to execute commands
+            p = subprocess.Popen([message[n-i-1]], stdout=PIPE, stderr=PIPE, shell=True) # executes command
+            output, err = p.communicate() # gets the command answer
         
+            # this makes the displayed message clear and gives information on the time of execution
             maintenant = datetime.now()
             Y,M,day = str(maintenant.year), str(maintenant.month), str(maintenant.day)
             h,m,s = str(maintenant.hour), str(maintenant.minute), str(maintenant.second)
+            date_list = [M,day,h,m,s]
+            for k in date_list:
+                if len(k)==1:
+                    k = "0" + k
+                        
             message_caracteristics = day + "/" + M + "/" + Y + " - " + h + ":" + m + ":" + s + " - RPi --> "
+        
+    # this end handles the sending back of messages with {codes} that are used for slicing in getDirectMessage.js       
         
             if err == "":
                 if i==0:
@@ -182,7 +200,7 @@ def fetch_last_message():#everything is in the title
                 else:
                     sendback_text += "{separationdesmessage}" + message_caracteristics + "error : " + err
 
-    sendback_text += "{GpioCode}" + getGpioStatus()
+    sendback_text += "{GpioCode}" + getGpioStatus() # gpio code will give the status of each component and the box temperature
     print ("Sendback text : " + sendback_text)
     send_message(sendback_text)
     
@@ -203,45 +221,46 @@ def add_new_id(id_to_add): #add the id of the last task recieved on top of the m
     f.close()
     print('id : ' + id_to_add + ' added')
 
-def refresh_messages(sc):
+def refresh_messages(sc): # used for executing fetch_last_message() in intervals of time
     fetch_last_message()
     sc.enter(11, 1, refresh_messages, (sc,))
     print("waiting 10secs..")
 
 
 
-def getGpioStatus():
+def getGpioStatus(): # gets the current status of the raspberrypi gpios, which represents the components state (on/off)
     
     pins_code = ""
     
     pins_code+=get_temperature()
-    '''
+    
+    # we need to transform the gpio dictionnary into a list so the for loop travels the pins in the same order (python issue)
     sorted_gpio_list = [x for x in gpio.iteritems()] 
-    sorted_gpio_list.sort(key=lambda x: x[0]) # sort by key
+    sorted_gpio_list.sort(key=lambda x: x[0])
     
     for i in sorted_gpio_list:
-        state = GPIO.input(i[1])
+        state = GPIO.input(i[1]) # gets the current status of gpio i. state = 1 means component is off, 0 means on
         if state == 0:
             pins_code += "1"
         else:
 	    pins_code += "0"
-     '''
-    return pins_code+"11100110"
+     
+    return pins_code
 
-def get_temperature():
-    """
+def get_temperature(): # uses module Adafruit to get the box temperature with the sensor
+    
     sensor = Adafruit_DHT.DHT11
-    pin = 3
+    pin = 4 # the BCM pin used by the sensor
     humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
     k=0
     while (humidity is None or temperature is None) and k<30:
         humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
         k+=1
     temp = str(int(temperature))
-    """
-    return "25"
     
-#On fait tourner la fonction refresh_messages toutes les 60s
+    return temp
+    
+# the function executes itself every 11 s
 s = sched.scheduler(time.time, time.sleep)
 s.enter(11, 1, refresh_messages, (s,))
 s.run()
