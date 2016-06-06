@@ -43,8 +43,15 @@ function postMessage() {
 				var day = d.getDate();
 				var M = +d.getMonth()+1;
 				var Y = d.getFullYear();
+				
+				var date_list = [M.toString(),day.toString(),h.toString(),m.toString(),s.toString()];
+				for (i = 0; i < date_list.length; i++) {
+					if(date_list[i].length == 1) {
+						date_list[i] = "0" + date_list[i];
+					}
+				}
 
-				var message_caracteristics = day + "/" + M + "/" + Y + " - " + h + ":" + m + ":" + s + " - Adamant --> "; 
+				var message_caracteristics = date_list[1] + "/" + date_list[0] + "/" + Y + " - " + date_list[2] + ":" + date_list[3] + ":" + date_list[4] + " - Adamant --> "; 
 	
 				if(document.getElementById("loading")) {
 					$("#text").html("</br><div class='sent'>" + message_caracteristics + $("#message").val() + "</div>");

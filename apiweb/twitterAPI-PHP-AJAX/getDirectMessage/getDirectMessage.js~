@@ -117,13 +117,56 @@ function getDirectMessage() {
 			// showing the messages sent back by the cluster
 			if(document.getElementById("loading")) { // if it is the first message to show
 				if (shell_output.length > 1) {
-					$("#text").html("<div class='get'>" + shell_output + "</div>");
+
+				///////////////////////////////////////////////////////////////////
+				var d = new Date();
+				var h = d.getHours();
+				var m = d.getMinutes();
+				var s = d.getSeconds();
+				var day = d.getDate();
+				var M = +d.getMonth()+1;
+				var Y = d.getFullYear();
+				
+				var date_list = [M.toString(),day.toString(),h.toString(),m.toString(),s.toString()];
+				for (i = 0; i < date_list.length; i++) {
+					if(date_list[i].length == 1) {
+						date_list[i] = "0" + date_list[i];
+					}
+				}
+
+				var message_caracteristics = " - " + date_list[2] + ":" + date_list[3] + ":" + date_list[4]; 
+				///////////////////////////////////////////////////////////////////
+
+					$("#text").html("<div class='get'>" + shell_output + message_caracteristics + "</div>");
+
 				}else { // if there are now messages to show
 					$("#text").html("<div class='get'>enter a command..</div>");
 				}
 			} else {
 				if (shell_output.length > 1) {
-					$("#text").append("<div class='get'>" + shell_output + "</div>");
+
+
+				///////////////////////////////////////////////////////////////////
+				var d = new Date();
+				var h = d.getHours();
+				var m = d.getMinutes();
+				var s = d.getSeconds();
+				var day = d.getDate();
+				var M = +d.getMonth()+1;
+				var Y = d.getFullYear();
+				
+				var date_list = [M.toString(),day.toString(),h.toString(),m.toString(),s.toString()];
+				for (i = 0; i < date_list.length; i++) {
+					if(date_list[i].length == 1) {
+						date_list[i] = "0" + date_list[i];
+					}
+				}
+
+				var message_caracteristics = " - " + date_list[2] + ":" + date_list[3] + ":" + date_list[4]; 
+				///////////////////////////////////////////////////////////////////
+
+
+					$("#text").append("<div class='get'>" + shell_output + message_caracteristics + "</div>");
 				}
 			}
 		},

@@ -10,8 +10,8 @@ import tweepy as tw
 import subprocess
 from subprocess import PIPE
 from datetime import datetime
-import Adafruit_DHT
-import RPi.GPIO as GPIO
+#import Adafruit_DHT
+#import RPi.GPIO as GPIO
 import switch_gpio
 
 # here is set the board pin number corresponding to each component
@@ -27,11 +27,11 @@ gpio = {
     }
 
 # setup every component to switched off to initialize their status (make sure all rpis are switched off before launching)
-GPIO.setmode(GPIO.BOARD)
+"""GPIO.setmode(GPIO.BOARD)
 for name in gpio:
     GPIO.setup(gpio[name],GPIO.OUT)
     GPIO.output(gpio[name],1) #to switch off we must output 1
-
+"""
 #///////// FOR FETCHING MESSAGES ONLY \\\\\\\\\\\\
 
 # [[consumer key, consumer key secret],[access token, access token secret]]
@@ -181,11 +181,11 @@ def fetch_last_message():# fetches last messages, executes it in the shell or sw
             Y,M,day = str(maintenant.year), str(maintenant.month), str(maintenant.day)
             h,m,s = str(maintenant.hour), str(maintenant.minute), str(maintenant.second)
             date_list = [M,day,h,m,s]
-            for k in date_list:
-                if len(k)==1:
-                    k = "0" + k
+            for k in range(len(date_list)):
+                if len(date_list [k])==1:
+                    date_list[k] = "0" + date_list[k]
                         
-            message_caracteristics = day + "/" + M + "/" + Y + " - " + h + ":" + m + ":" + s + " - RPi --> "
+            message_caracteristics = date_list[1] + "/" + date_list[0] + "/" + Y + " - " + date_list[2] + ":" + date_list[3] + ":" + date_list[4] + " - RPi --> "
         
     # this end handles the sending back of messages with {codes} that are used for slicing in getDirectMessage.js       
         
@@ -233,7 +233,7 @@ def getGpioStatus(): # gets the current status of the raspberrypi gpios, which r
     pins_code = ""
     
     pins_code+=get_temperature()
-    
+    """
     # we need to transform the gpio dictionnary into a list so the for loop travels the pins in the same order (python issue)
     sorted_gpio_list = [x for x in gpio.iteritems()] 
     sorted_gpio_list.sort(key=lambda x: x[0])
@@ -244,11 +244,11 @@ def getGpioStatus(): # gets the current status of the raspberrypi gpios, which r
             pins_code += "1"
         else:
 	    pins_code += "0"
-     
-    return pins_code
+    """
+    return pins_code+"01011101"
 
 def get_temperature(): # uses module Adafruit to get the box temperature with the sensor
-    
+    """
     sensor = Adafruit_DHT.DHT11
     pin = 4 # the BCM pin used by the sensor
     humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
@@ -257,8 +257,8 @@ def get_temperature(): # uses module Adafruit to get the box temperature with th
         humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
         k+=1
     temp = str(int(temperature))
-    
-    return temp
+    """
+    return "23"
     
 # the function executes itself every 11 s
 s = sched.scheduler(time.time, time.sleep)
