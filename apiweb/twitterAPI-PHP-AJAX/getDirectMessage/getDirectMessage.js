@@ -133,9 +133,7 @@ function getDirectMessage() {
 					}
 				}
 
-				var message_caracteristics = " - " + date_list[2] + ":" + date_list[3] + ":" + date_list[4]; 
-
-					$("#text").html("<div class='get'>" + shell_output + message_caracteristics + "</div>");
+					$("#text").html("<div class='get'>" + shell_output + "</div>");
 
 				}else { // if there are now messages to show
 					$("#text").html("<div class='get'>enter a command..</div>");
@@ -159,10 +157,8 @@ function getDirectMessage() {
 					}
 				}
 
-				var message_caracteristics = " - " + date_list[2] + ":" + date_list[3] + ":" + date_list[4]; 
 
-
-					$("#text").append("<div class='get'>" + shell_output + message_caracteristics + "</div>");
+					$("#text").append("<div class='get'>" + shell_output + "</div>");
 				}
 			}
 		},
