@@ -5,7 +5,7 @@ Created on Fri Jul  1 11:05:44 2016
 @author: william
 """
 
-
+from xml.dom import minidom
 import quandl
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -60,7 +60,7 @@ print(data3.head())"""
 
 #Entrainement + avance projet
 
-col_titles = ['Departement','Slug','Nom','Nom simple','Nom reel','Nom soundex','Nom metaphone','Code postal',
+'''col_titles = ['Departement','Slug','Nom','Nom simple','Nom reel','Nom soundex','Nom metaphone','Code postal',
 'Numéro de commune','Code commune','truc inconnu','Arrondissement','Canton','Population 2010','Population 1999',
 'Population 2012','Densité 2010','Superficie','longitude (degre)','latitude (degre)','longitude (GRD)','latitude (GRD)',
 'longitude (DMS)','latitude (DMS)','Altitude min','Altitude max']
@@ -70,6 +70,14 @@ df = pd.read_csv("villes_france.csv",names = col_titles)
 
 print(df.loc[4440][4])
 print(df.loc[4440][18])
-print(df.loc[4440][19])
+print(df.loc[4440][19])'''
+
+# Parsing xml file
+
+xmldoc = minidom.parse('marseille_borders.xml')
+itemlist = xmldoc.getElementsByTagName('node')
+print(len(itemlist))
+for s in itemlist:
+    print(float(s.attributes['lat'].value), float(s.attributes['lon'].value))
 
 
