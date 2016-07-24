@@ -4,50 +4,34 @@ Created on Mon Jul  4 21:52:22 2016
 
 @author: william
 """
-
-import urllib, json
 import time
+import urllib, json
 import pandas as pd
 from math import *
+import numpy as np
 import coords_maps_sector
 import matplotlib.pyplot as plt
 from matplotlib.path import Path
 import matplotlib.patches as patches
 
+distance_between_points = 5000
 
-coords_marseille = [
-    (5.282416, 43.353962),
-    (5.283155, 43.355931),
-    (5.281646, 43.356901),
-    (5.280039, 43.360451),
-    (5.279111, 43.362580),
-    (5.279716, 43.368952), 
-    (5.297325, 43.387685), 
-    (5.322296, 43.368473), 
-    (5.337811, 43.377080), 
-    (5.355163, 43.374705), 
-    (5.350917, 43.382663),
-    (5.370581, 43.389544),
-    (5.374465, 43.371723),
-    (5.439769, 43.390426),
-    (5.464046, 43.360251),
-    (5.450937, 43.341186),
-    (5.517212, 43.319995),
-    (5.528865, 43.295970),
-    (5.502889, 43.281126),
-    (5.510071, 43.200334),
-    (5.342123, 43.213331),
-    (5.352257, 43.288802),
-    (5.279716, 43.368952)
-    ]
+coords_canton = []
+research_coordinates = []
 
-
-research_coordinates = coords_maps_sector.maps_points_list()
-
-radius = 1000/(2**(1/2))
-type_recherche = 'parking'
+radius = distance_between_points/(2**(1/2))
+type_recherche = ''
 api_key1 = 'AIzaSyBEK3CzYIaelEgSQkUcpbWJs5MCbAxtrIk'
 api_key2 = 'AIzaSyBPPv6sz-PjrCWbAiw6-zBcRlx8oAWh3RI'
+used_key = api_key1
+
+def change_api_key():
+    global used_key
+    
+    if used_key == api_key1:
+        used_key = api_key2
+    else:
+        used_key = api_key1
 
 
 #Grabbing and parsing the JSON data
@@ -80,11 +64,18 @@ global places_dataframe
 places_dataframe = pd.DataFrame({'Name':[],'Latitude':[],'Longitude':[],'Vicinity':[],'Type':[],'Place_id':[]})
 
 
-def fetch_places(lat,lng,rad,key):
+def fetch_places(lat,lng,rad):
 
     global places_dataframe
 
-    response = GoogPlac(lat,lng,rad,type_recherche,key,False)
+    response = GoogPlac(lat,lng,rad,type_recherche,used_key,False)
+    
+    if response['status'] == 'OVER_QUERY_LIMIT':
+        change_api_key()
+        response = GoogPlac(lat,lng,rad,type_recherche,used_key,False)
+        
+    if response['status'] == 'OVER_QUERY_LIMIT':
+        print ('OVER_QUERY_LIMIT')
     data = response['results']
     
     page_to_read = True
@@ -103,6 +94,7 @@ def fetch_places(lat,lng,rad,key):
             
             if  not (str(data[i]['place_id']) in np.array(places_dataframe['Place_id'])):
                 places_dataframe = places_dataframe.append(df_to_append)
+            
                 
               
         
@@ -114,12 +106,11 @@ def fetch_places(lat,lng,rad,key):
         
         
         if page_to_read:       
-            print ("Wait..")
-            time.sleep(1.5) # delay for 1.5 seconds
-            response = GoogPlac(lat,lng,rad,type_recherche,key,response['next_page_token'])
+            print ("Looking for places..")
+            time.sleep(1) # delay for 1 second
+            response = GoogPlac(lat,lng,rad,type_recherche,used_key,response['next_page_token'])
             data = response['results']
     
-    print (len(places_dataframe))
 
 
 
@@ -139,41 +130,87 @@ def departement(d):
     print(df.loc[4440][18]) latitude
     print(df.loc[4440][19]) longitude """
 
+X,Y = [],[]
 
 def display_places(dataframe):
     
-    X=[]
-    Y=[]
+    fig = plt.figure(type_recherche + " found")
+    
+    U=[]
+    V=[]
+    
+    
+    
+    n = len(coords_canton)
+    m = 0
+    is_multipolygon = type(coords_canton[0])==list
     
     for i in range(len(dataframe)):
-        X.append(float(str(dataframe['Longitude'][i])))
-        Y.append(float(str(dataframe['Latitude'][i])))
+        lt = float(str(np.array(dataframe['Latitude'])[i]))
+        ln = float(str(np.array(dataframe['Longitude'])[i]))
+        if is_multipolygon :
+            count = 0
+            for h in range(n):
+                if coords_maps_sector.is_in_sector(coords_canton[h],(ln,lt)):
+                    count+=1
+            if count>0:
+                U.append(ln)
+                V.append(lt)
+        else :            
+            if coords_maps_sector.is_in_sector(coords_canton,(ln,lt)):
+                U.append(ln)
+                V.append(lt)
     
-    codes = [Path.MOVETO]
-    for u in range(len(coords_marseille)-2):
-        codes.append(Path.LINETO)
-    codes.append(Path.CLOSEPOLY)
     
-    '''Use this code to plot the figure of the sector'''
-    bbPath = Path(coords_marseille, codes)
+    if not is_multipolygon :
+        n = 1
+    global X,Y
+    for k in range(n) :
+        if is_multipolygon :
+            m = len(coords_canton[k])
+        else :
+            m = len(coords_canton)
+        codes = [Path.MOVETO]
+        for u in range(m-2):
+            codes.append(Path.LINETO)
+        codes.append(Path.CLOSEPOLY)
+        
+        
+        
+        if is_multipolygon :
+            bbPath = Path(coords_canton[k], codes)   
+            for i,j in coords_canton[k]:
+                X.append(i)
+                Y.append(j)
+        else :
+            bbPath = Path(coords_canton, codes)  
+            for i,j in coords_canton:
+                X.append(i)
+                Y.append(j)
 
-    
-    fig = plt.figure("Places found")
-    ax = fig.add_subplot(111)
-    patch = patches.PathPatch(bbPath, facecolor='orange', lw=2)
-    ax.add_patch(patch)
-    plt.plot(X,Y,'ro')
-    ax.set_xlim(5.26,5.53)
-    ax.set_ylim(43.20,43.40)
-    
+        ax = fig.add_subplot(111)
+        patch = patches.PathPatch(bbPath, facecolor='orange', lw=2)
+        ax.add_patch(patch)
+    plt.plot(U,V,'ro')
+    ax.set_xlim(min(X),max(X))
+    ax.set_ylim(min(Y),max(Y))
     plt.show()
     
     
-
-for i in range(len(research_coordinates)-1):
-    longi, lati = research_coordinates[i]
-    print (lati,longi, " et i= "+str(i))
-    fetch_places(lati,longi,radius,api_key2)
+def search_for_place(place_type, coordinates_canton):
+    global type_recherche
+    global coords_canton
+    global research_coordinates
     
-print (places_dataframe.head())
-display_places(places_dataframe)
+    
+    coords_canton = coordinates_canton
+    research_coordinates = coords_maps_sector.maps_points_list(coords_canton)
+    type_recherche = place_type    
+    
+    for i in range(len(research_coordinates)-1):
+        longi, lati  = research_coordinates[i]
+        fetch_places(lati,longi,radius)
+
+    
+    display_places(places_dataframe)
+    return places_dataframe
