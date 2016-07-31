@@ -12,7 +12,7 @@ from matplotlib.path import Path
 import matplotlib.patches as patches
 from math import *
 
-distance_between_points = 5000
+distance_between_points = 1000
 
 
 
@@ -77,10 +77,12 @@ def centroid_for_polygon(polygon):
 
     return (result_x, result_y)
 
-
+total = 0
 
 X,Y = [],[]
 def maps_points_list(coords_canton):
+    
+    global total    
     
     is_multipolygon = type(coords_canton[0])==list
     
@@ -175,5 +177,6 @@ def maps_points_list(coords_canton):
     ax.set_ylim(min(Y),max(Y))
     plt.show()
     
-    print(str(len(return_coords)) + " points")
+    total+=len(return_coords)
+    print(str(total) + " points")
     return return_coords

@@ -4,67 +4,103 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import maps_api
-import sector_boundaries as sb
+import geometry as gm
 import time
 from matplotlib.path import Path
 import matplotlib.patches as patches
+import pygeoj
+import square_meter_price as sqm
 
-sectors = {"Bouches-du-Rhône":["Aix-en-Provence-1","Aix-en-Provence-2","Allauch","Arles","Aubagne","Berre-l'Étang","Châteaurenard","Gardanne","Istres",
-                               "La Ciotat","Marignane","Marseille-1","Marseille-2","Marseille-3","Marseille-4","Marseille-5","Marseille-6",
-                               "Marseille-7","Marseille-8","Marseille-9","Marseille-10","Marseille-11","Marseille-12","Martigues","Pélissanne",
-                               "Salon-de-Provence-1","Salon-de-Provence-2","Trets","Vitrolles"]}
-
-
+sectors = {"Bouches-du-Rhône":[]}
 
 ### values given by the formular filled on internet
 concurrent_place_type = 'parking'
 coeff_demography = 2
+coords_communes_list = []
+
+file13 = pygeoj.load("Data/france-geojson/departements/13/communes.geojson")
+for feature in file13:
+    sectors["Bouches-du-Rhône"].append(feature.properties['nom'])
+    correct_coords = []    
+    for [ln,lat] in feature.geometry.coordinates[0]:
+        correct_coords.append((ln,lat))
+    coords_communes_list.append(correct_coords)
 
 
+def refresh_database():
 
-def get_all_places():
-
-    coords_cantons_list = []
-    places_df_list = []
-              
-    for departement,cantons in sectors.iteritems():
-        for canton in cantons:
-            coords_canton = sb.get_boundaries(canton)
-            coords_cantons_list.append(coords_canton)
-            places_df_list.append(maps_api.search_for_place(concurrent_place_type,coords_canton))
+    for departement,commune in sectors.iteritems():
+        for i in range(len(commune)):
+            print('refreshing data of '+ commune[i])
+            
+            if i>=commune.index('Istres'):            
+                places_dataframe = maps_api.search_for_place('',coords_communes_list[i])
+                places_dataframe.to_csv("Data/Places/"+commune[i]+"_places.csv")
+    sqm.refresh_sqm_price()
+                
     
-    return places_df_list, coords_cantons_list
-    
-
+refresh_database()
 
 
 def get_all_demography():
     
-    population_canton = []
-    for departement,cantons in sectors.iteritems():
-        demography_df = pd.read_excel('DataBases/'+str(departement)+'/pop_cantons_'+str(departement)+'.xls',skiprows=7)
-        for canton in cantons:
-            population_canton.append(int(demography_df[demography_df['Nom du canton'] == canton]['Population totale']))
+    population_communes = []
+    for departement,communes in sectors.iteritems():
+        demography_df = pd.read_excel('Data/'+str(departement)+'/pop_communes_'+str(departement)+'.xls',skiprows=7)
+        for commune in communes:
+            names_communes = demography_df['Nom de la commune']
+            name_matched = False
+            i=0
+            while not(name_matched) and i<len(names_communes):
+                if commune.lower().replace(" ","") == names_communes[i].lower().replace(' ',''):
+                    population_communes.append(int(demography_df['Population totale'][i]))
+                    name_matched = True
+                i+=1
+            if i>len(names_communes):
+                return("Error, names didn't match")
                 
-    return population_canton
+    return population_communes
     
     
 def get_all_areas():
     
-    area_canton = []
-    for departement,cantons in sectors.iteritems():
-        for canton in cantons:
-            coordinates = sb.get_boundaries(canton)
-            if type(coordinates[0])==list:
-                somme = 0
-                for i in range(len(coordinates)):
-                    somme += sb.area_for_polygon(coordinates[i])
-                area_canton.append(somme)
-            else:
-                area_canton.append(sb.area_for_polygon(coordinates))
-    return area_canton
+    
+    
+    area_commune = []
+    
+    for coords in coords_communes_list:
+        area_commune.append(gm.area_for_polygon(coords))
+        
+    return area_commune
+    
+def get_population_density():
 
-def show_graphic_results(notes,coords_cantons_list):
+        
+    population = get_all_demography()
+    area = get_all_areas()
+    
+    density = []
+    for i in range(len(population)):
+        density.append(population[i]/area[i])
+        
+    return density
+    
+def get_all_prices():
+    
+    df = pd.read_csv('Data/square_meters_price.csv',index_col = 'Commune')
+    prix,evolution = [],[]
+    
+    for i in range(len(df.index)):
+        prix.append(df["Prix du m2"][i])
+        evol = round(df["Evolution sur 3 mois"][i],1)
+        if evol == -0.0:
+            evol = 0.0
+        evolution.append(evol)
+    
+    return (prix,evolution)
+    
+
+def show_graphic_results(notes):
     
     
     colors = []
@@ -78,36 +114,20 @@ def show_graphic_results(notes,coords_cantons_list):
     fig = plt.figure('Resultat')
     X,Y = [],[]
     for i in range(len(notes)):
-        n = len(coords_cantons_list[i])
-        m=0
-        is_multipolygon = type(coords_cantons_list[i][0])==list
-        if not is_multipolygon :
-            n = 1
-        
-        for k in range(n) :
-            if is_multipolygon :
-                m = len(coords_cantons_list[i][k])
-            else :
-                m = len(coords_cantons_list[i])
-            codes = [Path.MOVETO]
-            for u in range(m-2):
-                codes.append(Path.LINETO)
-            codes.append(Path.CLOSEPOLY)
+        m = len(coords_communes_list[i])
+        codes = [Path.MOVETO]
+        for u in range(m-2):
+            codes.append(Path.LINETO)
+        codes.append(Path.CLOSEPOLY)
     
-            if is_multipolygon :
-                bbPath = Path(coords_cantons_list[i][k], codes)  
-                for a,b in coords_cantons_list[i][k]:
-                    X.append(a)
-                    Y.append(b)
-            else :
-                bbPath = Path(coords_cantons_list[i], codes)  
-                for a,b in coords_cantons_list[i]:
-                    X.append(a)
-                    Y.append(b)
+        bbPath = Path(coords_communes_list[i], codes)  
+        for a,b in coords_communes_list[i]:
+            X.append(a)
+            Y.append(b)
 
-            ax = fig.add_subplot(111)
-            patch = patches.PathPatch(bbPath, facecolor=colors[notes[i]], lw=2)
-            ax.add_patch(patch)
+        ax = fig.add_subplot(111)
+        patch = patches.PathPatch(bbPath, facecolor=colors[notes[i]], lw=2)
+        ax.add_patch(patch)
             
     ax.set_xlim(min(X),max(X))
     ax.set_ylim(min(Y),max(Y))
@@ -118,32 +138,36 @@ def note_giver():
     
     start_time = time.time()
     
-    places_df_list, coords_cantons_list = get_all_places()    
+    places_df_list = []
+    for departement,communes in sectors.iteritems():
+        for commune in communes:
+            raw_dataframe = pd.read_csv('Data/Places/'+commune+'_places.csv')
+            places_df_list.append(raw_dataframe[raw_dataframe.Type.str.contains(concurrent_place_type)==True])
     
     notes_dem = {}
     just_notes_dem = []
     
-    population = get_all_demography()
-    area = get_all_areas()
+    density = get_population_density()
+    price,evolution = get_all_prices()
     
     for j in sectors:
         for i in range(len(sectors[j])):
-            if len(places_df_list[i])>0:
-                note = population[i]/(area[i] * len(places_df_list[i]))
-                notes_dem[sectors[j][i]] = note
-            else :
-                note = population[i]/area[i]
-                notes_dem[sectors[j][i]] = note
+            n = len(places_df_list[i])
+            if n==0:
+                n=1
+            print(sectors[j][i],n)
+            note = density[i]/(n * price[i] + 1000*evolution[i])
+            notes_dem[sectors[j][i]] = note
             just_notes_dem.append(note)
     notemax = max(just_notes_dem)
     
     notes_ponderees = {p:int(round(q*20/notemax,0)) for p,q in notes_dem.iteritems()}
     just_notes_ponderees = [int(round(k*20/notemax,0)) for k in just_notes_dem]
-    
+    print(just_notes_ponderees)
     
     finish_time = time.time()
     
-    show_graphic_results(just_notes_ponderees,coords_cantons_list)
+    show_graphic_results(just_notes_ponderees)
 
     print str(finish_time-start_time)+" seconds"    
     
@@ -153,4 +177,9 @@ notes = note_giver()
 print(notes)
 
 
-        
+'''To see the sector we are working on
+
+for i in range(len(sectors['Bouches-du-Rhône'])):
+    gm.display_sector("13",coords_communes_list[i])
+    
+    '''
